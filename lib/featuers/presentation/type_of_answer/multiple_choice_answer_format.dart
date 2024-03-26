@@ -25,6 +25,9 @@ class MultipleChoiceAnswerFormat implements AnswerFormat {
   Map<String, dynamic> toJson() => _$MultipleChoiceAnswerFormatToJson(this);
 }
 
+
+
+
 MultipleChoiceAnswerFormat _$MultipleChoiceAnswerFormatFromJson(
     Map<String, dynamic> json) =>
     MultipleChoiceAnswerFormat(
