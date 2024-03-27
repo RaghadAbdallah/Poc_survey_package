@@ -37,14 +37,14 @@ abstract class Step {
   }
 
   Map<String, dynamic> toJson();
-
-  bool operator ==(o) =>
-      o is Step &&
-          o.stepIdentifier == stepIdentifier &&
-          o.isOptional == isOptional &&
-          o.buttonText == buttonText;
-  int get hashCode =>
-      stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
+  //
+  // bool operator ==(o) =>
+  //     o is Step &&
+  //         o.stepIdentifier == stepIdentifier &&
+  //         o.isOptional == isOptional &&
+  //         o.buttonText == buttonText;
+  // int get hashCode =>
+  //     stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
 }
 class StepNotDefinedException implements Exception {
   const StepNotDefinedException() : super();

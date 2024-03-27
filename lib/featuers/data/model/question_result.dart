@@ -18,3 +18,4 @@ abstract class QuestionResult<T> extends Result {
     };
   }
 }
+

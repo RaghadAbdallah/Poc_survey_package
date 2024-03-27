@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/core/widget/step_view.dart';
-import '../../data/model/type_of_questions/text_question_result.dart';
-import '../step/question_step.dart';
-import '../type_of_answer/text_answer_format.dart';
+import '../../../data/model/type_of_questions/text_question_result.dart';
+import '../../step/question_step.dart';
+import '../../type_of_answer/text_answer_format.dart';
 
 class TextAnswerView extends StatefulWidget {
   final QuestionStep questionStep;
@@ -20,7 +20,6 @@ class TextAnswerView extends StatefulWidget {
 
 class _TextAnswerViewState extends State<TextAnswerView> {
   late final TextAnswerFormat _textAnswerFormat;
-  late final DateTime _startDate;
 
   late final TextEditingController _controller;
   bool _isValid = false;
@@ -32,7 +31,6 @@ class _TextAnswerViewState extends State<TextAnswerView> {
     _controller.text = widget.result?.result ?? '';
     _textAnswerFormat = widget.questionStep.answerFormat as TextAnswerFormat;
     _checkValidation(_controller.text);
-    _startDate = DateTime.now();
   }
 
   void _checkValidation(String text) {

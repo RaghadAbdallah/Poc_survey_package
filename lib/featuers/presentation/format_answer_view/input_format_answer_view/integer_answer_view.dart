@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/core/widget/step_view.dart';
 
-import '../../data/model/type_of_questions/integer_question_result.dart';
-import '../type_of_answer/integer_answer_format.dart';
-import '../step/question_step.dart';
+import '../../../data/model/type_of_questions/integer_question_result.dart';
+import '../../type_of_answer/integer_answer_format.dart';
+import '../../step/question_step.dart';
 
 
 class IntegerAnswerView extends StatefulWidget {
@@ -23,7 +23,6 @@ class IntegerAnswerView extends StatefulWidget {
 class _IntegerAnswerViewState extends State<IntegerAnswerView> {
   late final IntegerAnswerFormat _integerAnswerFormat;
   late final TextEditingController _controller;
-  late final DateTime _startDate;
 
   bool _isValid = false;
 
@@ -35,7 +34,6 @@ class _IntegerAnswerViewState extends State<IntegerAnswerView> {
     _controller = TextEditingController();
     _controller.text = widget.result?.result?.toString() ?? '';
     _checkValidation(_controller.text);
-    _startDate = DateTime.now();
   }
 
   @override

@@ -14,17 +14,13 @@ class InstructionStep extends Step {
   InstructionStep({
     required this.title,
     required this.text,
-    bool isOptional = false,
     String buttonText = 'Next',
     StepIdentifier? stepIdentifier,
-    bool? canGoBack,
     bool? showProgress,
     bool showAppBar = true,
   }) : super(
           stepIdentifier: stepIdentifier,
-          isOptional: isOptional,
           buttonText: buttonText,
-          canGoBack: canGoBack ?? false,
           showProgress: showProgress ?? false,
           showAppBar: showAppBar,
         );
@@ -40,25 +36,23 @@ class InstructionStep extends Step {
       _$InstructionStepFromJson(json);
   Map<String, dynamic> toJson() => _$InstructionStepToJson(this);
 
-  bool operator ==(o) =>
-      super == (o) &&
-      o is InstructionStep &&
-      o.title == title &&
-      o.text == text;
-  int get hashCode => super.hashCode ^ title.hashCode ^ text.hashCode;
+  // bool operator ==(o) =>
+  //     super == (o) &&
+  //     o is InstructionStep &&
+  //     o.title == title &&
+  //     o.text == text;
+  // int get hashCode => super.hashCode ^ title.hashCode ^ text.hashCode;
 }
 
 InstructionStep _$InstructionStepFromJson(Map<String, dynamic> json) =>
     InstructionStep(
       title: json['QuestionDesc'] as String,
       text: json['text'] as String,
-      isOptional: json['isOptional'] as bool? ?? false,
       buttonText: json['buttonText'] as String? ?? 'Next',
       stepIdentifier: json['stepIdentifier'] == null
           ? null
           : StepIdentifier.fromJson(
           json['stepIdentifier'] as Map<String, dynamic>),
-      canGoBack: json['canGoBack'] as bool?,
       showProgress: json['showProgress'] as bool?,
       showAppBar: json['showAppBar'] as bool? ?? true,
     );
@@ -68,7 +62,6 @@ Map<String, dynamic> _$InstructionStepToJson(InstructionStep instance) =>
       'stepIdentifier': instance.stepIdentifier.toJson(),
       'isOptional': instance.isOptional,
       'buttonText': instance.buttonText,
-      'canGoBack': instance.canGoBack,
       'showProgress': instance.showProgress,
       'showAppBar': instance.showAppBar,
       'title': instance.title,

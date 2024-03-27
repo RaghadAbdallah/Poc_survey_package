@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/core/widget/step_view.dart';
-import '../../data/model/type_of_questions/double_question_result.dart';
-import '../type_of_answer/double_answer_format.dart';
-import '../step/question_step.dart';
+import '../../../data/model/type_of_questions/double_question_result.dart';
+import '../../type_of_answer/double_answer_format.dart';
+import '../../step/question_step.dart';
 
 class DoubleAnswerView extends StatefulWidget {
   final QuestionStep questionStep;
@@ -21,7 +21,6 @@ class DoubleAnswerView extends StatefulWidget {
 class _DoubleAnswerViewState extends State<DoubleAnswerView> {
   late final DoubleAnswerFormat _doubleAnswerFormat;
   late final TextEditingController _controller;
-  late final DateTime _startDate;
 
   bool _isValid = false;
 
@@ -29,11 +28,10 @@ class _DoubleAnswerViewState extends State<DoubleAnswerView> {
   void initState() {
     super.initState();
     _doubleAnswerFormat =
-    widget.questionStep.answerFormat as DoubleAnswerFormat;
+        widget.questionStep.answerFormat as DoubleAnswerFormat;
     _controller = TextEditingController();
     _controller.text = widget.result?.result?.toString() ?? '';
     _checkValidation(_controller.text);
-    _startDate = DateTime.now();
   }
 
   @override
@@ -54,7 +52,6 @@ class _DoubleAnswerViewState extends State<DoubleAnswerView> {
       step: widget.questionStep,
       resultFunction: () => DoubleQuestionResult(
         id: widget.questionStep.stepIdentifier,
-
         valueIdentifier: _controller.text,
         result: double.tryParse(_controller.text) ??
             _doubleAnswerFormat.defaultValue ??
@@ -63,25 +60,29 @@ class _DoubleAnswerViewState extends State<DoubleAnswerView> {
       isValid: _isValid || widget.questionStep.isOptional,
       title: widget.questionStep.title.isNotEmpty
           ? Text(
-        widget.questionStep.title,
-        style: Theme.of(context).textTheme.displayMedium,
-        textAlign: TextAlign.center,
-      )
+              widget.questionStep.title,
+              style: Theme.of(context).textTheme.displayMedium,
+              textAlign: TextAlign.center,
+            )
           : widget.questionStep.content,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 32.0),
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          child: TextField(
-            autofocus: true,
-            controller: _controller,
-            onChanged: (String value) {
-              _checkValidation(value);
-            },
-            keyboardType: TextInputType.number,
-            textAlign: TextAlign.center,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 32.0),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: TextField(
+                autofocus: true,
+                controller: _controller,
+                onChanged: (String value) {
+                  _checkValidation(value);
+                },
+                keyboardType: TextInputType.number,
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
