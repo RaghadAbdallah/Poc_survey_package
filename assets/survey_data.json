@@ -10,39 +10,19 @@
     },
     {
       "title": "",
+      "text": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
       "type": "question",
-      "text": "ماهي لغات البرمجة التي تتقنها",
-      "QuestionID": 402441,
+      "QuestionID": 402443,
       "answerFormat":{
-        "type": "multiple",
+        "type": "integer",
         "QuestionsResultSurveyList": [
-        {
-          "EvalToolDetailID": "402481",
-          "EvalToolDetailDesc": "C++",
-          "AnswerDate": null,
-          "AnsweEvalToolDetailID": "0"
-        },
-        {
-          "EvalToolDetailID": "402482",
-          "EvalToolDetailDesc": "JAVA",
-          "AnswerDate": null,
-          "AnsweEvalToolDetailID": "0"
-        },
-        {
-          "EvalToolDetailID": "402483",
-          "EvalToolDetailDesc": "Dart",
-          "AnswerDate": null,
-          "AnsweEvalToolDetailID": "0"
-        },
-        {
-          "EvalToolDetailID": "402484",
-          "EvalToolDetailDesc": "C#",
-          "AnswerDate": null,
-          "AnsweEvalToolDetailID": "0"
-        }
-      ]}
-
-    },
+          {
+            "EvalToolDetailID": 0,
+            "EvalToolDetailDesc": null,
+            "AnswerDate": null,
+            "AnsweEvalToolDetailID": "0"
+          }
+        ]}},
     {
       "title": "",
       "text": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
@@ -57,68 +37,7 @@
             "AnswerDate": null,
             "AnsweEvalToolDetailID": "0"
           }
-        ]}},
-    {
-      "title": "",
-      "text": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
-      "type": "question",
-      "QuestionID": 402443,
-      "answerFormat":{
-        "type": "double",
-        "QuestionsResultSurveyList": [
-          {
-            "EvalToolDetailID": 0,
-            "EvalToolDetailDesc": null,
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
-          }
-        ]}},
-    {
-      "title": "Welcome to the\nQuickBird Studios\nHealth Survey",
-      "text": "Get ready for a bunch of super random questions!",
-      "buttonText": "Let's go!",
-      "type": "question",
-      "QuestionID": 402445,
-      "answerFormat": {
-        "type": "scale",
-        "maximumValue": 10.0,
-        "minimumValue":0.0,
-        "defaultValue":2.0,
-        "step":1.0
-      }
+        ]}}
 
-    },
-    {
-      "title": "",
-      "type": "question",
-      "text": "هل قمت بالاستفادة من اللغة ",
-      "QuestionID": 402441,
-      "answerFormat":{
-        "type": "single",
-        "QuestionsResultSurveyList": [
-          {
-            "EvalToolDetailID": "402481",
-            "EvalToolDetailDesc": "نعم",
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
-          },
-          {
-            "EvalToolDetailID": "402482",
-            "EvalToolDetailDesc": "لا",
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
-          }
-        ]}
-
-    },
-    {
-      "stepIdentifier": {
-        "id": "10"
-      },
-      "type": "completion",
-      "text": "Thanks for taking the survey, we will contact you soon!",
-      "title": "Done!",
-      "buttonText": "Restart"
-    }
   ]
 }

@@ -74,7 +74,7 @@ class _TextAnswerViewState extends State<TextAnswerView> {
                 const EdgeInsets.only(bottom: 32.0, left: 14.0, right: 14.0),
             child: Text(
               widget.questionStep.text,
-              style: TextStyle(fontSize:14),
+              style: const TextStyle(fontSize:14),
               textAlign: TextAlign.center,
             ),
           ),

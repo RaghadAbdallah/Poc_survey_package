@@ -1,17 +1,16 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:poc_itg_survey/clean/presentation/widget/survey_presenter_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/widget/survey_state_clean.dart';
 
-import '../../core/models/itg_survey_result.dart';
+import '../../clean/presentation/widget/survey_result_clean.dart';
 import '../../core/widget/config_app_bar.dart';
 import '../../core/widget/survey_app_bar.dart';
-import 'bloc/survey_presenter.dart';
-import 'bloc/survey_state.dart';
-
 class SurveyPage extends StatefulWidget {
   final int length;
   final Widget Function(ConfigAppBar appBarConfiguration)? appBar;
-  final Function(SurveyResult) onResult;
+  final Function(SurveyResultClean) onResult;
 
   const SurveyPage({
     required this.length,
@@ -41,18 +40,18 @@ class _SurveyPageState extends State<SurveyPage>
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SurveyPresenter, SurveyState>(
+    return BlocConsumer<SurveyPresenterClean, SurveyStateClean>(
       listenWhen: (previous, current) => previous != current,
       listener: (context, state) async {
-        if (state is SurveyResultState) {
+        if (state is SurveyResultCleanState) {
           widget.onResult.call(state.result);
         }
-        if (state is PresentingSurveyState) {
+        if (state is PresentingSurveyCleanState) {
           tabController.animateTo(state.currentStepIndex);
         }
       },
-      builder: (BuildContext context, SurveyState state) {
-        if (state is PresentingSurveyState) {
+      builder: (BuildContext context, SurveyStateClean state) {
+        if (state is PresentingSurveyCleanState) {
           return Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
@@ -106,7 +105,7 @@ class _SurveyPageState extends State<SurveyPage>
               ],
             ),
           );
-        } else if (state is SurveyResultState && state.currentStep != null) {
+        } else if (state is SurveyResultCleanState && state.currentStep != null) {
           return const Center(
             child: CircularProgressIndicator(),
           );

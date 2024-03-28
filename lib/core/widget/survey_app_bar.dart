@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../clean/presentation/widget/itg_controller_clean.dart';
+import '../../clean/presentation/widget/survey_progress_clean.dart';
 import '../controller/next_back_close_controller.dart';
 import 'config_app_bar.dart';
 import 'survey_progress.dart';
 
 class SurveyAppBar extends StatelessWidget {
   final ConfigAppBar appBarConfiguration;
-  final ItgSurveyController? controller;
+  final ItgSurveyControllerClean? controller;
 
   const SurveyAppBar({super.key,
     required this.appBarConfiguration,
@@ -18,7 +20,7 @@ class SurveyAppBar extends StatelessWidget {
     final showProgress = appBarConfiguration.showProgress ?? context.read<bool>();
     final canGoBack = appBarConfiguration.canBack ?? true;
 
-    final surveyController = controller ?? context.read<ItgSurveyController>();
+    final surveyController = controller ?? context.read<ItgSurveyControllerClean>();
     return AppBar(
       backgroundColor: Colors.white24,
       elevation: 0,
@@ -30,7 +32,7 @@ class SurveyAppBar extends StatelessWidget {
             },
           )
           : Container(),
-      title: showProgress ? const SurveyProgress() : const SizedBox.shrink(),
+      title: showProgress ? const SurveyProgressClean() : const SizedBox.shrink(),
       actions: [
         TextButton(
           child: appBarConfiguration.trailing ??
