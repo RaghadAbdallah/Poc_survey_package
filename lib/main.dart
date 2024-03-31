@@ -5,9 +5,6 @@ import 'package:poc_itg_survey/clean/itg_survey_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/task_clean.dart';
 import 'clean/presentation/widget/survey_result_clean.dart';
 import 'core/widget/config_survey_progress.dart';
-import 'core/task/task.dart';
-import 'itg_survey.dart';
-import 'core/models/itg_survey_result.dart';
 
 void main() {
   runApp(MyApp());
