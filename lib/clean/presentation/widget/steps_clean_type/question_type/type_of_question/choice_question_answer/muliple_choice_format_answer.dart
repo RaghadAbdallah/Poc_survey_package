@@ -40,6 +40,21 @@ class _MultipleChoiceAnswerViewCleanState
   Widget build(BuildContext context) {
     return StepViewClean(
       step: widget.questionStep,
+        //isValid: widget.questionStep.isOptional || _selectedChoices.isNotEmpty,
+        title: widget.questionStep.title.isNotEmpty
+            ? Text(
+          widget.questionStep.title,
+          style: Theme.of(context).textTheme.displayMedium,
+          textAlign: TextAlign.center,
+        )
+            : widget.questionStep.content,
+        resultFunction:() => InputQuestionResult(
+          id: widget.questionStep.stepIdentifier,
+
+          valueIdentifier:
+          _selectedChoices.map((choices) => choices.value).join(','),
+          result: _selectedChoices,
+        ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         child: Column(
@@ -54,7 +69,7 @@ class _MultipleChoiceAnswerViewCleanState
             ),
             Column(
               children: [
-                Divider(
+                const Divider(
                   color: Colors.grey,
                 ),
                 ..._multipleChoiceAnswer.textChoices
@@ -120,7 +135,7 @@ class _MultipleChoiceAnswerViewCleanState
                       ),
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     color: Colors.grey,
                   ),
                 ],
@@ -128,21 +143,6 @@ class _MultipleChoiceAnswerViewCleanState
             ),
           ],
         ),
-      ),
-        //isValid: widget.questionStep.isOptional || _selectedChoices.isNotEmpty,
-        title: widget.questionStep.title.isNotEmpty
-            ? Text(
-          widget.questionStep.title,
-          style: Theme.of(context).textTheme.displayMedium,
-          textAlign: TextAlign.center,
-        )
-            : widget.questionStep.content,
-        resultFunction:() => InputQuestionResult(
-          id: widget.questionStep.stepIdentifier,
-
-          valueIdentifier:
-          _selectedChoices.map((choices) => choices.value).join(','),
-          result: _selectedChoices,
-        ), );
+      ), );
   }
 }

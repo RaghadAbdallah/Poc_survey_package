@@ -1,6 +1,5 @@
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/task_clean.dart';
-
 import '../../../core/models/navigation_rule.dart';
 import '../../../core/task/task_identifier.dart';
 import '../../../featuers/presentation/step/step_identifer.dart';
@@ -13,7 +12,7 @@ class NavigableTaskClean extends TaskClean {
     List<StepClean> steps = const [],
     StepClean? initialStep,
     Map<StepIdentifier, NavigationRule>? navigationRules,
-  })  : this.navigationRules = navigationRules ?? {},
+  })  :  navigationRules = navigationRules ?? {},
         super(id: id, steps: steps, initialStep: initialStep);
 
   void addNavigationRule({
@@ -31,12 +30,12 @@ class NavigableTaskClean extends TaskClean {
     final Map<StepIdentifier, NavigationRule> navigationRules = {};
     if (json['rules'] != null) {
       final rules = json['rules'] as List;
-      rules.forEach((rule) {
+      for (var rule in rules) {
         navigationRules.putIfAbsent(
           StepIdentifier.fromJson(rule['triggerStepIdentifier']),
               () => NavigationRule.fromJson(rule as Map<String, dynamic>),
         );
-      });
+      }
     }
     return NavigableTaskClean(
       id: TaskIdentifier.fromJson(json),
@@ -47,6 +46,7 @@ class NavigableTaskClean extends TaskClean {
     );
   }
 
+  @override
   Map<String, dynamic> toJson() => {
     'id': id.toJson(),
     'steps': steps.map((step) => step.toJson()).toList(),

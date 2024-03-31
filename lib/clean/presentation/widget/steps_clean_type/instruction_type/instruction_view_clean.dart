@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../featuers/data/model/instruction_step_result.dart';
 import '../../steps_clean/steps_view_clean.dart';
 import 'instruction_step.dart';
 import 'instruction_step_result.dart';

@@ -3,7 +3,6 @@ import 'package:poc_itg_survey/clean/model/input_format_model/input_answer_model
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/question_type/question_step_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_view_clean.dart';
 import 'package:poc_itg_survey/core/widget/selection_list_tile.dart';
-
 import '../../../../../../../featuers/presentation/type_of_answer/single_choice_answer_format.dart';
 import '../../../../../../../featuers/presentation/type_of_answer/text_choice.dart';
 
@@ -37,6 +36,23 @@ class _SingleChoiceAnswerViewCleanState
   Widget build(BuildContext context) {
     return StepViewClean(
       step: widget.questionStep,
+      // isValid: widget.questionStep.isOptional || _selectedChoice != null,
+      title: widget.questionStep.title.isNotEmpty
+          ? Text(
+        widget.questionStep.title,
+        style: Theme
+            .of(context)
+            .textTheme
+            .displayMedium,
+        textAlign: TextAlign.center,
+      )
+          : widget.questionStep.content,
+      resultFunction: () =>
+          InputQuestionResult(
+            id: widget.questionStep.stepIdentifier,
+            valueIdentifier: _selectedChoice?.value ?? '',
+            result: _selectedChoice,
+          ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         child: Column(
@@ -51,7 +67,7 @@ class _SingleChoiceAnswerViewCleanState
             ),
             Column(
               children: [
-                Divider(
+                const Divider(
                   color: Colors.grey,
                 ),
                 ..._singleChoiceAnswerFormat.textChoices.map(
@@ -74,23 +90,6 @@ class _SingleChoiceAnswerViewCleanState
             ),
           ],
         ),
-      ),
-      // isValid: widget.questionStep.isOptional || _selectedChoice != null,
-      title: widget.questionStep.title.isNotEmpty
-          ? Text(
-        widget.questionStep.title,
-        style: Theme
-            .of(context)
-            .textTheme
-            .displayMedium,
-        textAlign: TextAlign.center,
-      )
-          : widget.questionStep.content,
-      resultFunction: () =>
-          InputQuestionResult(
-            id: widget.questionStep.stepIdentifier,
-            valueIdentifier: _selectedChoice?.value ?? '',
-            result: _selectedChoice,
-          ),);
+      ),);
   }
 }

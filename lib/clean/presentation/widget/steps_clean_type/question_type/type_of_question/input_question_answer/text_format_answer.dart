@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/question_type/question_step_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_view_clean.dart';
-
-import '../../../../../../../featuers/presentation/type_of_answer/text_answer_format.dart';
 import '../../../../../../model/input_format_model/input_answer_model.dart';
 
 class TextFormatViewClean extends StatefulWidget {
@@ -17,18 +15,15 @@ class TextFormatViewClean extends StatefulWidget {
 }
 
 class _TextFormatViewCleanState extends State<TextFormatViewClean> {
-  late final TextAnswerFormat _textAnswerFormat;
 
   late final TextEditingController _controller;
-  bool _isValid = false;
 
   @override
   void initState() {
     super.initState();
     _controller = TextEditingController();
     _controller.text = widget.result?.result ?? '';
-    _textAnswerFormat = widget.questionStep.answerFormat as TextAnswerFormat;
-    _checkValidation(_controller.text);
+     _checkValidation(_controller.text);
   }
 
   void _checkValidation(String text) {}

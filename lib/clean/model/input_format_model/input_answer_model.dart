@@ -1,8 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
 import '../../../featuers/data/model/result.dart';
 
-@JsonSerializable(explicitToJson: true)
 class InputQuestionResult<T> extends Equatable {
   final T? result;
   final String? valueIdentifier;

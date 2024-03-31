@@ -1,7 +1,5 @@
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/survey_result_clean.dart';
-import 'package:poc_itg_survey/core/models/itg_survey_result.dart';
-import 'package:poc_itg_survey/featuers/presentation/step/step.dart';
 
 import '../../../core/widget/config_app_bar.dart';
 import '../../model/input_format_model/input_answer_model.dart';

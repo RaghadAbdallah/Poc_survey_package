@@ -1,9 +1,5 @@
-
-
-
 import 'package:json_annotation/json_annotation.dart';
 import 'package:poc_itg_survey/clean/model/input_format_model/input_answer_model.dart';
-
 import '../../../../../featuers/data/model/result.dart';
 
 @JsonSerializable(explicitToJson: true)

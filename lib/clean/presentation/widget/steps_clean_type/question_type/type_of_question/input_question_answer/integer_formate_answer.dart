@@ -19,8 +19,6 @@ class _IntegerFormatViewState extends State<IntegerFormatViewClean> {
   late final IntegerAnswerFormat _integerAnswerFormat;
   late final TextEditingController _controller;
 
-  bool _isValid = false;
-
   @override
   void initState() {
     super.initState();
@@ -37,17 +35,6 @@ class _IntegerFormatViewState extends State<IntegerFormatViewClean> {
 
     return StepViewClean(
       step: widget.questionStep,
-      child: TextField(
-        textInputAction: TextInputAction.next,
-        autofocus: true,
-
-        controller: _controller,
-        onChanged: (String value) {
-          _checkValidation(value);
-        },
-        keyboardType: TextInputType.number,
-        textAlign: TextAlign.center,
-      ),
       title: widget.questionStep.title.isNotEmpty
           ? Text(
         widget.questionStep.title,
@@ -63,6 +50,17 @@ class _IntegerFormatViewState extends State<IntegerFormatViewClean> {
         valueIdentifier: _controller.text,
         result: int.tryParse(_controller.text) ??
             _integerAnswerFormat.defaultValue,
+      ),
+      child: TextField(
+        textInputAction: TextInputAction.next,
+        autofocus: true,
+
+        controller: _controller,
+        onChanged: (String value) {
+          _checkValidation(value);
+        },
+        keyboardType: TextInputType.number,
+        textAlign: TextAlign.center,
       ) );
   }
 }

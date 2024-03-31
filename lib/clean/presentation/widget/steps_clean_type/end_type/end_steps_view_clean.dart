@@ -3,8 +3,6 @@ import 'package:poc_itg_survey/clean/model/input_format_model/input_answer_model
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/end_type/end_steps_model.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_view_clean.dart';
 
-import '../../../../../featuers/data/model/completion_step_result.dart';
-
 class EndStepsViewClean extends StatelessWidget {
   final CompletionStepClean completionStep;
   final String assetPath;

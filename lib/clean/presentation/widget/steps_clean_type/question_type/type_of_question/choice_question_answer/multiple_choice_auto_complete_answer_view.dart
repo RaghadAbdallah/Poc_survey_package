@@ -49,6 +49,14 @@ class _MultipleChoiceAutoCompleteAnswerViewCleanState
         textAlign: TextAlign.center,
       )
           : widget.questionStep.content,
+        resultFunction: () => InputQuestionResult(
+          id: widget.questionStep.stepIdentifier,
+
+          valueIdentifier:
+          _selectedChoices.map((choices) => choices.value).join(','),
+          result: _selectedChoices,
+        ),
+      isValid: widget.questionStep.isOptional || _selectedChoices.isNotEmpty,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         child: Column(
@@ -68,10 +76,10 @@ class _MultipleChoiceAutoCompleteAnswerViewCleanState
                   onSelected: onChoiceSelected,
                   selectedChoices: _selectedChoices,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
-                Divider(
+                const Divider(
                   color: Colors.grey,
                 ),
                 ..._multipleChoiceAnswer.textChoices
@@ -136,7 +144,7 @@ class _MultipleChoiceAutoCompleteAnswerViewCleanState
                       ),
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     color: Colors.grey,
                   ),
                 ],
@@ -144,15 +152,7 @@ class _MultipleChoiceAutoCompleteAnswerViewCleanState
             ),
           ],
         ),
-      ),
-        resultFunction: () => InputQuestionResult(
-          id: widget.questionStep.stepIdentifier,
-
-          valueIdentifier:
-          _selectedChoices.map((choices) => choices.value).join(','),
-          result: _selectedChoices,
-        ),
-      isValid: widget.questionStep.isOptional || _selectedChoices.isNotEmpty, );
+      ), );
   }
 
   void onChoiceSelected(TextChoice tc) {
@@ -190,12 +190,12 @@ class _AutoComplete extends StatelessWidget {
             controller: textEditingController,
             focusNode: focusNode,
             decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(horizontal: 32),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 32),
                 labelText: 'Search',
                 hintText: 'Type here to search',
                 suffixIcon: IconButton(
                   padding: EdgeInsets.zero,
-                  icon: Icon(Icons.clear),
+                  icon: const Icon(Icons.clear),
                   onPressed: () {
                     textEditingController.clear();
                   },
@@ -242,7 +242,7 @@ class _OptionsViewBuilder extends StatelessWidget {
       elevation: 4.0,
       textStyle: Theme.of(context).textTheme.bodyLarge,
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxHeight: 200),
+        constraints: const BoxConstraints(maxHeight: 200),
         child: ListView.builder(
           padding: EdgeInsets.zero,
           shrinkWrap: true,
@@ -265,12 +265,12 @@ class _OptionsViewBuilder extends StatelessWidget {
                 return Container(
                   color: highlight ? Theme.of(context).focusColor : null,
                   padding: const EdgeInsets.all(16.0),
-                  margin: EdgeInsets.only(right: 16),
+                  margin: const EdgeInsets.only(right: 16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(option.text),
-                      if (selectedChoices.contains(option)) Icon(Icons.done)
+                      if (selectedChoices.contains(option)) const Icon(Icons.done)
                     ],
                   ),
                 );

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/clean/model/input_format_model/input_answer_model.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/question_type/question_step_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_view_clean.dart';
-
 import '../../../../../../../featuers/presentation/type_of_answer/scale_answer_format.dart';
 
 class ScaleAnswerViewClean extends StatefulWidget {
@@ -54,7 +53,7 @@ class _ScaleAnswerViewCleanState extends State<ScaleAnswerViewClean> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(14.0),
+            padding: const EdgeInsets.all(14.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,7 +77,7 @@ class _ScaleAnswerViewCleanState extends State<ScaleAnswerViewClean> {
                           Expanded(
                             child: Text(
                               _scaleAnswerFormat.minimumValueDescription,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16.0,
                               ),
                               maxLines: 6,
@@ -87,13 +86,13 @@ class _ScaleAnswerViewCleanState extends State<ScaleAnswerViewClean> {
                               textAlign: TextAlign.start,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 32.0,
                           ),
                           Expanded(
                             child: Text(
                               _scaleAnswerFormat.maximumValueDescription,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16.0,
                               ),
                               maxLines: 6,

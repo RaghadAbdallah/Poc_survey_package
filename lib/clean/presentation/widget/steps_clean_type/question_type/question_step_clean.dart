@@ -10,10 +10,8 @@ import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/questi
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/question_type/type_of_question/input_question_answer/text_format_answer.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/question_type/type_of_question/rating_question_answer/scale_format_answer.dart';
 import 'package:poc_itg_survey/featuers/presentation/step/step_identifer.dart';
-
 import '../../../../../featuers/presentation/type_of_answer/answer_format.dart';
 import '../../../../../featuers/presentation/type_of_answer/boolean_answer_format.dart';
-import '../../../../../featuers/presentation/type_of_answer/double_answer_format.dart';
 import '../../../../../featuers/presentation/type_of_answer/integer_answer_format.dart';
 import '../../../../../featuers/presentation/type_of_answer/multiple_choice_answer_format.dart';
 import '../../../../../featuers/presentation/type_of_answer/multiple_choice_auto_complete_answer_format.dart';
@@ -46,20 +44,12 @@ class QuestionStepClean extends StepClean {
 
   @override
   Widget createView({required InputQuestionResult? questionResult}) {
-    final key = ObjectKey(stepIdentifier.id);
-
     switch (answerFormat.runtimeType) {
       case IntegerAnswerFormat:
         return IntegerFormatViewClean(
           questionStep: this,
           result: questionResult,
         );
-      // case DoubleAnswerFormat:
-      //   return DoubleAnswerView(
-      //     key: key,
-      //     questionStep: this,
-      //     result: questionResult as DoubleQuestionResult?,
-      //   );
       case TextAnswerFormat:
         return TextFormatViewClean(
           questionStep: this,
@@ -99,12 +89,13 @@ class QuestionStepClean extends StepClean {
           result: questionResult,
         );
       default:
-        throw AnswerFormatNotDefinedException();
+        throw const AnswerFormatNotDefinedException();
     }
   }
 
   factory QuestionStepClean.fromJson(Map<String, dynamic> json) =>
       _$QuestionStepFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$QuestionStepToJson(this);
 }
 
