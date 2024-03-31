@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:poc_itg_survey/clean/presentation/widget/survey_presenter_clean.dart';
-import 'package:poc_itg_survey/clean/presentation/widget/survey_state_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/cubit/survey_presenter_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/cubit/survey_state_clean.dart';
 
 import '../../../core/widget/config_survey_progress.dart';
 

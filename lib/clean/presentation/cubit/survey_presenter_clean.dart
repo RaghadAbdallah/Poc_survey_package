@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:poc_itg_survey/clean/presentation/widget/steps_clean.dart';
-import 'package:poc_itg_survey/clean/presentation/widget/steps_result_clean.dart';
-import 'package:poc_itg_survey/clean/presentation/widget/survey_event_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_result_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/cubit/survey_event_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/survey_result_clean.dart';
-import 'package:poc_itg_survey/clean/presentation/widget/survey_state_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/cubit/survey_state_clean.dart';
 import 'package:poc_itg_survey/clean/task_navigator/task_navigator.dart';
 import 'package:poc_itg_survey/featuers/presentation/bloc/survey_event.dart';
 import 'package:poc_itg_survey/featuers/presentation/step/step.dart';

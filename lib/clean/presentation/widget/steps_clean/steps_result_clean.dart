@@ -1,7 +1,7 @@
 import 'package:poc_itg_survey/featuers/data/model/result.dart';
 
-import '../../../core/models/json_convert.dart';
-import '../../model/input_format_model/input_answer_model.dart';
+import '../../../../core/models/json_convert.dart';
+import '../../../model/input_format_model/input_answer_model.dart';
 
 class StepResultClean extends Result {
   @_Converter()

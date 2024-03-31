@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:poc_itg_survey/clean/presentation/widget/steps_clean.dart' as surveyStepClean;
-import '../../model/input_format_model/input_answer_model.dart';
-import 'itg_controller_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_clean.dart' as surveyStepClean;
+import '../../../model/input_format_model/input_answer_model.dart';
+import '../../../resource/itg_controller_clean.dart';
 
 class StepViewClean extends StatelessWidget {
   final surveyStepClean.StepClean step;

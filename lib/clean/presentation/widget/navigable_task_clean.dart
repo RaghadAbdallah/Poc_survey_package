@@ -1,4 +1,4 @@
-import 'package:poc_itg_survey/clean/presentation/widget/steps_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/task_clean.dart';
 
 import '../../../core/models/navigation_rule.dart';

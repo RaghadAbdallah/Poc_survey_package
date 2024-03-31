@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/end_type/end_steps_model.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/instruction_type/instruction_step.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/question_type/question_step_clean.dart';
 
-import '../../../featuers/presentation/step/step_identifer.dart';
-import '../../model/input_format_model/input_answer_model.dart';
+import '../../../../featuers/presentation/step/step_identifer.dart';
+import '../../../model/input_format_model/input_answer_model.dart';
 
 abstract class StepClean {
   final StepIdentifier stepIdentifier;
@@ -31,7 +32,7 @@ abstract class StepClean {
     } else if (type == 'question') {
       return QuestionStepClean.fromJson(json);
     } else if (type == 'completion') {
-     // return CompletionStep.fromJson(json);
+     return CompletionStepClean.fromJson(json);
     }
     throw StepNotDefinedException();
   }

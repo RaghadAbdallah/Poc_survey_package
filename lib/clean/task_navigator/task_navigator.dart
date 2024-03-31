@@ -1,6 +1,6 @@
 import 'dart:collection';
 import 'package:poc_itg_survey/clean/model/input_format_model/input_answer_model.dart';
-import 'package:poc_itg_survey/clean/presentation/widget/steps_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/task_clean.dart';
 
 abstract class TaskNavigatorClean {

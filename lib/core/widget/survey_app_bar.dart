@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../clean/presentation/widget/itg_controller_clean.dart';
-import '../../clean/presentation/widget/survey_progress_clean.dart';
+import '../../clean/resource/itg_controller_clean.dart';
+import '../../clean/resource/custom_widget/survey_progress_clean.dart';
 import '../controller/next_back_close_controller.dart';
 import 'config_app_bar.dart';
 import 'survey_progress.dart';

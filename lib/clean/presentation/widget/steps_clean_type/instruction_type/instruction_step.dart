@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:flutter/material.dart';
 import '../../../../../featuers/presentation/step/step_identifer.dart';
 import '../../../../model/input_format_model/input_answer_model.dart';
-import '../../steps_clean.dart';
+import '../../steps_clean/steps_clean.dart';
 import 'instruction_view_clean.dart';
 
 @JsonSerializable(explicitToJson: true)

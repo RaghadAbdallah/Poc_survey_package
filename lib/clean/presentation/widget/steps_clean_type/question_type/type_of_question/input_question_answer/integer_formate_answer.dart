@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/clean/presentation/widget/steps_clean_type/question_type/question_step_clean.dart';
-import 'package:poc_itg_survey/clean/presentation/widget/steps_view_clean.dart';
+import 'package:poc_itg_survey/clean/presentation/widget/steps_clean/steps_view_clean.dart';
 import '../../../../../../../featuers/presentation/type_of_answer/integer_answer_format.dart';
 import '../../../../../../model/input_format_model/input_answer_model.dart';
 
