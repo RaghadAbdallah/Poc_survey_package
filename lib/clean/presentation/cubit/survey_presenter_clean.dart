@@ -6,8 +6,6 @@ import 'package:poc_itg_survey/clean/presentation/cubit/survey_event_clean.dart'
 import 'package:poc_itg_survey/clean/presentation/widget/survey_result_clean.dart';
 import 'package:poc_itg_survey/clean/presentation/cubit/survey_state_clean.dart';
 import 'package:poc_itg_survey/clean/task_navigator/task_navigator.dart';
-import 'package:poc_itg_survey/featuers/presentation/bloc/survey_event.dart';
-import 'package:poc_itg_survey/featuers/presentation/step/step.dart';
 import '../../../core/widget/config_app_bar.dart';
 import '../../../featuers/presentation/step/step_identifer.dart';
 import '../../model/input_format_model/input_answer_model.dart';
