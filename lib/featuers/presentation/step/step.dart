@@ -29,7 +29,7 @@ abstract class Step {
     if (type == 'intro') {
       return InstructionStep.fromJson(json);
     } else if (type == 'question') {
-      return QuestionStep.fromJson(json);
+     // return QuestionStep.fromJson(json);
     } else if (type == 'completion') {
       return CompletionStep.fromJson(json);
     }
