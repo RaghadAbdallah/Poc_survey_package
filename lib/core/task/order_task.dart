@@ -2,7 +2,7 @@
  import 'package:json_annotation/json_annotation.dart';
 import 'package:poc_itg_survey/core/task/task.dart';
 import 'package:poc_itg_survey/core/task/task_identifier.dart';
- import '../../featuers/presentation/step/step.dart';
+ import '../../featuers/poc_survey_feature/presentation/page/step.dart';
  /// Defines a [Task] which handles its steps in the order of the [steps] list.
 @JsonSerializable(createFactory: false)
 class OrderedTask extends Task {

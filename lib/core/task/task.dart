@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:poc_itg_survey/core/task/task_identifier.dart';
-import '../../featuers/presentation/step/step.dart';
+import '../../featuers/poc_survey_feature/presentation/page/step.dart';
 import 'navigable_task.dart';
 import 'order_task.dart';
 

@@ -1,5 +1,6 @@
-import '../../navigator/rules/conditional_navigation_rule.dart';
-import '../../navigator/rules/direct_navigation_rule.dart';
+
+import '../navigator/rules/conditional_navigation_rule.dart';
+import '../navigator/rules/direct_navigation_rule.dart';
 
 abstract class NavigationRule {
   const NavigationRule();

@@ -1,7 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:poc_itg_survey/core/task/task.dart';
 
-import '../../featuers/data/model/result.dart';
+import '../result.dart';
+
 
 /// Used to uniquly identify a [Task]
 @JsonSerializable()

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../clean/resource/itg_controller_clean.dart';
-import '../../clean/resource/custom_widget/survey_progress_clean.dart';
- import 'config_app_bar.dart';
+ import '../resource/custom_widget/survey_progress_clean.dart';
+import '../resource/itg_controller_clean.dart';
+import 'config_app_bar.dart';
 
 class SurveyAppBar extends StatelessWidget {
   final ConfigAppBar appBarConfiguration;

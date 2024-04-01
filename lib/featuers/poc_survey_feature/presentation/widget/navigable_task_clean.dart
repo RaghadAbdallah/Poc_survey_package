@@ -1,18 +1,21 @@
-import 'package:poc_itg_survey/core/task/task.dart';
-import 'package:poc_itg_survey/core/task/task_identifier.dart';
-import '../../featuers/poc_survey_feature/presentation/page/step.dart';
-import '../../featuers/poc_survey_feature/data/model/step_identifer.dart';
-import '../models/navigation_rule.dart';
 
-class NavigableTask extends Task {
+
+import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean/steps_clean.dart';
+import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/task_clean.dart';
+
+import '../../../../core/models/navigation_rule.dart';
+import '../../../../core/task/task_identifier.dart';
+import '../../data/model/step_identifer.dart';
+
+class NavigableTaskClean extends TaskClean {
   final Map<StepIdentifier, NavigationRule> navigationRules;
 
-  NavigableTask({
+  NavigableTaskClean({
     TaskIdentifier? id,
-    List<Step> steps = const [],
-    Step? initialStep,
+    List<StepClean> steps = const [],
+    StepClean? initialStep,
     Map<StepIdentifier, NavigationRule>? navigationRules,
-  })  : this.navigationRules = navigationRules ?? {},
+  })  :  navigationRules = navigationRules ?? {},
         super(id: id, steps: steps, initialStep: initialStep);
 
   void addNavigationRule({
@@ -26,26 +29,27 @@ class NavigableTask extends Task {
     return navigationRules[stepIdentifier];
   }
 
-  factory NavigableTask.fromJson(Map<String, dynamic> json) {
+  factory NavigableTaskClean.fromJson(Map<String, dynamic> json) {
     final Map<StepIdentifier, NavigationRule> navigationRules = {};
     if (json['rules'] != null) {
       final rules = json['rules'] as List;
-      rules.forEach((rule) {
+      for (var rule in rules) {
         navigationRules.putIfAbsent(
           StepIdentifier.fromJson(rule['triggerStepIdentifier']),
               () => NavigationRule.fromJson(rule as Map<String, dynamic>),
         );
-      });
+      }
     }
-    return NavigableTask(
+    return NavigableTaskClean(
       id: TaskIdentifier.fromJson(json),
       steps: json['steps'] != null
-          ? (json['steps'] as List).map((step) => Step.fromJson(step as Map<String, dynamic>)).toList()
+          ? (json['steps'] as List).map((step) => StepClean.fromJson(step as Map<String, dynamic>)).toList()
           : [],
       navigationRules: navigationRules,
     );
   }
 
+  @override
   Map<String, dynamic> toJson() => {
     'id': id.toJson(),
     'steps': steps.map((step) => step.toJson()).toList(),
