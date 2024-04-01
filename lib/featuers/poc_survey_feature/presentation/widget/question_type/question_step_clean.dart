@@ -7,6 +7,7 @@ import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/q
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/text_format_answer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/rating_question_answer/scale_format_answer.dart';
 
+import '../../../../../core/exception/error_exception.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../steps_clean/steps_clean.dart';
 import '../type_of_answer/answer_format.dart';
@@ -70,12 +71,11 @@ class QuestionStepClean extends StepClean {
           result: questionResult,
         );
       default:
-        throw const AnswerFormatNotDefinedException();
+        throw const Exceptions();
     }
   }
 
-  factory QuestionStepClean.fromJson(Map<String, dynamic> json) =>
-      _$QuestionStepFromJson(json);
+  factory QuestionStepClean.fromJson(Map<String, dynamic> json) => _$QuestionStepFromJson(json);
 
   @override
   Map<String, dynamic> toJson() => _$QuestionStepToJson(this);

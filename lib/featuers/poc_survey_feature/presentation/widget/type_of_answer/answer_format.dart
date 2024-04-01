@@ -5,7 +5,8 @@ import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/t
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/type_of_answer/text_answer_format.dart';
 
 
- import 'integer_answer_format.dart';
+ import '../../../../../core/exception/error_exception.dart';
+import 'integer_answer_format.dart';
 import 'multiple_choice_answer_format.dart';
 
 abstract class AnswerFormat {
@@ -25,11 +26,11 @@ abstract class AnswerFormat {
       case 'scale':
         return ScaleAnswerFormat.fromJson(json);
       default:
-        throw AnswerFormatNotDefinedException();
+        throw Exceptions();
     }
   }
   Map<String, dynamic> toJson();
 }
-class AnswerFormatNotDefinedException implements Exception {
-  const AnswerFormatNotDefinedException() : super();
-}
+// class AnswerFormatNotDefinedException implements Exception {
+//   const AnswerFormatNotDefinedException() : super();
+// }
