@@ -1,6 +1,5 @@
 
 import '../../../../../core/result.dart';
-import '../../../../../core/models/json_convert.dart';
 import '../../../data/model/input_format_model/input_answer_model.dart';
 class StepResultClean extends Result {
   @_Converter()
@@ -27,10 +26,9 @@ class StepResultClean extends Result {
   List<Object?> get props => [id];
 }
 
-class _Converter implements JsonConverter<List<InputQuestionResult>, Object> {
+class _Converter {
   const _Converter();
 
-  @override
   Object toJson(List<InputQuestionResult> questionResults) {
     List<Map<String, dynamic>> allQuestionResultsEncoded = [];
 
@@ -43,7 +41,6 @@ class _Converter implements JsonConverter<List<InputQuestionResult>, Object> {
     return allQuestionResultsEncoded;
   }
 
-  @override
   List<InputQuestionResult> fromJson(Object json) {
     final List<InputQuestionResult> results = [];
     for (var element in json as List<dynamic>) {

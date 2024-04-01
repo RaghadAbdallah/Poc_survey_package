@@ -47,7 +47,7 @@ class InstructionStepClean extends StepClean {
 
 InstructionStepClean _$InstructionStepFromJson(Map<String, dynamic> json) =>
     InstructionStepClean(
-      title: json['QuestionDesc'] as String,
+      title: json['introSurvey'] as String,
       text: json['text'] as String,
       buttonText: json['buttonText'] as String? ?? 'Next',
       stepIdentifier: json['stepIdentifier'] == null

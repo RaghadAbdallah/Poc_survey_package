@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean_type/question_type/type_of_question/choice_question_answer/boolean_choice_format_answer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean_type/question_type/type_of_question/choice_question_answer/muliple_choice_format_answer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean_type/question_type/type_of_question/choice_question_answer/multiple_choice_auto_complete_answer_view.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean_type/question_type/type_of_question/choice_question_answer/single_choice_format_answer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean_type/question_type/type_of_question/input_question_answer/integer_formate_answer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean_type/question_type/type_of_question/input_question_answer/text_format_answer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean_type/question_type/type_of_question/rating_question_answer/scale_format_answer.dart';
- import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/step_identifer.dart';
+import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/step_identifer.dart';
 import '../../../../data/model/input_format_model/input_answer_model.dart';
 import '../../steps_clean/steps_clean.dart';
 import '../../type_of_answer/answer_format.dart';
-import '../../type_of_answer/boolean_answer_format.dart';
 import '../../type_of_answer/integer_answer_format.dart';
 import '../../type_of_answer/multiple_choice_answer_format.dart';
-import '../../type_of_answer/multiple_choice_auto_complete_answer_format.dart';
 import '../../type_of_answer/scale_answer_format.dart';
 import '../../type_of_answer/single_choice_answer_format.dart';
 import '../../type_of_answer/text_answer_format.dart';
@@ -36,11 +32,11 @@ class QuestionStepClean extends StepClean {
     this.content = const SizedBox.shrink(),
     required this.answerFormat,
   }) : super(
-    stepIdentifier: stepIdentifier,
-    isOptional: isOptional,
-    buttonText: buttonText,
-    showAppBar: showAppBar,
-  );
+          stepIdentifier: stepIdentifier,
+          isOptional: isOptional,
+          buttonText: buttonText,
+          showAppBar: showAppBar,
+        );
 
   @override
   Widget createView({required InputQuestionResult? questionResult}) {
@@ -71,17 +67,6 @@ class QuestionStepClean extends StepClean {
           questionStep: this,
           result: questionResult,
         );
-      case BooleanAnswerFormat:
-        return BooleanViewClean(
-          questionStep: this,
-          result: questionResult ,
-        );
-
-      case MultipleChoiceAutoCompleteAnswerFormat:
-        return MultipleChoiceAutoCompleteAnswerViewClean(
-          questionStep: this,
-          result: questionResult,
-        );
       default:
         throw const AnswerFormatNotDefinedException();
     }
@@ -89,23 +74,25 @@ class QuestionStepClean extends StepClean {
 
   factory QuestionStepClean.fromJson(Map<String, dynamic> json) =>
       _$QuestionStepFromJson(json);
+
   @override
   Map<String, dynamic> toJson() => _$QuestionStepToJson(this);
 }
 
-QuestionStepClean _$QuestionStepFromJson(Map<String, dynamic> json) => QuestionStepClean(
-  isOptional: json['isOptional'] as bool? ?? false,
-  buttonText: json['buttonText'] as String? ?? 'Next',
-  stepIdentifier: json['stepIdentifier'] == null
-      ? null
-      : StepIdentifier.fromJson(
-      json['stepIdentifier'] as Map<String, dynamic>),
-  showAppBar: json['showAppBar'] as bool? ?? true,
-  title: json['title'] as String? ?? '',
-  text: json['text'] as String? ?? '',
-  answerFormat:
-  AnswerFormat.fromJson(json['answerFormat'] as Map<String, dynamic>),
-);
+QuestionStepClean _$QuestionStepFromJson(Map<String, dynamic> json) =>
+    QuestionStepClean(
+      isOptional: json['isOptional'] as bool? ?? false,
+      buttonText: json['buttonText'] as String? ?? 'Next',
+      stepIdentifier: json['stepIdentifier'] == null
+          ? null
+          : StepIdentifier.fromJson(
+              json['stepIdentifier'] as Map<String, dynamic>),
+      showAppBar: json['showAppBar'] as bool? ?? true,
+      title: json['questionDesc'] as String? ?? '',
+      text: json['text'] as String? ?? '',
+      answerFormat:
+          AnswerFormat.fromJson(json['answerFormat'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$QuestionStepToJson(QuestionStepClean instance) =>
     <String, dynamic>{

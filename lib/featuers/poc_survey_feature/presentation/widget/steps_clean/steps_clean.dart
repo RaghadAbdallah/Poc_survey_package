@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../data/model/step_identifer.dart';
 import '../../../data/model/input_format_model/input_answer_model.dart';
 import '../steps_clean_type/end_type/end_steps_model.dart';
@@ -38,14 +37,14 @@ abstract class StepClean {
   }
 
   Map<String, dynamic> toJson();
-//
-// bool operator ==(o) =>
-//     o is Step &&
-//         o.stepIdentifier == stepIdentifier &&
-//         o.isOptional == isOptional &&
-//         o.buttonText == buttonText;
-// int get hashCode =>
-//     stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
+
+bool operator ==(o) =>
+    o is StepClean &&
+        o.stepIdentifier == stepIdentifier &&
+        o.isOptional == isOptional &&
+        o.buttonText == buttonText;
+int get hashCode =>
+    stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
 }
 class StepNotDefinedException implements Exception {
   const StepNotDefinedException() : super();

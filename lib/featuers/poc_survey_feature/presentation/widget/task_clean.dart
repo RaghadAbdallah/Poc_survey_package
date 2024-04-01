@@ -1,7 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:poc_itg_survey/core/resource/task_navigator/order_task_clean.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean/steps_clean.dart';
-
-import '../../../../core/task/order_task.dart';
 import '../../../../core/task/task_identifier.dart';
 import 'navigable_task_clean.dart';
 
@@ -22,9 +21,9 @@ abstract class TaskClean {
   factory TaskClean.fromJson(Map<String, dynamic> json) {
     final type = json['type'];
     if (type == 'ordered') {
-      return OrderedTask.fromJson(json) as TaskClean;
+      return OrderedTaskClean.fromJson(json);
     } else if (type == 'navigable') {
-      return NavigableTaskClean.fromJson(json) as TaskClean;
+      return NavigableTaskClean.fromJson(json);
     }
     throw TaskNotDefinedException();
   }
