@@ -1,6 +1,5 @@
 import 'conditional_navigation_rule.dart';
 import 'direct_navigation_rule.dart';
-import '../exception/error_exception.dart';
 
 abstract class NavigationRule {
   const NavigationRule();
@@ -12,7 +11,7 @@ abstract class NavigationRule {
     } else if (type == 'direct') {
       return DirectNavigationRule.fromJson(json);
     }
-    throw const Exceptions();
+    throw   Exception();
   }
   Map<String, dynamic> toJson();
 }

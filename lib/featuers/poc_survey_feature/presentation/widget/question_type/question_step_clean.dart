@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:json_annotation/json_annotation.dart';
  import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/step_identifer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/muliple_choice_format_answer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/single_choice_format_answer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/integer_formate_answer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/text_format_answer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/rating_question_answer/scale_format_answer.dart';
-
-import '../../../../../core/exception/error_exception.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../../../data/model/type_of_answer/answer_format.dart';
 import '../../../data/model/type_of_answer/integer_answer_format.dart';
@@ -17,7 +14,6 @@ import '../../../data/model/type_of_answer/single_choice_answer_format.dart';
 import '../../../data/model/type_of_answer/text_answer_format.dart';
 import '../steps_clean/steps_clean.dart';
 
-@JsonSerializable()
 class QuestionStepClean extends StepClean {
   final String title;
   final String text;
@@ -70,7 +66,7 @@ class QuestionStepClean extends StepClean {
           result: questionResult,
         );
       default:
-        throw const Exceptions();
+        throw   Exception();
     }
   }
 
