@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/exception/error_exception.dart';
 import '../../../data/model/step_identifer.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../../../data/model/end_steps_model.dart';
@@ -34,7 +33,7 @@ abstract class StepClean {
     } else if (type == 'completion') {
      return CompletionStepClean.fromJson(json);
     }
-    throw Exceptions();
+    throw   Exception();
   }
 
   Map<String, dynamic> toJson();

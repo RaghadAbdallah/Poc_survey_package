@@ -1,8 +1,7 @@
 import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/type_of_answer/scale_answer_format.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/type_of_answer/single_choice_answer_format.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/type_of_answer/text_answer_format.dart';
- import '../../../../../core/exception/error_exception.dart';
-import 'integer_answer_format.dart';
+ import 'integer_answer_format.dart';
 import 'multiple_choice_answer_format.dart';
 
 abstract class AnswerFormat {
@@ -22,8 +21,7 @@ abstract class AnswerFormat {
       case 'scale':
         return ScaleAnswerFormat.fromJson(json);
       default:
-        throw Exceptions();
-    }
+        throw   Exception();    }
   }
   Map<String, dynamic> toJson();
 }
