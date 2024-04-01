@@ -1,8 +1,5 @@
-
-
 import '../../navigator/rules/conditional_navigation_rule.dart';
 import '../../navigator/rules/direct_navigation_rule.dart';
-import '../../navigator/rules/rule_not_defined_exception.dart';
 
 abstract class NavigationRule {
   const NavigationRule();
@@ -14,7 +11,10 @@ abstract class NavigationRule {
     } else if (type == 'direct') {
       return DirectNavigationRule.fromJson(json);
     }
-    throw RuleNotDefinedException();
+    throw const RuleNotDefinedException();
   }
   Map<String, dynamic> toJson();
+}
+class RuleNotDefinedException implements Exception {
+  const RuleNotDefinedException() : super();
 }
