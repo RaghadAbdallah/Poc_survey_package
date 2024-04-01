@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../data/model/input_answer_model.dart';
 import 'steps_view_clean.dart';
 import '../../../data/model/end_steps_model.dart';
@@ -15,6 +14,13 @@ class EndStepsViewClean extends StatelessWidget {
   Widget build(BuildContext context) {
     return StepViewClean(
         step: completionStep,
+        title: Text(completionStep.title,
+            style: Theme.of(context).textTheme.displayMedium),
+        resultFunction: () => InputQuestionResult(
+              id: completionStep.stepIdentifier,
+              result: null,
+              valueIdentifier: '',
+            ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Column(
@@ -26,13 +32,6 @@ class EndStepsViewClean extends StatelessWidget {
               ),
             ],
           ),
-        ),
-        title: Text(completionStep.title,
-            style: Theme.of(context).textTheme.displayMedium),
-        resultFunction: () => InputQuestionResult(
-              id: completionStep.stepIdentifier,
-              result: null,
-              valueIdentifier: '',
-            ));
+        ));
   }
 }

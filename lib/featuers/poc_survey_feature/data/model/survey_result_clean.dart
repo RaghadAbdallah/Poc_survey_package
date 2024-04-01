@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean/steps_result_clean.dart';
+import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/steps_result_clean.dart';
 
 import '../../../../core/models/result.dart';
 

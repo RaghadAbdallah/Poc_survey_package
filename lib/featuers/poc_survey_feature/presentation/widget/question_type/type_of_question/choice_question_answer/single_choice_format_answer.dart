@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/core/widget/selection_list_tile.dart';
 
 import '../../../../../data/model/input_answer_model.dart';
+import '../../../../../data/model/type_of_answer/single_choice_answer_format.dart';
+import '../../../../../data/model/type_of_answer/text_choice.dart';
 import '../../../steps_clean/steps_view_clean.dart';
- import '../../../type_of_answer/single_choice_answer_format.dart';
-import '../../../type_of_answer/text_choice.dart';
 import '../../question_step_clean.dart';
  class SingleChoiceAnswerViewClean extends StatefulWidget {
   const SingleChoiceAnswerViewClean({super.key, required this.questionStep,

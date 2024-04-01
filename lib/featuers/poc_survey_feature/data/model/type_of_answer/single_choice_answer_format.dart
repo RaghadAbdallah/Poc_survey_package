@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/type_of_answer/text_choice.dart';
-
+import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/type_of_answer/text_choice.dart';
 import 'answer_format.dart';
 
 

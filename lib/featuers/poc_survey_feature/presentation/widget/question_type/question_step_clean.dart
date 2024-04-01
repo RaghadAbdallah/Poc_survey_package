@@ -9,14 +9,13 @@ import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/q
 
 import '../../../../../core/exception/error_exception.dart';
 import '../../../data/model/input_answer_model.dart';
+import '../../../data/model/type_of_answer/answer_format.dart';
+import '../../../data/model/type_of_answer/integer_answer_format.dart';
+import '../../../data/model/type_of_answer/multiple_choice_answer_format.dart';
+import '../../../data/model/type_of_answer/scale_answer_format.dart';
+import '../../../data/model/type_of_answer/single_choice_answer_format.dart';
+import '../../../data/model/type_of_answer/text_answer_format.dart';
 import '../steps_clean/steps_clean.dart';
-import '../type_of_answer/answer_format.dart';
-import '../type_of_answer/integer_answer_format.dart';
-import '../type_of_answer/multiple_choice_answer_format.dart';
-import '../type_of_answer/scale_answer_format.dart';
-import '../type_of_answer/single_choice_answer_format.dart';
-import '../type_of_answer/text_answer_format.dart';
-
 
 @JsonSerializable()
 class QuestionStepClean extends StepClean {

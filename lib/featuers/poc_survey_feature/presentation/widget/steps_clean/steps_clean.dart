@@ -47,6 +47,3 @@ bool operator ==(o) =>
 int get hashCode =>
     stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
 }
-// class StepNotDefinedException implements Exception {
-//   const StepNotDefinedException() : super();
-// }

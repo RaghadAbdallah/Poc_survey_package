@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../data/model/input_answer_model.dart';
+import '../../../../../data/model/type_of_answer/integer_answer_format.dart';
 import '../../../steps_clean/steps_view_clean.dart';
-import '../../../type_of_answer/integer_answer_format.dart';
-import '../../question_step_clean.dart';
+ import '../../question_step_clean.dart';
 
 class IntegerFormatViewClean extends StatefulWidget {
   const IntegerFormatViewClean(
