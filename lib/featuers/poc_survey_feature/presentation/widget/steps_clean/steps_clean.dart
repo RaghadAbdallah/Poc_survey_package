@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/exception/error_exception.dart';
 import '../../../data/model/step_identifer.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../../../data/model/end_steps_model.dart';
@@ -33,7 +34,7 @@ abstract class StepClean {
     } else if (type == 'completion') {
      return CompletionStepClean.fromJson(json);
     }
-    throw StepNotDefinedException();
+    throw Exceptions();
   }
 
   Map<String, dynamic> toJson();
@@ -46,6 +47,6 @@ bool operator ==(o) =>
 int get hashCode =>
     stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
 }
-class StepNotDefinedException implements Exception {
-  const StepNotDefinedException() : super();
-}
+// class StepNotDefinedException implements Exception {
+//   const StepNotDefinedException() : super();
+// }
