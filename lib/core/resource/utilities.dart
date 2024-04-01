@@ -1,9 +1,9 @@
 
 import 'package:poc_itg_survey/core/resource/task_navigator/navigator_task_navigable.dart';
 import 'package:poc_itg_survey/core/resource/task_navigator/navigator_task_ordered.dart';
-import 'package:poc_itg_survey/core/resource/task_navigator/order_task_clean.dart';
+import 'package:poc_itg_survey/core/models/order_task_clean.dart';
 import 'package:poc_itg_survey/core/resource/task_navigator/task_navigator.dart';
- import '../../featuers/poc_survey_feature/presentation/widget/navigable_task_clean.dart';
+ import '../../featuers/poc_survey_feature/data/model/navigable_task_clean.dart';
 import '../../featuers/poc_survey_feature/presentation/widget/task_clean.dart';
 
 

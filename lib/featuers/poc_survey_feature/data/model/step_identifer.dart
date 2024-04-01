@@ -1,9 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
-
-import '../../../../core/result.dart';
+import '../../../../core/models/result.dart';
 
 
-@JsonSerializable()
 class StepIdentifier extends Identifier {
   StepIdentifier({String? id}) : super(id: id);
 

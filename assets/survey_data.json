@@ -2,108 +2,95 @@
   "type": "navigable",
   "steps": [
     {
-      "title": "",
       "type": "intro",
       "text": "سيتم طرح مجموعة من الاسئلة كن مستعد",
       "buttonText": "Let's go!",
-      "QuestionDesc": "Welcome to ITG Survey"
+      "introSurvey": "Welcome to ITG Survey"
     },
     {
-      "title": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
-      "text": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
+      "questionDesc": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
       "type": "question",
-      "QuestionID": 402443,
+      "answerStatus": 0,
       "answerFormat":{
         "type": "integer",
         "QuestionsResultSurveyList": [
           {
-            "EvalToolDetailID": 0,
-            "EvalToolDetailDesc": null,
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
+            "AnswerID": 0,
+            "AnswerDesc": null,
+            "optionStatus": 0
           }
         ]}},
     {
-      "title": "",
-      "text": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
+      "questionDesc": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
       "type": "question",
-      "QuestionID": 402443,
+      "answerStatus": 0,
       "answerFormat":{
         "type": "text",
         "QuestionsResultSurveyList": [
           {
-            "EvalToolDetailID": 0,
-            "EvalToolDetailDesc": null,
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
+            "AnswerID": 0,
+            "AnswerDesc": null,
+            "optionStatus": 0
           }
         ]}},
     {
-      "title": "",
+
       "type": "question",
-      "text": "هل قمت بالاستفادة من اللغة ",
-      "QuestionID": 402441,
+      "questionDesc": "هل قمت بالاستفادة من اللغة ",
+      "answerStatus": 0,
       "answerFormat":{
         "type": "single",
         "QuestionsResultSurveyList": [
           {
-            "EvalToolDetailID": "402481",
-            "EvalToolDetailDesc": "نعم",
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
+            "AnswerID": "402481",
+            "AnswerDesc": "نعم",
+            "optionStatus": 0
           },
           {
-            "EvalToolDetailID": "402482",
-            "EvalToolDetailDesc": "لا",
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
+            "AnswerID": "402482",
+            "AnswerDesc": "لا",
+            "optionStatus": 0
           }
         ]}
 
     } ,
     {
-      "title": "",
       "type": "question",
-      "text": "ماهي لغات البرمجة التي تتقنها",
-      "QuestionID": 402441,
+      "questionDesc": "ماهي لغات البرمجة التي تتقنها",
+      "answerStatus": 0,
       "answerFormat":{
         "type": "multiple",
         "QuestionsResultSurveyList": [
           {
-            "EvalToolDetailID": "402481",
-            "EvalToolDetailDesc": "C++",
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
+            "AnswerID": "402481",
+            "AnswerDesc": "C++",
+            "optionStatus": 0
           },
           {
-            "EvalToolDetailID": "402482",
-            "EvalToolDetailDesc": "JAVA",
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
+            "AnswerID": "402482",
+            "AnswerDesc": "JAVA",
+            "optionStatus": 0
           },
           {
-            "EvalToolDetailID": "402483",
-            "EvalToolDetailDesc": "Dart",
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
+            "AnswerID": "402483",
+            "AnswerDesc": "Dart",
+            "optionStatus": 0
           },
           {
-            "EvalToolDetailID": "402484",
-            "EvalToolDetailDesc": "C#",
-            "AnswerDate": null,
-            "AnsweEvalToolDetailID": "0"
+            "AnswerID": "402484",
+            "AnswerDesc": "C#",
+            "optionStatus": 0
           }
         ]}
 
     },
     {
-      "title": "Welcome to the\nQuickBird Studios\nHealth Survey",
-      "text": "Get ready for a bunch of super random questions!",
-      "buttonText": "Let's go!",
+      "questionDesc": "Get ready for a bunch of super random questions!",
       "type": "question",
-      "QuestionID": 402445,
+      "answerStatus": 0,
       "answerFormat": {
         "type": "scale",
+        "optionStatus": 0,
         "maximumValue": 10.0,
         "minimumValue":0.0,
         "defaultValue":2.0,

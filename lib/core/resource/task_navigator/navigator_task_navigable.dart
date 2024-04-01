@@ -1,13 +1,12 @@
 
 import 'package:poc_itg_survey/core/models/navigation_rule.dart';
 import 'package:poc_itg_survey/core/resource/task_navigator/task_navigator.dart';
-
-import '../../../featuers/poc_survey_feature/data/model/input_format_model/input_answer_model.dart';
-import '../../../featuers/poc_survey_feature/presentation/widget/navigable_task_clean.dart';
+import '../../../featuers/poc_survey_feature/data/model/input_answer_model.dart';
+import '../../../featuers/poc_survey_feature/data/model/navigable_task_clean.dart';
 import '../../../featuers/poc_survey_feature/presentation/widget/steps_clean/steps_clean.dart';
 import '../../../featuers/poc_survey_feature/presentation/widget/task_clean.dart';
-import '../../navigator/rules/conditional_navigation_rule.dart';
-import '../../navigator/rules/direct_navigation_rule.dart';
+import '../../models/conditional_navigation_rule.dart';
+import '../../models/direct_navigation_rule.dart';
 class NavigableTaskNavigator extends TaskNavigatorClean {
   NavigableTaskNavigator(TaskClean task) : super(task);
 

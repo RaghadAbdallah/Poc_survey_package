@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:poc_itg_survey/core/itg_survey_clean.dart';
+import 'package:poc_itg_survey/core/resource/itg_survey_clean.dart';
 import 'core/widget/config_survey_progress.dart';
-import 'featuers/poc_survey_feature/presentation/widget/survey_result_clean.dart';
+import 'featuers/poc_survey_feature/data/model/survey_result_clean.dart';
 import 'featuers/poc_survey_feature/presentation/widget/task_clean.dart';
 
 void main() {

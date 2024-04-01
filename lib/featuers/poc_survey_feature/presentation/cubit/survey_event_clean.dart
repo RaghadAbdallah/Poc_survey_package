@@ -1,5 +1,5 @@
 
-import '../../data/model/input_format_model/input_answer_model.dart';
+import '../../data/model/input_answer_model.dart';
 
 abstract class SurveyEventClean {
   const SurveyEventClean();

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../../../data/model/step_identifer.dart';
-import '../../../data/model/input_format_model/input_answer_model.dart';
-import '../steps_clean_type/end_type/end_steps_model.dart';
-import '../steps_clean_type/instruction_type/instruction_step.dart';
-import '../steps_clean_type/question_type/question_step_clean.dart';
+import '../../../data/model/input_answer_model.dart';
+import '../../../data/model/end_steps_model.dart';
+import '../../../data/model/instruction_step.dart';
+import '../question_type/question_step_clean.dart';
 
 abstract class StepClean {
   final StepIdentifier stepIdentifier;
@@ -38,14 +37,14 @@ abstract class StepClean {
   }
 
   Map<String, dynamic> toJson();
-//
-// bool operator ==(o) =>
-//     o is Step &&
-//         o.stepIdentifier == stepIdentifier &&
-//         o.isOptional == isOptional &&
-//         o.buttonText == buttonText;
-// int get hashCode =>
-//     stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
+
+bool operator ==(o) =>
+    o is StepClean &&
+        o.stepIdentifier == stepIdentifier &&
+        o.isOptional == isOptional &&
+        o.buttonText == buttonText;
+int get hashCode =>
+    stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
 }
 class StepNotDefinedException implements Exception {
   const StepNotDefinedException() : super();

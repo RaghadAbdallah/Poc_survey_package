@@ -2,7 +2,7 @@
 
 import 'package:poc_itg_survey/core/resource/task_navigator/task_navigator.dart';
 
-import '../../../featuers/poc_survey_feature/data/model/input_format_model/input_answer_model.dart';
+import '../../../featuers/poc_survey_feature/data/model/input_answer_model.dart';
 import '../../../featuers/poc_survey_feature/presentation/widget/steps_clean/steps_clean.dart';
 import '../../../featuers/poc_survey_feature/presentation/widget/task_clean.dart';
 class OrderedTaskNavigator extends TaskNavigatorClean {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean/steps_clean.dart' as surveyStepClean;
  import '../../../../../core/resource/itg_controller_clean.dart';
-import '../../../data/model/input_format_model/input_answer_model.dart';
+import '../../../data/model/input_answer_model.dart';
 
 
 class StepViewClean extends StatelessWidget {
@@ -13,7 +13,7 @@ class StepViewClean extends StatelessWidget {
   final bool isValid;
   final ItgSurveyControllerClean? controller;
 
-  const StepViewClean({
+  const StepViewClean({super.key,
     required this.step,
     required this.child,
     required this.title,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../featuers/poc_survey_feature/data/model/input_format_model/input_answer_model.dart';
+import '../../featuers/poc_survey_feature/data/model/input_answer_model.dart';
 import '../../featuers/poc_survey_feature/presentation/cubit/survey_event_clean.dart';
 import '../../featuers/poc_survey_feature/presentation/cubit/survey_presenter_clean.dart';
 

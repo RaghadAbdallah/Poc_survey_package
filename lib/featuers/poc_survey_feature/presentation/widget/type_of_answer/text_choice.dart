@@ -16,8 +16,8 @@ class TextChoice {
   int get hashCode => text.hashCode ^ value.hashCode;
 }
 TextChoice _$TextChoiceFromJson(Map<String, dynamic> json) => TextChoice(
-  text: json['EvalToolDetailDesc'] as String,
-  value: json['EvalToolDetailID'] as String,
+  text: json['AnswerDesc'] as String,
+  value: json['AnswerID'] as String,
 );
 
 Map<String, dynamic> _$TextChoiceToJson(TextChoice instance) =>

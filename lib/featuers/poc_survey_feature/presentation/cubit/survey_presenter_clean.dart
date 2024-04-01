@@ -6,10 +6,10 @@ import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/cubit/su
 import '../../../../core/resource/task_navigator/task_navigator.dart';
 import '../../../../core/widget/config_app_bar.dart';
 import '../../data/model/step_identifer.dart';
-import '../../data/model/input_format_model/input_answer_model.dart';
+import '../../data/model/input_answer_model.dart';
 import '../widget/steps_clean/steps_clean.dart';
 import '../widget/steps_clean/steps_result_clean.dart';
-import '../widget/survey_result_clean.dart';
+import '../../data/model/survey_result_clean.dart';
 
 class SurveyPresenterClean extends Bloc<SurveyEventClean, SurveyStateClean> {
   final TaskNavigatorClean taskNavigator;

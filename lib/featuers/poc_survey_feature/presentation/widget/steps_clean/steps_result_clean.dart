@@ -1,7 +1,6 @@
 
-import '../../../../../core/result.dart';
-import '../../../../../core/models/json_convert.dart';
-import '../../../data/model/input_format_model/input_answer_model.dart';
+import '../../../../../core/models/result.dart';
+import '../../../data/model/input_answer_model.dart';
 class StepResultClean extends Result {
   @_Converter()
   final List<InputQuestionResult> results;
@@ -27,10 +26,9 @@ class StepResultClean extends Result {
   List<Object?> get props => [id];
 }
 
-class _Converter implements JsonConverter<List<InputQuestionResult>, Object> {
+class _Converter {
   const _Converter();
 
-  @override
   Object toJson(List<InputQuestionResult> questionResults) {
     List<Map<String, dynamic>> allQuestionResultsEncoded = [];
 
@@ -43,7 +41,6 @@ class _Converter implements JsonConverter<List<InputQuestionResult>, Object> {
     return allQuestionResultsEncoded;
   }
 
-  @override
   List<InputQuestionResult> fromJson(Object json) {
     final List<InputQuestionResult> results = [];
     for (var element in json as List<dynamic>) {
@@ -57,26 +54,8 @@ class _Converter implements JsonConverter<List<InputQuestionResult>, Object> {
 
   InputQuestionResult _createQuestionResult(String type, Map<String, dynamic> data) {
     switch (type) {
-      // case 'BooleanQuestionResult':
-      //   return BooleanQuestionResult.fromJson(data);
-      // case 'DoubleQuestionResult':
-      //   return DoubleQuestionResult.fromJson(data);
        case 'IntegerQuestionResult':
          return InputQuestionResult.fromJson(data);
-      // case 'MultipleChoiceQuestionResult':
-      //   return MultipleChoiceQuestionResult.fromJson(data);
-      // case 'MultipleDoubleQuestionResult':
-      //   return MultipleDoubleQuestionResult.fromJson(data);
-      // case 'ScaleQuestionResult':
-      //   return ScaleQuestionResult.fromJson(data);
-      // case 'SingleChoiceQuestionResult':
-      //   return SingleChoiceQuestionResult.fromJson(data);
-      // case 'TextQuestionResult':
-      //   return TextQuestionResult.fromJson(data);
-      // case 'InstructionStepResult':
-      //   return InstructionStepResult.fromJson(data);
-      // case 'CompletionStepResult':
-      //   return CompletionStepResult.fromJson(data);
       default:
         throw ('Unhandled Question Result Type: $type');
     }

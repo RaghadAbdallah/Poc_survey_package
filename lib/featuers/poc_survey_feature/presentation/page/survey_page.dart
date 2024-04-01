@@ -5,7 +5,7 @@ import '../../../../core/widget/config_app_bar.dart';
 import '../../../../core/widget/survey_app_bar.dart';
 import '../cubit/survey_presenter_clean.dart';
 import '../cubit/survey_state_clean.dart';
-import '../widget/survey_result_clean.dart';
+import '../../data/model/survey_result_clean.dart';
 class SurveyPage extends StatefulWidget {
   final int length;
   final Widget Function(ConfigAppBar appBarConfiguration)? appBar;
