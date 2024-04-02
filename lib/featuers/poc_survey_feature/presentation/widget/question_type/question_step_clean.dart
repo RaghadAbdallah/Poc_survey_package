@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
- import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/step_identifer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/muliple_choice_format_answer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/single_choice_format_answer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/integer_formate_answer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/text_format_answer.dart';
+import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/step_identifer.dart';
+import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/new_design_single_choice_view.dart';
+import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/new_integer_design.dart';
+import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/new_text_design.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/rating_question_answer/scale_format_answer.dart';
-
 import '../../../../../core/exception/error_exception.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../../../data/model/type_of_answer/answer_format.dart';
@@ -16,6 +14,7 @@ import '../../../data/model/type_of_answer/scale_answer_format.dart';
 import '../../../data/model/type_of_answer/single_choice_answer_format.dart';
 import '../../../data/model/type_of_answer/text_answer_format.dart';
 import '../steps_clean/steps_clean.dart';
+import 'type_of_question/choice_question_answer/new_multiple_desgin.dart';
 
 @JsonSerializable()
 class QuestionStepClean extends StepClean {
@@ -44,23 +43,39 @@ class QuestionStepClean extends StepClean {
   Widget createView({required InputQuestionResult? questionResult}) {
     switch (answerFormat.runtimeType) {
       case IntegerAnswerFormat:
-        return IntegerFormatViewClean(
+        // return IntegerFormatViewClean(
+        //   questionStep: this,
+        //   result: questionResult,
+        // );
+        return NewIntegerFormatDesign(
           questionStep: this,
           result: questionResult,
         );
       case TextAnswerFormat:
-        return TextFormatViewClean(
+        // return TextFormatViewClean(
+        //   questionStep: this,
+        //   result: questionResult,
+        // );
+        return NewDesignTextView(
           questionStep: this,
           result: questionResult,
         );
       case SingleChoiceAnswerFormat:
         FocusManager.instance.primaryFocus?.unfocus();
-        return SingleChoiceAnswerViewClean(
+        // return SingleChoiceAnswerViewClean(
+        //   questionStep: this,
+        //   result: questionResult,
+        // );
+        return NewSingleChoiceDesign(
           questionStep: this,
           result: questionResult,
         );
       case MultipleChoiceAnswerFormat:
-        return MultipleChoiceAnswerViewClean(
+        // return MultipleChoiceAnswerViewClean(
+        //   questionStep: this,
+        //   result: questionResult,
+        // );
+        return NewMultipleChoiceDesign(
           questionStep: this,
           result: questionResult,
         );
@@ -74,7 +89,8 @@ class QuestionStepClean extends StepClean {
     }
   }
 
-  factory QuestionStepClean.fromJson(Map<String, dynamic> json) => _$QuestionStepFromJson(json);
+  factory QuestionStepClean.fromJson(Map<String, dynamic> json) =>
+      _$QuestionStepFromJson(json);
 
   @override
   Map<String, dynamic> toJson() => _$QuestionStepToJson(this);
