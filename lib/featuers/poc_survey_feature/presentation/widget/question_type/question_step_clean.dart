@@ -4,7 +4,7 @@ import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/step_ident
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/new_design_single_choice_view.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/new_integer_design.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/new_text_design.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/rating_question_answer/scale_format_answer.dart';
+import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/rating_question_answer/slider_new_design_poll.dart';
 import '../../../../../core/exception/error_exception.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../../../data/model/type_of_answer/answer_format.dart';
@@ -80,9 +80,14 @@ class QuestionStepClean extends StepClean {
           result: questionResult,
         );
       case ScaleAnswerFormat:
-        return ScaleAnswerViewClean(
-          questionStep: this,
-          result: questionResult,
+        // return ScaleAnswerViewClean(
+        //   questionStep: this,
+        //   result: questionResult,
+        // );
+        // return SliderPollAction(sliderPoll: ,);
+        return SliderNewDesign(
+             questionStep: this,
+             result: questionResult,
         );
       default:
         throw const Exceptions();
