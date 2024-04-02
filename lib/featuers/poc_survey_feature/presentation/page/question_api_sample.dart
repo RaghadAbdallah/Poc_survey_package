@@ -19,7 +19,7 @@ class QuestionBody extends StatelessWidget {
         required this.indexItem, });
 
   final int indexItem;
-  final  NewSurveyModel  surveyModel;
+  final  StepApi  surveyModel;
   final String questionTxt;
   final String questionType;
   final int questionIndex;
@@ -90,10 +90,9 @@ class QuestionBody extends StatelessWidget {
         backgroundColor:Colors.white,
         body: BlocBuilder<NewSurveyCubit, NewSurveyState>(
           builder: (BuildContext context, NewSurveyState state) {
-            return Container(
+            return SizedBox(
               height: 320,
               child: Center(
-
                 child: Wrap(
                   children: [
                     Column(
@@ -109,7 +108,7 @@ class QuestionBody extends StatelessWidget {
                             surveyModel: surveyModel,
                             questionIndex: questionIndex,
                             // questionID: questionID,
-                            // questionType: questionType,
+                              questionType: questionType,
                           ),
                         ),
                         Row(

@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
- import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/step_identifer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/muliple_choice_format_answer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/single_choice_format_answer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/integer_formate_answer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/text_format_answer.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/rating_question_answer/scale_format_answer.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/step_identifer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/new_design_single_choice_view.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/new_integer_design.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/new_text_design.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/rating_question_answer/slider_new_design_poll.dart';
-import '../../../../../core/exception/error_exception.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../../../data/model/type_of_answer/answer_format.dart';
 import '../../../data/model/type_of_answer/integer_answer_format.dart';
@@ -91,11 +83,11 @@ class QuestionStepClean extends StepClean {
         // );
         // return SliderPollAction(sliderPoll: ,);
         return SliderNewDesign(
-             questionStep: this,
-             result: questionResult,
+          questionStep: this,
+          result: questionResult,
         );
       default:
-        throw   Exception();
+        throw Exception();
     }
   }
 

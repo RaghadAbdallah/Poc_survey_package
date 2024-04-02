@@ -10,7 +10,7 @@ String getUserTypeTechnicalModelToJson(NewSurveyModel data) => json.encode(data.
 
 class NewSurveyModel {
   String type;
-  List<Step> steps;
+  List<StepApi> steps;
 
   NewSurveyModel({
     required this.type,
@@ -19,7 +19,7 @@ class NewSurveyModel {
 
   factory NewSurveyModel.fromJson(Map<String, dynamic> json) => NewSurveyModel(
     type: json["type"],
-    steps: List<Step>.from(json["steps"].map((x) => Step.fromJson(x))),
+    steps: List<StepApi>.from(json["steps"].map((x) => StepApi.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -28,7 +28,7 @@ class NewSurveyModel {
   };
 }
 
-class Step {
+class StepApi {
   String type;
   String? text;
   String? buttonText;
@@ -39,7 +39,7 @@ class Step {
   StepIdentifier? stepIdentifier;
   String? title;
 
-  Step({
+  StepApi({
     required this.type,
     this.text,
     this.buttonText,
@@ -51,7 +51,7 @@ class Step {
     this.title,
   });
 
-  factory Step.fromJson(Map<String, dynamic> json) => Step(
+  factory StepApi.fromJson(Map<String, dynamic> json) => StepApi(
     type: json["type"],
     text: json["text"],
     buttonText: json["buttonText"],

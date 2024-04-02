@@ -1,88 +1,53 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../../data/model/new_survey_model.dart';
+import '../widget/question_type/type_of_question/choice_question_answer/new_design_single_choice_api.dart';
+import '../widget/question_type/type_of_question/choice_question_answer/new_multiple_design_api.dart';
+import '../widget/question_type/type_of_question/input_question_answer/new_design_integer_api.dart';
+import '../widget/question_type/type_of_question/input_question_answer/new_design_text_api.dart';
+import '../widget/question_type/type_of_question/rating_question_answer/slider_new_design_api.dart';
 
 class SurveyTypeWidget extends StatelessWidget {
   const SurveyTypeWidget(
       {super.key,
       required this.surveyModel,
       required this.questionIndex,
-     // required this.questionID,
-    //  required this.questionType
-      });
+      // required this.questionID,
+      required this.questionType});
 
- // final int questionType;
+  final String questionType;
   final int questionIndex;
- // final int questionID;
-  final  NewSurveyModel  surveyModel;
 
-  Widget surveyType(int typeSurvey, int questionID, BuildContext context) {
+  // final int questionID;
+  final StepApi surveyModel;
+
+  Widget surveyType(String typeSurvey, int questionID, BuildContext context) {
     Widget typeChoose = Container();
-    // switch (typeSurvey) {
-    //   case 1:
-    //     typeChoose = MultipleChoice(
-    //       questionIndex: questionIndex,
-    //       questionID: questionID,
-    //       surveyModel: surveyModel,
-    //     );
-    //     break;
-    //   case 2:
-    //     typeChoose = OneChoice(
-    //       questionIndex: questionIndex,
-    //       questionID: questionID,
-    //       surveyModel: surveyModel,
-    //     );
-    //     break;
-    //   case 4:
-    //     answerController.text = '';
-    //     if (context
-    //             .read<GetUserSurveyCubit>()
-    //             .userSurvey[questionIndex]
-    //             .answerStatus ==
-    //         2) {
-    //       print(questionID);
-    //       for (int i = 0;
-    //           i < context.read<GetSurveyCubit>().evaluationTextAnswer.length;
-    //           i++) {
-    //         if (context
-    //                 .read<GetSurveyCubit>()
-    //                 .evaluationTextAnswer[i]
-    //                 .keys
-    //                 .last ==
-    //             questionID.toString()) {
-    //           answerController.text = context
-    //               .read<GetSurveyCubit>()
-    //               .evaluationTextAnswer[i][questionID.toString()];
-    //           break;
-    //         }
-    //       }
-    //     } else {
-    //       answerController.text = context
-    //               .read<GetUserSurveyCubit>()
-    //               .userSurvey[questionIndex]
-    //               .questionsResultSurveyList[0]
-    //               .answerDate ??
-    //           '';
-    //     }
-    //     typeChoose = TextChoice(
-    //       questionID: questionID,
-    //       questionIndex: questionIndex,
-    //       surveyModel: surveyModel,
-    //     );
-    //     break;
-    //   case 3:
-    //     typeChoose = EvaluationChoice(
-    //       questionID: questionID,
-    //       questionIndex: questionIndex,
-    //       surveyModel: surveyModel,
-    //     );
-    //     break;
-    // }
+      switch (typeSurvey) {
+      case  'text':
+        typeChoose =NewDesignTextView();
+        break;
+        case  'single':
+          typeChoose =NewSingleChoiceDesignApi(surveyModel: surveyModel,);
+          break;
+        case  'multiple':
+          typeChoose =NewMultipleChoiceDesignApi(surveyModel: surveyModel,);
+          break;
+        case  'integer':
+        case  'double':
+          typeChoose =NewIntegerFormatDesign();
+          break;
+        case  'scale':
+          typeChoose =SliderNewDesignApi(surveyModel: surveyModel,);
+          break;
+     }
     return typeChoose;
   }
 
   @override
   Widget build(BuildContext context) {
-    return surveyType(0, 0, context);
+    return surveyType(questionType, 0, context);
   }
 }

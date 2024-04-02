@@ -24,7 +24,7 @@ class StepViewClean extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _surveyController = controller ?? context.read<ItgSurveyControllerClean>();
+    final surveyController = controller ?? context.read<ItgSurveyControllerClean>();
 
     return SizedBox.expand(
       child: Container(
@@ -40,7 +40,7 @@ class StepViewClean extends StatelessWidget {
                   child: title,
                 ),
                 child,
-                _buildOutlinedButton(context, 'next', isValid || step.isOptional, () => _surveyController.nextStep(context, resultFunction)),
+                _buildOutlinedButton(context, 'next', isValid || step.isOptional, () => surveyController.nextStep(context, resultFunction)),
 
                 //ازا كان الtype == intro  لازم الباك ما تطلع
                 // _buildOutlinedButton(context, 'Back', isValid || step.isOptional, () => _surveyController.backStep(context)),

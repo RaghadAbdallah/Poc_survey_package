@@ -44,7 +44,7 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                     return QuestionBody(
                       questionTxt:questionChoice.questionDesc==""?questionChoice.title??"":questionChoice.questionDesc??"",
                       questionIndex: index,
-                      questionType: questionChoice.type,
+                      questionType: questionChoice.answerFormat?.type??'',
                       nextFunction: () async {
                         boardController.nextPage(
                             duration: const Duration(milliseconds: 750),
@@ -56,9 +56,7 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                             curve: Curves.fastLinearToSlowEaseIn);
                       },
 
-                      surveyModel: context
-                          .read<NewSurveyCubit>()
-                          .newSurveyDat!,
+                      surveyModel: questionChoice,
                       // mandatoryQt: questionChoice.mandatoryQuestion,
                       indexItem: indexItem,
                     );
