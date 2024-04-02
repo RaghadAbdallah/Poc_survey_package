@@ -7,7 +7,7 @@ import '../../data/model/instruction_step_result.dart';
 class InstructionViewClean extends StatelessWidget {
   final InstructionStepClean instructionStep;
 
-  InstructionViewClean({required this.instructionStep});
+  const InstructionViewClean({super.key, required this.instructionStep});
 
   @override
   Widget build(BuildContext context) {
