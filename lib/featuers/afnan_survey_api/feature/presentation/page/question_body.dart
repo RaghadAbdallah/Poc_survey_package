@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:poc_itg_survey/featuers/cubit/exams_schedule_period_cubit.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/new_survey_model.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/page/survey_type_widget.dart';
 
-import 'on_tap_widget.dart';
+ import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/page/survey_type.dart';
+
+import '../../data/model/new_survey_model.dart';
+import '../cubit/survey_cubit.dart';
+import '../on_tap_widget.dart';
 
 class QuestionBody extends StatelessWidget {
   QuestionBody(
@@ -32,53 +33,6 @@ class QuestionBody extends StatelessWidget {
   String textString = '';
   String questionIDString = '';
 
-  // bool mandatoryQuestion(int typeQt, BuildContext context) {
-  //   bool isAnswered = false;
-  //   switch (typeQt) {
-  //     case 1:
-  //       if (context.read<NewSurveyCubit>().checkData.isEmpty) {
-  //         isAnswered = false;
-  //       } else {
-  //         isAnswered = true;
-  //       }
-  //       break;
-  //     case 2:
-  //       if (Utilities.oneOptionValue(
-  //           context.read<GetSurveyCubit>().oneOption,
-  //           context
-  //               .read<GetUserSurveyCubit>()
-  //               .userSurvey[questionIndex]
-  //               .questionId)! <
-  //           0) {
-  //         isAnswered = false;
-  //       } else {
-  //         isAnswered = true;
-  //       }
-  //       break;
-  //     case 4:
-  //       if (answerController.text == '' || answerController.text.isEmpty) {
-  //         isAnswered = false;
-  //       } else {
-  //         isAnswered = true;
-  //       }
-  //       break;
-  //     case 3:
-  //       if (Utilities.getSliderValue(
-  //           context.read<GetSurveyCubit>().target,
-  //           context
-  //               .read<GetUserSurveyCubit>()
-  //               .userSurvey[questionIndex]
-  //               .questionId) <
-  //           1) {
-  //         isAnswered = false;
-  //       } else {
-  //         isAnswered = true;
-  //       }
-  //       break;
-  //   }
-  //   return isAnswered;
-  // }
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -99,8 +53,8 @@ class QuestionBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all( 8),
-                          child:Text(questionTxt)
+                            padding: EdgeInsets.all( 8),
+                            child:Text(questionTxt)
                         ),
                         Padding(
                           padding:   EdgeInsets.only(top: 8),
@@ -108,7 +62,7 @@ class QuestionBody extends StatelessWidget {
                             surveyModel: surveyModel,
                             questionIndex: questionIndex,
                             // questionID: questionID,
-                              questionType: questionType,
+                            questionType: questionType,
                           ),
                         ),
                         Row(
@@ -176,36 +130,36 @@ class QuestionBody extends StatelessWidget {
                             //   )
                             // else
 
-                              OnTapWidget(
-                                onTapFunction: () async {
-                                  // if (mandatoryQuestion(questionType, context) ==
-                                  //     false &&
-                                  //     mandatoryQt == 1 &&
-                                  //     surveyModel.steps[questionIndex].answerStatus == 0) {
-                                  //   return Utilities.showToastMessage(
-                                  //       questionType == 1 || questionType == 2
-                                  //           ? 'الرجاء إختيار إجابة واحدة على الأقل'
-                                  //           : 'الرجاء إدخال الإجابة',
-                                  //       context);
-                                  // } else {
-                                  //   FocusScope.of(context).unfocus();
-                                  //   // if (context
-                                  //   //         .read<GetSurveyCubit>()
-                                  //   //         .pageToValueChanged[questionIndex] !=
-                                  //   //     true) {
-                                  //   context.read<GetSurveyCubit>().changeProgressValue =
-                                  //       context.read<GetSurveyCubit>().progressValue +
-                                  //           1;
-                                  //
-                                  //   // context
-                                  //   //     .read<GetSurveyCubit>()
-                                  //   //     .pageToValueChanged[questionIndex] = true;
-                                  //   //   }
-                                      nextFunction();
-                                  // }
-                                },
-                                buttonTitle: 'next',
-                              )
+                            OnTapWidget(
+                              onTapFunction: () async {
+                                // if (mandatoryQuestion(questionType, context) ==
+                                //     false &&
+                                //     mandatoryQt == 1 &&
+                                //     surveyModel.steps[questionIndex].answerStatus == 0) {
+                                //   return Utilities.showToastMessage(
+                                //       questionType == 1 || questionType == 2
+                                //           ? 'الرجاء إختيار إجابة واحدة على الأقل'
+                                //           : 'الرجاء إدخال الإجابة',
+                                //       context);
+                                // } else {
+                                //   FocusScope.of(context).unfocus();
+                                //   // if (context
+                                //   //         .read<GetSurveyCubit>()
+                                //   //         .pageToValueChanged[questionIndex] !=
+                                //   //     true) {
+                                //   context.read<GetSurveyCubit>().changeProgressValue =
+                                //       context.read<GetSurveyCubit>().progressValue +
+                                //           1;
+                                //
+                                //   // context
+                                //   //     .read<GetSurveyCubit>()
+                                //   //     .pageToValueChanged[questionIndex] = true;
+                                //   //   }
+                                nextFunction();
+                                // }
+                              },
+                              buttonTitle: 'next',
+                            )
                           ],
                         ),
                       ],

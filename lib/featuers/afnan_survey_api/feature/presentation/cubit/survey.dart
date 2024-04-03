@@ -1,4 +1,4 @@
-part of 'exams_schedule_period_cubit.dart';
+part of 'survey_cubit.dart';
 
 abstract class NewSurveyState extends Equatable {
   const NewSurveyState();

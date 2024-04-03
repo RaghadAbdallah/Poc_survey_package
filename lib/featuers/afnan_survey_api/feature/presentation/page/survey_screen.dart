@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:poc_itg_survey/featuers/cubit/exams_schedule_period_cubit.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/page/question_api_sample.dart';
+import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/page/question_body.dart';
+
+import '../cubit/survey_cubit.dart';
 
 class SurveyApiSample extends StatefulWidget {
   const SurveyApiSample({Key? key}) : super(key: key);

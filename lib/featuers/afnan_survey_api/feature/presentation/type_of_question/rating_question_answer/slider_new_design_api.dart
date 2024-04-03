@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:poc_itg_survey/featuers/cubit/exams_schedule_period_cubit.dart';
 
-import '../../../../../data/model/new_survey_model.dart';
+import '../../../data/model/new_survey_model.dart';
 
 class SliderNewDesignApi extends StatefulWidget {
   const SliderNewDesignApi({super.key, required this.surveyModel});

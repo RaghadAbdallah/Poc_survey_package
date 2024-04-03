@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
- import '../../../../../core/data/data_source/remote/network_helper.dart';
-import '../../../../core/resource/constants.dart';
+  import '../../../core/constants.dart';
+import '../../../core/data/data_source/remote/network_helper.dart';
 import '../model/new_survey_model.dart';
 
 abstract class NewSurveyDataSourece {

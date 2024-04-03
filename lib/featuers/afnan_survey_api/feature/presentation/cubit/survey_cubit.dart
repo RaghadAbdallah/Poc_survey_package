@@ -1,13 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import '../../../../core/domain/error/failures.dart';
-import '../../../../core/domain/usecases/usecase.dart';
-import '../poc_survey_feature/data/model/new_survey_model.dart';
-import '../poc_survey_feature/domain/usecase/exams_schedule_period_usecase.dart';
-import '../poc_survey_feature/domain/usecase/get_answer_survey_usecase.dart';
+import '../../../core/domain/error/failures.dart';
+import '../../../core/domain/usecases/usecase.dart';
+import '../../data/model/new_survey_model.dart';
+import '../../domain/usecase/exams_schedule_period_usecase.dart';
+import '../../domain/usecase/get_answer_survey_usecase.dart';
 
-part 'exams_schedule_period_state.dart';
+part 'survey.dart';
 
 class NewSurveyCubit extends Cubit<NewSurveyState> {
   NewSurveyCubit(

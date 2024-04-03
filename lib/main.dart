@@ -2,19 +2,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:poc_itg_survey/core/resource/itg_survey_clean.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/navigable_task_clean.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean/steps_clean.dart';
-import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/task_clean.dart';
-import 'core/data/data_source/remote/network_helper.dart';
-import 'core/models/conditional_navigation_rule.dart';
-import 'core/models/task_identifier.dart';
-import 'core/widget/config_survey_progress.dart';
-import 'featuers/cubit/exams_schedule_period_cubit.dart';
-import 'featuers/poc_survey_feature/data/model/survey_result_clean.dart';
-import 'featuers/poc_survey_feature/presentation/page/survey_api_sample.dart';
-import 'injection_container/injection_container.dart' as di;
-
+import 'featuers/afnan_survey_api/core/data/data_source/remote/network_helper.dart';
+import 'featuers/afnan_survey_api/feature/presentation/cubit/survey_cubit.dart';
+import 'featuers/afnan_survey_api/feature/presentation/page/survey_screen.dart';
+ import 'package:poc_itg_survey/featuers/afnan_survey_api/injection_container/injection_container.dart' as di;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
@@ -57,49 +48,7 @@ class _MyAppState extends State<MyApp> {
           body: Align(
               alignment: Alignment.center,
               child:   SurveyApiSample()
-                    //   ItgSurveyClean(
-                    //   onResult: (SurveyResultClean result) {
-                    //     Navigator.pushNamed(context, '/');
-                    //   },
-                    //   task:  ,
-                    //   showProgress: true,
-                    //   themeData: Theme.of(context).copyWith(
-                    //     primaryColor: Colors.black,
-                    //     textTheme: const TextTheme(
-                    //       displayMedium: TextStyle(
-                    //         fontSize: 28.0,
-                    //         color: Colors.black,
-                    //       ),
-                    //       headlineSmall: TextStyle(
-                    //         fontSize: 20.0,
-                    //         color: Colors.black,
-                    //       ),
-                    //       bodyMedium: TextStyle(
-                    //         fontSize: 18.0,
-                    //         color: Colors.black,
-                    //       ),
-                    //       titleMedium: TextStyle(
-                    //         fontSize: 18.0,
-                    //         color: Colors.black,
-                    //       ),
-                    //     ),
-                    //     inputDecorationTheme: const InputDecorationTheme(
-                    //       labelStyle: TextStyle(
-                    //         color: Colors.black,
-                    //       ),
-                    //     ),
-                    //     colorScheme: ColorScheme.fromSwatch(
-                    //       primarySwatch: Colors.teal,
-                    //     )
-                    //         .copyWith(
-                    //       onPrimary: Colors.white,
-                    //     )
-                    //         .copyWith(background: Colors.white),
-                    //   ),
-                    //   surveyProgressbarConfiguration: ConfigSurveyProgress(
-                    //     backgroundColor: Colors.white,
-                    //   ),
-                    // );
+
 
 
               ),

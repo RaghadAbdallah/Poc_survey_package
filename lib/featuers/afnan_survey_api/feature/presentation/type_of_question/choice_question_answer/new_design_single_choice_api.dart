@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../data/model/new_survey_model.dart';
+ import '../../../data/model/new_survey_model.dart';
 
 class NewSingleChoiceDesignApi extends StatefulWidget {
   const NewSingleChoiceDesignApi({super.key, required this.surveyModel});

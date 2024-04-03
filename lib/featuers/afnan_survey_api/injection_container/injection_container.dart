@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
-import 'exams_schedule_injection.dart';
+import 'survey_injection_container.dart';
 
 
 GetIt sl = GetIt.instance;

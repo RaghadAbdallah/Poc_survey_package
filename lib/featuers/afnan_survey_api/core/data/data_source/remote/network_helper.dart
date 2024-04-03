@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import '../../../resource/constants.dart';
+import '../../../constants.dart';
 
 Duration connectTimeoutDuration = const Duration(seconds: 50000);
 Duration connectReceiveTimeout = const Duration(seconds: 50000);
