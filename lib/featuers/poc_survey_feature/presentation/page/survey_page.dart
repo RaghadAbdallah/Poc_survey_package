@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widget/config_app_bar.dart';
 import '../../../../core/widget/survey_app_bar.dart';
+import '../../../custom_design/widget/build_next_previous_button.dart';
 import '../cubit/survey_presenter_clean.dart';
 import '../cubit/survey_state_clean.dart';
 import '../../data/model/survey_result_clean.dart';
+
 class SurveyPage extends StatefulWidget {
   final int length;
   final Widget Function(ConfigAppBar appBarConfiguration)? appBar;
@@ -68,35 +70,51 @@ class _SurveyPageState extends State<SurveyPage>
                         controller: tabController,
                         children: state.steps
                             .map((e) => Container(
-                          key: ValueKey<String>(
-                            e.stepIdentifier.id,
-                          ),
-                          child: e.createView(
-                            questionResult:
-                            state.questionResults.firstWhereOrNull(
-                                  (element) =>
-                              element.id == e.stepIdentifier,
-                            ),
-                          ),
-                        ))
+                                key: ValueKey<String>(
+                                  e.stepIdentifier.id,
+                                ),
+                                child: Wrap(
+                                  children: [
+                                    Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 300,
+                                          child: e.createView(
+                                            questionResult: state
+                                                .questionResults
+                                                .firstWhereOrNull(
+                                              (element) =>
+                                                  element.id ==
+                                                  e.stepIdentifier,
+                                            ),
+                                          ),
+                                        ),
+                                        NextPreviousBody(
+                                          isEnabled: true,
+                                          onPressed: () {},
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                )))
                             .toList(),
                       ),
                     ),
                     Container(
                       child: state.currentStep.showAppBar
                           ? PreferredSize(
-                        preferredSize: Size(
-                          double.infinity,
-                          70.0,
-                        ),
-                        child: widget.appBar != null
-                            ? widget.appBar!
-                            .call(state.appBarConfiguration)
-                            : SurveyAppBar(
-                          appBarConfiguration:
-                          state.appBarConfiguration,
-                        ),
-                      )
+                              preferredSize: Size(
+                                double.infinity,
+                                70.0,
+                              ),
+                              child: widget.appBar != null
+                                  ? widget.appBar!
+                                      .call(state.appBarConfiguration)
+                                  : SurveyAppBar(
+                                      appBarConfiguration:
+                                          state.appBarConfiguration,
+                                    ),
+                            )
                           : null,
                     ),
                   ],
@@ -104,7 +122,8 @@ class _SurveyPageState extends State<SurveyPage>
               ],
             ),
           );
-        } else if (state is SurveyResultCleanState && state.currentStep != null) {
+        } else if (state is SurveyResultCleanState &&
+            state.currentStep != null) {
           return const Center(
             child: CircularProgressIndicator(),
           );

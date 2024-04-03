@@ -1,4 +1,3 @@
-
 import '../feature/data/data_source/new_survey_datasource.dart';
 import '../feature/data/repositories/exams_schedule_period_repo_impl.dart';
 import '../feature/domain/repository/exams_schedule_period_repositroy.dart';
@@ -11,15 +10,13 @@ Future<void> initNewSurvey() async {
   // cubit
   sl.registerFactory(() => NewSurveyCubit(
       newSurveyUseCase: sl<NewSurveyUseCase>(), answerSurveyUseCase: sl()));
-
   // repository
   sl.registerLazySingleton<NewSurveyRepository>(() =>
       NewSurveyRepositoryImpl(
-          dataSource: sl<NewSurveyDataSourece>()));
+          dataSource: sl<NewSurveyDataSource>()));
 //datasource
-   sl.registerLazySingleton<NewSurveyDataSourece>(
-      () => NewSurveyDataSoureceImpl());
-
+   sl.registerLazySingleton<NewSurveyDataSource>(
+      () => NewSurveyDataSourceImpl());
   // use cases
   sl.registerLazySingleton(() => NewSurveyUseCase(repository: sl()));
   sl.registerLazySingleton(() => AnswerSurveyUseCase(repository: sl()));

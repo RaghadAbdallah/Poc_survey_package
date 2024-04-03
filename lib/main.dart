@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'featuers/afnan_survey_api/core/data/data_source/remote/network_helper.dart';
 import 'featuers/afnan_survey_api/feature/presentation/cubit/survey_cubit.dart';
 import 'featuers/afnan_survey_api/feature/presentation/page/survey_screen.dart';
- import 'package:poc_itg_survey/featuers/afnan_survey_api/injection_container/injection_container.dart' as di;
+import 'package:poc_itg_survey/featuers/afnan_survey_api/injection_container/injection_container.dart'
+    as di;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
@@ -32,8 +34,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -42,20 +42,14 @@ class _MyAppState extends State<MyApp> {
           create: (_) => di.sl<NewSurveyCubit>(),
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
+
         home: Scaffold(
-          body: Align(
-              alignment: Alignment.center,
-              child:   SurveyApiSample()
-
-
-
-              ),
-          ),
-
+          body: Align(alignment: Alignment.center, child: SurveyApiSample()),
+        ),
       ),
     );
   }
-
 }
+

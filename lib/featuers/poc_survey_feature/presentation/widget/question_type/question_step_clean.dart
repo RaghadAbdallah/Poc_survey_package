@@ -4,6 +4,11 @@ import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/q
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/new_integer_design.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/input_question_answer/new_text_design.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/rating_question_answer/slider_new_design_poll.dart';
+import '../../../../custom_design/custom_question_type_design/custom_integer_answer_design.dart';
+import '../../../../custom_design/custom_question_type_design/custom_multiple_choice_design.dart';
+import '../../../../custom_design/custom_question_type_design/custom_single_choice_design.dart';
+import '../../../../custom_design/custom_question_type_design/custom_slider_poll_design.dart';
+import '../../../../custom_design/custom_question_type_design/custom_text_answer_design.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../../../data/model/type_of_answer/answer_format.dart';
 import '../../../data/model/type_of_answer/integer_answer_format.dart';
@@ -40,51 +45,64 @@ class QuestionStepClean extends StepClean {
   Widget createView({required InputQuestionResult? questionResult}) {
     switch (answerFormat.runtimeType) {
       case IntegerAnswerFormat:
-        // return IntegerFormatViewClean(
+        // return NewIntegerFormatDesign(
         //   questionStep: this,
         //   result: questionResult,
         // );
-        return NewIntegerFormatDesign(
-          questionStep: this,
-          result: questionResult,
+        return CustomIntegerAnswerDesign(
+          questionDesc: '',
         );
       case TextAnswerFormat:
-        // return TextFormatViewClean(
+        // return NewDesignTextView(
         //   questionStep: this,
         //   result: questionResult,
         // );
-        return NewDesignTextView(
-          questionStep: this,
-          result: questionResult,
+        return CustomTextAnswerDesign(
+          questionDesc: '',
         );
       case SingleChoiceAnswerFormat:
         FocusManager.instance.primaryFocus?.unfocus();
-        // return SingleChoiceAnswerViewClean(
+        // return NewSingleChoiceDesign(
         //   questionStep: this,
         //   result: questionResult,
         // );
-        return NewSingleChoiceDesign(
-          questionStep: this,
-          result: questionResult,
+        //   SingleChoiceAnswerFormat singleChoiceAnswerFormat;
+        // List<ChoiceItem> choiceList = [];
+        // for (int i = 0; i < singleChoiceAnswerFormat.textChoices.length; i++) {
+        //   choiceList.add(ChoiceItem(
+        //       title: singleChoiceAnswerFormat.textChoices[i].text ?? '',
+        //       value: singleChoiceAnswerFormat.textChoices[i].value));
+        // }
+        return CustomSingleChoiceDesign(
+          questionDesc: '',
+          choiceList: [],
         );
       case MultipleChoiceAnswerFormat:
-        // return MultipleChoiceAnswerViewClean(
+        // return NewMultipleChoiceDesign(
         //   questionStep: this,
         //   result: questionResult,
         // );
-        return NewMultipleChoiceDesign(
-          questionStep: this,
-          result: questionResult,
+        // List<ChoiceItem> choiceList = []; // يجب أن تكون ChoiceItem بدلاً من bool
+        // for (int i = 0; i <  singleChoiceAnswerFormat.textChoices.length ; i++) {
+        //   choiceList.add(ChoiceItem(
+        //     title: surveyModel.answerFormat?.questionsResultSurveyList![i].answerDesc ?? '',
+        //     value: surveyModel.answerFormat?.questionsResultSurveyList![i].answerId,
+        //   ));
+        // }
+        return CustomMultipleChoiceDesign(
+          questionDesc: '',
+          choiceList: [],
         );
       case ScaleAnswerFormat:
-        // return ScaleAnswerViewClean(
+        // return SliderNewDesign(
         //   questionStep: this,
         //   result: questionResult,
         // );
-        // return SliderPollAction(sliderPoll: ,);
-        return SliderNewDesign(
-          questionStep: this,
-          result: questionResult,
+        return CustomSliderPollDesign(
+          questionDesc: '',
+          maxValue: 0.0,
+          minValue: 0.0,
+          stepValue: 0.0,
         );
       default:
         throw Exception();

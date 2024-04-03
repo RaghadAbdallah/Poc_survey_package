@@ -1,13 +1,6 @@
-// To parse this JSON data, do
-//
-//     final getUserTypeTechnicalModel = getUserTypeTechnicalModelFromJson(jsonString);
-
 import 'dart:convert';
-
 NewSurveyModel getUserTypeTechnicalModelFromJson(String str) => NewSurveyModel.fromJson(json.decode(str));
-
 String getUserTypeTechnicalModelToJson(NewSurveyModel data) => json.encode(data.toJson());
-
 class NewSurveyModel {
   String type;
   List<StepApi> steps;

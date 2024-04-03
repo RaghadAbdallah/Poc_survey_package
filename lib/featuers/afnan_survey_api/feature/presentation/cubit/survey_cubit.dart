@@ -44,6 +44,5 @@ class NewSurveyCubit extends Cubit<NewSurveyState> {
       emit(AnswerSurveyStateLoaded(model: success));
     });
   }
-
   NewSurveyModel? newSurveyDat;
 }
