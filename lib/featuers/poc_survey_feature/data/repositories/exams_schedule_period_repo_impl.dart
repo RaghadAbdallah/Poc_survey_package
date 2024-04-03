@@ -17,4 +17,14 @@ class NewSurveyRepositoryImpl
       return const Left(ServerFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, NewSurveyModel>> getAnswerSurvey()
+    async {
+      try {
+        return Right(await dataSource.getAnswerSurvey());
+    } on ServerException {
+    return const Left(ServerFailure());
+    }
+  }
 }

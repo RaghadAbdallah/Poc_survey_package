@@ -18,6 +18,11 @@ class NewSurveyStateLoaded extends NewSurveyState {
  final NewSurveyModel model;
   @override
   List<Object> get props => [model];
+}class AnswerSurveyStateLoaded extends NewSurveyState {
+ const AnswerSurveyStateLoaded({required this.model});
+ final NewSurveyModel model;
+  @override
+  List<Object> get props => [model];
 }
 
 
