@@ -1,5 +1,7 @@
 
- import 'package:flutter/material.dart';
+ import 'dart:developer';
+
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/page/survey_type.dart';
 
@@ -45,7 +47,7 @@ class QuestionBody extends StatelessWidget {
         body: BlocBuilder<NewSurveyCubit, NewSurveyState>(
           builder: (BuildContext context, NewSurveyState state) {
             return SizedBox(
-              height: 320,
+              height: 400,
               child: Center(
                 child: Wrap(
                   children: [
@@ -53,16 +55,14 @@ class QuestionBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                            padding: EdgeInsets.all( 8),
-                            child:Text(questionTxt)
-                        ),
-                        Padding(
                           padding:   EdgeInsets.only(top: 8),
-                          child: SurveyTypeWidget(
-                            surveyModel: surveyModel,
-                            questionIndex: questionIndex,
-                            // questionID: questionID,
-                            questionType: questionType,
+                          child: SizedBox(
+                            height: 300,
+                            child: SurveyTypeWidget(
+                              surveyModel: surveyModel,
+                              questionIndex: questionIndex,
+                              questionType: questionType,
+                            ),
                           ),
                         ),
                         Row(
@@ -132,6 +132,7 @@ class QuestionBody extends StatelessWidget {
 
                             OnTapWidget(
                               onTapFunction: () async {
+                                log('ffffffffffffffffffffffffffffff');
                                 // if (mandatoryQuestion(questionType, context) ==
                                 //     false &&
                                 //     mandatoryQt == 1 &&

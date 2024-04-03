@@ -1,21 +1,18 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-
+import '../../../../custom_design/custom_question_type_design/custom_integer_answer_design.dart';
+import '../../../../custom_design/custom_question_type_design/custom_multiple_choice_design.dart';
+import '../../../../custom_design/custom_question_type_design/custom_single_choice_design.dart';
+import '../../../../custom_design/custom_question_type_design/custom_slider_poll_design.dart';
+import '../../../../custom_design/custom_question_type_design/custom_text_answer_design.dart';
+import '../../../../custom_design/entities/choice_item.dart';
 import '../../data/model/new_survey_model.dart';
-import '../type_of_question/choice_question_answer/new_design_single_choice_api.dart';
-import '../type_of_question/choice_question_answer/new_multiple_design_api.dart';
-import '../type_of_question/input_question_answer/new_design_integer_api.dart';
-import '../type_of_question/input_question_answer/new_design_text_api.dart';
-import '../type_of_question/rating_question_answer/slider_new_design_api.dart';
-
 class SurveyTypeWidget extends StatelessWidget {
   const SurveyTypeWidget(
       {super.key,
-        required this.surveyModel,
-        required this.questionIndex,
-        // required this.questionID,
-        required this.questionType});
+      required this.surveyModel,
+      required this.questionIndex,
+      // required this.questionID,
+      required this.questionType});
 
   final String questionType;
   final int questionIndex;
@@ -26,21 +23,68 @@ class SurveyTypeWidget extends StatelessWidget {
   Widget surveyType(String typeSurvey, int questionID, BuildContext context) {
     Widget typeChoose = Container();
     switch (typeSurvey) {
-      case  'text':
-        typeChoose =NewDesignTextView();
+      case 'text':
+        // typeChoose = NewDesignTextView();
+        typeChoose = CustomTextAnswerDesign(
+          questionDesc: surveyModel.questionDesc ?? '',
+        );
         break;
-      case  'single':
-        typeChoose =NewSingleChoiceDesignApi(surveyModel: surveyModel,);
+      case 'single':
+        //typeChoose =NewSingleChoiceDesignApi(surveyModel: surveyModel,);
+        List<ChoiceItem> choiceList = [];
+        final length =
+            surveyModel.answerFormat?.questionsResultSurveyList?.length ?? 0;
+        for (int i = 0; i < length; i++) {
+          choiceList.add(ChoiceItem(
+              title: surveyModel
+                      .answerFormat?.questionsResultSurveyList![i].answerDesc ??
+                  '',
+              value: surveyModel
+                  .answerFormat?.questionsResultSurveyList![i].answerId));
+        }
+        typeChoose = CustomSingleChoiceDesign(
+          questionDesc: surveyModel.questionDesc ?? '',
+          choiceList: choiceList,
+        );
         break;
-      case  'multiple':
-        typeChoose =NewMultipleChoiceDesignApi(surveyModel: surveyModel,);
+      case 'multiple':
+        List<ChoiceItem> choiceList = [];
+        final length =
+            surveyModel.answerFormat?.questionsResultSurveyList?.length ?? 0;
+        for (int i = 0; i < length; i++) {
+          choiceList.add(ChoiceItem(
+            title: surveyModel
+                    .answerFormat?.questionsResultSurveyList![i].answerDesc ??
+                '',
+            value: surveyModel
+                .answerFormat?.questionsResultSurveyList![i].answerId,
+          ));
+        }
+        typeChoose = CustomMultipleChoiceDesign(
+          questionDesc: surveyModel.questionDesc ?? '',
+          choiceList: choiceList,
+        );
+        //     NewMultipleChoiceDesignApi(
+        //   surveyModel: surveyModel,
+        // );
         break;
-      case  'integer':
-      case  'double':
-        typeChoose =NewIntegerFormatDesign();
+      case 'integer':
+      case 'double':
+        // typeChoose = NewIntegerFormatDesign();
+        typeChoose = CustomIntegerAnswerDesign(
+          questionDesc: surveyModel.questionDesc ?? '',
+        );
         break;
-      case  'scale':
-        typeChoose =SliderNewDesignApi(surveyModel: surveyModel,);
+      case 'scale':
+        // typeChoose = SliderNewDesignApi(
+        //   surveyModel: surveyModel,
+        // );
+        typeChoose = CustomSliderPollDesign(
+          questionDesc: surveyModel.questionDesc ?? '',
+          maxValue: surveyModel.answerFormat?.maximumValue ?? 0.0,
+          minValue: surveyModel.answerFormat?.minimumValue ?? 0.0,
+          stepValue: surveyModel.answerFormat?.step ?? 0.0,
+        );
         break;
     }
     return typeChoose;
