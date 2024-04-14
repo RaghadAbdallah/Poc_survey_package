@@ -7,7 +7,7 @@ class InputQuestionResult<T> extends Equatable {
   final Identifier? id;
 
   const InputQuestionResult(
-      {required this.id, required this.result, required this.valueIdentifier});
+      {required this.id,  this.result,  this.valueIdentifier});
 
   Map<String, dynamic> toJson() => _$InputQuestionResultToJson(this);
 

@@ -50,7 +50,7 @@ class QuestionStepClean extends StepClean {
         //   result: questionResult,
         // );
         return CustomIntegerAnswerDesign(
-          questionDesc: '',
+          questionDesc:title,
         );
       case TextAnswerFormat:
         // return NewDesignTextView(
@@ -58,7 +58,7 @@ class QuestionStepClean extends StepClean {
         //   result: questionResult,
         // );
         return CustomTextAnswerDesign(
-          questionDesc: '',
+          questionDesc:title,
         );
       case SingleChoiceAnswerFormat:
         FocusManager.instance.primaryFocus?.unfocus();
@@ -74,7 +74,7 @@ class QuestionStepClean extends StepClean {
         //       value: singleChoiceAnswerFormat.textChoices[i].value));
         // }
         return CustomSingleChoiceDesign(
-          questionDesc: '',
+          questionDesc: title,
           choiceList: [],
         );
       case MultipleChoiceAnswerFormat:
@@ -90,7 +90,7 @@ class QuestionStepClean extends StepClean {
         //   ));
         // }
         return CustomMultipleChoiceDesign(
-          questionDesc: '',
+          questionDesc: title,
           choiceList: [],
         );
       case ScaleAnswerFormat:
@@ -98,11 +98,20 @@ class QuestionStepClean extends StepClean {
         //   questionStep: this,
         //   result: questionResult,
         // );
+        late final ScaleAnswerFormat _scaleAnswerFormat;
+        late double _sliderValue;
+
+          _scaleAnswerFormat =  answerFormat as ScaleAnswerFormat;
+          _sliderValue = _scaleAnswerFormat.defaultValue;
+
+
         return CustomSliderPollDesign(
-          questionDesc: '',
-          maxValue: 0.0,
-          minValue: 0.0,
-          stepValue: 0.0,
+          questionDesc: title,
+          maxValue: _scaleAnswerFormat.maximumValue,
+          minValue: _scaleAnswerFormat.minimumValue,
+          stepValue: (_scaleAnswerFormat.maximumValue -
+              _scaleAnswerFormat.minimumValue) /
+              _scaleAnswerFormat.step,
         );
       default:
         throw Exception();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/page/survey_type.dart';
+import '../../../../custom_design/widget/build_next_previous_button.dart';
 import '../../data/model/new_survey_model.dart';
 import '../cubit/survey_cubit.dart';
 import '../on_tap_widget.dart';
@@ -51,17 +52,26 @@ class QuestionBody extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            OnTapWidget(
-                              onTapFunction: () async {
-                                nextFunction();
-                              },
-                              buttonTitle: 'next',
-                            )
-                          ],
-                        ),
+                        NextPreviousBody(
+                          isEnabled: true,
+                          onPressedNext: () {
+                           nextFunction();
+                          },
+                          onPressedPrevious: () {
+                          previousFunction();
+                          },
+                        )
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     OnTapWidget(
+                        //       onTapFunction: () async {
+                        //         nextFunction();
+                        //       },
+                        //       buttonTitle: 'next',
+                        //     )
+                        //   ],
+                        // ),
                       ],
                     ),
                   ],

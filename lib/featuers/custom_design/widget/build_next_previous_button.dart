@@ -4,10 +4,13 @@ class NextPreviousBody extends StatelessWidget {
   const NextPreviousBody(
       {super.key,
       required this.isEnabled,
-      required this.onPressed});
+      required this.onPressedPrevious,
+      required this.onPressedNext,
+      });
 
   final bool isEnabled;
-  final VoidCallback? onPressed;
+  final VoidCallback? onPressedNext;
+  final VoidCallback? onPressedPrevious;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class NextPreviousBody extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0),
           child: OutlinedButton(
-            onPressed: isEnabled ? onPressed : null,
+            onPressed: isEnabled ? onPressedPrevious : null,
             child: Text(
               'previous',
               style: TextStyle(
@@ -29,7 +32,7 @@ class NextPreviousBody extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0),
           child: OutlinedButton(
-            onPressed: isEnabled ? onPressed : null,
+            onPressed: isEnabled ? onPressedNext : null,
             child: Text(
               'next',
               style: TextStyle(
