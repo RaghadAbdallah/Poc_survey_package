@@ -6,9 +6,12 @@ class NextPreviousBody extends StatelessWidget {
       required this.isEnabled,
       required this.onPressedPrevious,
       required this.onPressedNext,
-      });
+      required this.isFirst,
+      required this.isFinal});
 
   final bool isEnabled;
+  final bool isFirst;
+  final bool isFinal;
   final VoidCallback? onPressedNext;
   final VoidCallback? onPressedPrevious;
 
@@ -17,30 +20,51 @@ class NextPreviousBody extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 32.0),
-          child: OutlinedButton(
-            onPressed: isEnabled ? onPressedPrevious : null,
-            child: Text(
-              'previous',
-              style: TextStyle(
-                color: isEnabled ? Theme.of(context).primaryColor : Colors.grey,
+        isFirst
+            ? const SizedBox()
+            : Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32.0),
+                child: OutlinedButton(
+                  onPressed: isEnabled ? onPressedPrevious : null,
+                  child: Text(
+                    'previous',
+                    style: TextStyle(
+                      color: isEnabled
+                          ? Theme.of(context).primaryColor
+                          : Colors.grey,
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 32.0),
-          child: OutlinedButton(
-            onPressed: isEnabled ? onPressedNext : null,
-            child: Text(
-              'next',
-              style: TextStyle(
-                color: isEnabled ? Theme.of(context).primaryColor : Colors.grey,
+        isFinal
+            ? Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32.0),
+                child: OutlinedButton(
+                  onPressed: null,
+                  child: Text(
+                    'submit',
+                    style: TextStyle(
+                      color: isEnabled
+                          ? Theme.of(context).primaryColor
+                          : Colors.grey,
+                    ),
+                  ),
+                ),
+              )
+            : Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32.0),
+                child: OutlinedButton(
+                  onPressed: isEnabled ? onPressedNext : null,
+                  child: Text(
+                    'next',
+                    style: TextStyle(
+                      color: isEnabled
+                          ? Theme.of(context).primaryColor
+                          : Colors.grey,
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-        ),
       ],
     );
   }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/page/question_body.dart';
@@ -38,9 +40,10 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                   .steps
                   .map((questionChoice) {
                 return QuestionBody(
-
                   questionIndex: index,
-                  questionType: questionChoice.answerFormat?.type ?? '',
+                  questionType: questionChoice.type == 'question'
+                      ? questionChoice.answerFormat?.type ?? ''
+                      : questionChoice.type,
                   nextFunction: () async {
                     boardController.nextPage(
                         duration: const Duration(milliseconds: 750),
@@ -52,8 +55,10 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                         curve: Curves.fastLinearToSlowEaseIn);
                   },
 
-                  surveyModel: questionChoice,
-                 // indexItem: indexItem,
+                  surveyModel: questionChoice, isFinal:context.read<NewSurveyCubit>().newSurveyDat!.steps.length -
+                    1 ==
+                    index?true:false,
+                  // indexItem: indexItem,
                 );
               }).toList();
               return listOfQuestions[index];

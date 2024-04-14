@@ -13,11 +13,13 @@ class QuestionBody extends StatelessWidget {
         required this.previousFunction,
         required this.questionType,
         required this.questionIndex,
+        required this.isFinal,
         required this.surveyModel,});
 
   final  StepApi  surveyModel;
   final String questionType;
   final int questionIndex;
+  final bool isFinal;
 
   final void Function() nextFunction;
   final void Function() previousFunction;
@@ -33,7 +35,7 @@ class QuestionBody extends StatelessWidget {
         backgroundColor:Colors.white,
         body: BlocBuilder<NewSurveyCubit, NewSurveyState>(
           builder: (BuildContext context, NewSurveyState state) {
-            return Container(
+            return SizedBox(
               height: 500,
               child: Center(
                 child: Wrap(
@@ -59,7 +61,8 @@ class QuestionBody extends StatelessWidget {
                           },
                           onPressedPrevious: () {
                           previousFunction();
-                          },
+                          }, isFirst: questionIndex==0?true:false,
+                          isFinal: isFinal,
                         )
                         // Row(
                         //   mainAxisAlignment: MainAxisAlignment.center,

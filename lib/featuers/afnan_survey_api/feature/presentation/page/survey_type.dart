@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../../custom_design/custom_question_type_design/custom_complete_widget.dart';
 import '../../../../custom_design/custom_question_type_design/custom_integer_answer_design.dart';
+import '../../../../custom_design/custom_question_type_design/custom_intro_widget.dart';
 import '../../../../custom_design/custom_question_type_design/custom_multiple_choice_design.dart';
 import '../../../../custom_design/custom_question_type_design/custom_single_choice_design.dart';
 import '../../../../custom_design/custom_question_type_design/custom_slider_poll_design.dart';
@@ -19,15 +21,16 @@ class SurveyTypeWidget extends StatelessWidget {
   final StepApi surveyModel;
 
   Widget surveyType(String typeSurvey, int questionID, BuildContext context) {
-    Widget typeChoose = Padding(
-      padding: const EdgeInsets.only(top: 200.0),
-      child: Text(
-        surveyModel.questionDesc ?? '',
-        style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 18,color: Colors.lightBlue),
-        textAlign: TextAlign.center,
-
-      ),
-    );
+    Widget typeChoose = const SizedBox();
+    // Padding(
+    //   padding: const EdgeInsets.only(top: 200.0),
+    //   child: Text(
+    //     surveyModel.questionDesc ?? '',
+    //     style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 18,color: Colors.lightBlue),
+    //     textAlign: TextAlign.center,
+    //
+    //   ),
+    // );
     switch (typeSurvey) {
       case 'text':
         typeChoose = CustomTextAnswerDesign(
@@ -75,9 +78,10 @@ class SurveyTypeWidget extends StatelessWidget {
         );
         break;
       case "intro":
-        typeChoose = CustomIntegerAnswerDesign(
-          questionDesc: surveyModel.questionDesc ?? 'ddddddddddddddddddd',
-        );
+        typeChoose = CustomIntroWidget(   questionDesc: surveyModel.questionDesc ?? '',);
+        break;
+        case "completion":
+        typeChoose = CustomCompleteWidget(   text: surveyModel.text ?? '',title:  surveyModel.title ?? '',);
         break;
       case 'double':
         typeChoose = CustomIntegerAnswerDesign(
@@ -93,7 +97,7 @@ class SurveyTypeWidget extends StatelessWidget {
         );
         break;
     }
-    return     typeChoose;
+    return typeChoose;
   }
 
   @override
