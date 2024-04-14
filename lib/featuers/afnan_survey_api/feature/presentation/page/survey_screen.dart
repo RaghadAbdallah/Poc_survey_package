@@ -1,6 +1,4 @@
-import 'dart:developer';
-
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/page/question_body.dart';
 import '../cubit/survey_cubit.dart';
@@ -58,7 +56,6 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                   surveyModel: questionChoice, isFinal:context.read<NewSurveyCubit>().newSurveyDat!.steps.length -
                     1 ==
                     index?true:false,
-                  // indexItem: indexItem,
                 );
               }).toList();
               return listOfQuestions[index];

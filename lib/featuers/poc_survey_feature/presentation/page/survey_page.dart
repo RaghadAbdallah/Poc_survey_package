@@ -12,6 +12,7 @@ import '../widget/question_type/question_step_clean.dart';
 
 class SurveyPage extends StatefulWidget {
   final int length;
+  final String titleSurvey;
   final Widget Function(ConfigAppBar appBarConfiguration)? appBar;
   final Function(SurveyResultClean) onResult;
 
@@ -19,8 +20,9 @@ class SurveyPage extends StatefulWidget {
     super.key,
     required this.length,
     required this.onResult,
+    required this.titleSurvey,
     this.appBar,
-  });
+   });
 
   @override
   _SurveyPageState createState() => _SurveyPageState();
@@ -60,54 +62,13 @@ class _SurveyPageState extends State<SurveyPage>
           return Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
-              title: const Center(child: Text("ITG Survey")),
+              title:   Center(child: Text(widget.titleSurvey)),
             ),
             body: Wrap(
               children: [
                 Column(
                   children: [
-                    // SizedBox(
-                    //   height: 550,
-                    //   width: 400,
-                    //   child: TabBarView(
-                    //     physics: NeverScrollableScrollPhysics(),
-                    //     controller: tabController,
-                    //     children: state.steps
-                    //         .map((e) => Container(
-                    //             key: ValueKey<String>(
-                    //               e.stepIdentifier.id,
-                    //             ),
-                    //             child: Wrap(
-                    //               children: [
-                    //                 Column(
-                    //                   children: [
-                    //                     SizedBox(
-                    //                       height: 300,
-                    //                       child: e.createView(
-                    //                         questionResult: state
-                    //                             .questionResults
-                    //                             .firstWhereOrNull(
-                    //                           (element) =>
-                    //                               element.id ==
-                    //                               e.stepIdentifier,
-                    //                         ),
-                    //                       ),
-                    //                     ),
-                    //                     NextPreviousBody(
-                    //                         isEnabled: true,
-                    //                         onPressed: () {
-                    //                           // InputQuestionResult(
-                    //                           //   id: widget.questionStep
-                    //                           //       .stepIdentifier,
-                    //                           // ),
-                    //                         })
-                    //                   ],
-                    //                 ),
-                    //               ],
-                    //             )))
-                    //         .toList(),
-                    //   ),
-                    // ),
+
                     SizedBox(
                       height: 550,
                       child: PageView.builder(
@@ -135,10 +96,7 @@ class _SurveyPageState extends State<SurveyPage>
                                       duration:
                                           const Duration(milliseconds: 750),
                                       curve: Curves.fastLinearToSlowEaseIn);
-                                  // InputQuestionResult(
-                                  //   id: widget.questionStep
-                                  //       .stepIdentifier,
-                                  // ),
+
                                 },
                                 onPressedPrevious: () {
                                   boardController.previousPage(
@@ -156,7 +114,7 @@ class _SurveyPageState extends State<SurveyPage>
                     Container(
                       child: state.currentStep.showAppBar
                           ? PreferredSize(
-                              preferredSize: Size(
+                              preferredSize: const Size(
                                 double.infinity,
                                 70.0,
                               ),

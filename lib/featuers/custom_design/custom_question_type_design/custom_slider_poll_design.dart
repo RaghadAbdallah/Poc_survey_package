@@ -35,7 +35,7 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
                 child: Column(children: [
       Text(
         widget.questionDesc,
-        style: const TextStyle(fontSize: 18,color: Colors.lightBlue),
+        style: const TextStyle(fontSize: 18,color: Colors.teal),
         textAlign: TextAlign.center,
       ),
       Padding(
@@ -50,8 +50,8 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
                 borderRadius: const BorderRadius.all(Radius.circular(25.0)),
                 gradient: LinearGradient(
                   colors: [
-                    Colors.lightBlue[200] ??  Colors.lightBlue,
-                    Colors.lightBlue[400] ??  Colors.lightBlue,
+                    Colors.teal[200] ??  Colors.teal,
+                    Colors.teal[400] ??  Colors.teal,
                   ],
                   begin: FractionalOffset.topLeft,
                   end: FractionalOffset.bottomRight,

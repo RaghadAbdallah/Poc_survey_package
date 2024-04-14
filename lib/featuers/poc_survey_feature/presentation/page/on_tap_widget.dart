@@ -26,18 +26,7 @@ class OnTapWidget extends StatelessWidget {
           ),
           child: Center(
             child:Text(buttonTitle)
-            // TextWidgetWithFonts(
-            //     title: buttonTitle,
-            //     isBold: false,
-            //     textAlign: false,
-            //     darkColor: surveyModel.answerStatus == 1
-            //         ? kArrowBackColor
-            //         : kPrimaryColor,
-            //     lightColor: surveyModel.answerStatus == 1
-            //         ? kArrowBackColor
-            //         : kPrimaryColor,
-            //     ellipsis: false,
-            //     fontSize: Utilities.screenWidth! * 0.05),
+
           )),
     );
   }

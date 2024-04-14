@@ -9,7 +9,7 @@ final String questionDesc;
 
 class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
   late final TextEditingController _controller;
-
+  final FocusNode _focusNode = FocusNode();
   @override
   void initState() {
     super.initState();
@@ -19,44 +19,48 @@ class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
-      child: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Text(
-                widget.questionDesc,
-                style: const TextStyle(fontSize: 18,color: Colors.lightBlue),
-                textAlign: TextAlign.center,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  textInputAction: TextInputAction.next,
-                  autofocus: true,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(11.0),
-                      borderSide: BorderSide(
-                          color:Colors.teal
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(11.0),
-                      borderSide: BorderSide(
-                          color:Colors.teal
-                      ),
-                    ),
-                  ),
-                  controller: _controller,
+    return GestureDetector(
+      onTap: (){
+     _focusNode.unfocus();
+      },
+      child: SizedBox.expand(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  widget.questionDesc,
+                  style: const TextStyle(fontSize: 18,color: Colors.teal),
                   textAlign: TextAlign.center,
-                  onChanged: (String text) {
-                    // _checkValidation(text);
-                    //Utilities().checkValidation();
-                  },
                 ),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    focusNode: _focusNode,
+                    textInputAction: TextInputAction.next,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(11.0),
+                        borderSide: const BorderSide(
+                            color:Colors.teal
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(11.0),
+                        borderSide: const BorderSide(
+                            color:Colors.teal
+                        ),
+                      ),
+                    ),
+                    controller: _controller,
+                    textAlign: TextAlign.center,
+                    onChanged: (String text) {
+                    },
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

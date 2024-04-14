@@ -29,7 +29,7 @@ class _CustomSingleChoiceDesignState extends State<CustomSingleChoiceDesign> {
             children: [
               Text(
                 widget.questionDesc,
-                style: const TextStyle(fontSize: 18,color: Colors.lightBlue),
+                style: const TextStyle(fontSize: 18,color: Colors.teal),
 
                 textAlign: TextAlign.center,
               ),

@@ -1,5 +1,5 @@
 import 'dart:developer';
-import '../../../core/constants.dart';
+import '../../../core/data/constants.dart';
 import '../../../core/data/data_source/remote/network_helper.dart';
 import '../model/new_survey_model.dart';
 

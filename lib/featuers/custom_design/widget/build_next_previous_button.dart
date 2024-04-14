@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NextPreviousBody extends StatelessWidget {
+class NextPreviousBody extends StatefulWidget {
   const NextPreviousBody(
       {super.key,
       required this.isEnabled,
@@ -16,56 +16,64 @@ class NextPreviousBody extends StatelessWidget {
   final VoidCallback? onPressedPrevious;
 
   @override
+  State<NextPreviousBody> createState() => _NextPreviousBodyState();
+}
+
+class _NextPreviousBodyState extends State<NextPreviousBody> {
+   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        isFirst
-            ? const SizedBox()
-            : Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32.0),
-                child: OutlinedButton(
-                  onPressed: isEnabled ? onPressedPrevious : null,
-                  child: Text(
-                    'previous',
-                    style: TextStyle(
-                      color: isEnabled
-                          ? Theme.of(context).primaryColor
-                          : Colors.grey,
+
+
+  return   Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          widget.isFirst
+              ? const SizedBox()
+              : Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 32.0),
+                  child: OutlinedButton(
+                    onPressed: widget.isEnabled ? widget.onPressedPrevious : null,
+                    child: Text(
+                      'previous',
+                      style: TextStyle(
+                        color: widget.isEnabled
+                            ? Theme.of(context).primaryColor
+                            : Colors.grey,
+                      ),
                     ),
                   ),
                 ),
-              ),
-        isFinal
-            ? Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32.0),
-                child: OutlinedButton(
-                  onPressed: null,
-                  child: Text(
-                    'submit',
-                    style: TextStyle(
-                      color: isEnabled
-                          ? Theme.of(context).primaryColor
-                          : Colors.grey,
+          widget.isFinal
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 32.0),
+                  child: OutlinedButton(
+                    onPressed: null,
+                    child: Text(
+                      'submit',
+                      style: TextStyle(
+                        color: widget.isEnabled
+                            ? Theme.of(context).primaryColor
+                            : Colors.grey,
+                      ),
+                    ),
+                  ),
+                )
+              : Padding(
+            padding: const EdgeInsets.symmetric(vertical: 32.0),
+                  child: OutlinedButton(
+                    onPressed: widget.isEnabled ? widget.onPressedNext : null,
+                    child: Text(
+                      '  next  ',
+                      style: TextStyle(
+                        color: widget.isEnabled
+                            ? Theme.of(context).primaryColor
+                            : Colors.grey,
+                      ),
                     ),
                   ),
                 ),
-              )
-            : Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32.0),
-                child: OutlinedButton(
-                  onPressed: isEnabled ? onPressedNext : null,
-                  child: Text(
-                    'next',
-                    style: TextStyle(
-                      color: isEnabled
-                          ? Theme.of(context).primaryColor
-                          : Colors.grey,
-                    ),
-                  ),
-                ),
-              ),
-      ],
-    );
+        ],
+      )
+ ;
   }
 }

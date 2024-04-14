@@ -22,15 +22,6 @@ class SurveyTypeWidget extends StatelessWidget {
 
   Widget surveyType(String typeSurvey, int questionID, BuildContext context) {
     Widget typeChoose = const SizedBox();
-    // Padding(
-    //   padding: const EdgeInsets.only(top: 200.0),
-    //   child: Text(
-    //     surveyModel.questionDesc ?? '',
-    //     style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 18,color: Colors.lightBlue),
-    //     textAlign: TextAlign.center,
-    //
-    //   ),
-    // );
     switch (typeSurvey) {
       case 'text':
         typeChoose = CustomTextAnswerDesign(

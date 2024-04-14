@@ -79,6 +79,7 @@ class _ItgSurveyCleanState extends State<ItgSurveyClean> {
             onResult: widget.onResult,
           ),
           child: SurveyPage(
+            titleSurvey:"ITG Survey",
             length: widget.task.steps.length,
             onResult: widget.onResult,
             appBar: widget.appBar,

@@ -1,8 +1,5 @@
-// Ex: const String cName = '';
-
 
 // APIs
-
 class URLConstant {
    static String base =  "https://noorstaging.itgsolutions.com/";
   static String get apiBase => '${base}NoorMobileAPI/'; // TODO refactor to handle base value change dynamically

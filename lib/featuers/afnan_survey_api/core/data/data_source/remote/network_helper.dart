@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import '../../../constants.dart';
+import '../../constants.dart';
 
 Duration connectTimeoutDuration = const Duration(seconds: 50000);
 Duration connectReceiveTimeout = const Duration(seconds: 50000);
@@ -22,22 +22,6 @@ class NetworkHelper {
 
     dio = Dio(options);
   }
-//  Future<Map<String, dynamic>> getData({
-//     required String endpoint,
-//     Options? options,
-//   }) async {
-//     printRequest("", endpoint);
-//     Response response = await dio.get(
-//       endpoint,
-//       options: options ??
-//           Options(
-//             receiveDataWhenStatusError: true,
-//           ),
-//     );
-//     printResponse("$response", endpoint);
-//     Map<String, dynamic> data = jsonDecode(response.toString());
-//     return data;
-//   }
   static Future<dynamic> getData({
     required String endpoint,
     Options? options,

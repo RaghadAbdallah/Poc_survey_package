@@ -4,10 +4,8 @@ import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/pa
 import '../../../../custom_design/widget/build_next_previous_button.dart';
 import '../../data/model/new_survey_model.dart';
 import '../cubit/survey_cubit.dart';
-import '../on_tap_widget.dart';
-
 class QuestionBody extends StatelessWidget {
-  QuestionBody(
+  const QuestionBody(
       {super.key,
         required this.nextFunction,
         required this.previousFunction,
@@ -32,29 +30,31 @@ class QuestionBody extends StatelessWidget {
         return true;
       },
       child: Scaffold(
-        backgroundColor:Colors.white,
+        backgroundColor:  Colors.grey[200],
+
         body: BlocBuilder<NewSurveyCubit, NewSurveyState>(
           builder: (BuildContext context, NewSurveyState state) {
             return SizedBox(
-              height: 500,
-              child: Center(
-                child: Wrap(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding:   const EdgeInsets.only(top: 8),
-                          child: SizedBox(
-                             height: 400,
-                            child: SurveyTypeWidget(
-                              surveyModel: surveyModel,
-                              questionIndex: questionIndex,
-                              questionType: questionType,
-                            ),
+              child: Wrap(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding:   const EdgeInsets.only(top: 65),
+                        child: SizedBox(
+                           height: 400,
+                          child: SurveyTypeWidget(
+                            surveyModel: surveyModel,
+                            questionIndex: questionIndex,
+                            questionType: questionType,
                           ),
                         ),
-                        NextPreviousBody(
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: NextPreviousBody(
                           isEnabled: true,
                           onPressedNext: () {
                            nextFunction();
@@ -63,22 +63,11 @@ class QuestionBody extends StatelessWidget {
                           previousFunction();
                           }, isFirst: questionIndex==0?true:false,
                           isFinal: isFinal,
-                        )
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   children: [
-                        //     OnTapWidget(
-                        //       onTapFunction: () async {
-                        //         nextFunction();
-                        //       },
-                        //       buttonTitle: 'next',
-                        //     )
-                        //   ],
-                        // ),
-                      ],
-                    ),
-                  ],
-                ),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
             );
           },

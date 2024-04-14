@@ -30,7 +30,7 @@ class _CustomMultipleChoiceDesignState
         children: [
           Text(
             widget.questionDesc,
-            style: TextStyle(fontSize: 18,color: Colors.lightBlue),
+            style: TextStyle(fontSize: 18,color: Colors.teal),
 
             textAlign: TextAlign.center,
           ),

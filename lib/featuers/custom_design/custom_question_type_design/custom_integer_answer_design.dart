@@ -27,7 +27,7 @@ class _CustomIntegerAnswerDesignState extends State<CustomIntegerAnswerDesign> {
                 child: Column(children: [
       Text(
         widget.questionDesc,
-        style: const TextStyle(fontSize: 18,color: Colors.lightBlue),
+        style: const TextStyle(fontSize: 18,color: Colors.teal),
         textAlign: TextAlign.center,
       ),
       Padding(
@@ -40,13 +40,13 @@ class _CustomIntegerAnswerDesignState extends State<CustomIntegerAnswerDesign> {
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(11.0),
               borderSide: BorderSide(
-                color:  Colors.lightBlue
+                color:  Colors.teal
               ),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(11.0),
               borderSide: BorderSide(
-                color:  Colors.lightBlue,
+                color:  Colors.teal,
               ),
             ),
           ),
