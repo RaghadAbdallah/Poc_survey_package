@@ -145,7 +145,7 @@ class _SurveyPageState extends State<SurveyPage>
                                       duration:
                                           const Duration(milliseconds: 750),
                                       curve: Curves.fastLinearToSlowEaseIn);
-                                }, isFirst: true,isFinal: false,
+                                }, isFirst: index==0?true:false,isFinal: state.steps.length-1==index?true:false,
                               )
                             ],
                           );

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/step_identifer.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/question_type/type_of_question/choice_question_answer/new_design_single_choice_view.dart';
@@ -9,6 +11,7 @@ import '../../../../custom_design/custom_question_type_design/custom_multiple_ch
 import '../../../../custom_design/custom_question_type_design/custom_single_choice_design.dart';
 import '../../../../custom_design/custom_question_type_design/custom_slider_poll_design.dart';
 import '../../../../custom_design/custom_question_type_design/custom_text_answer_design.dart';
+import '../../../../custom_design/entities/choice_item.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../../../data/model/type_of_answer/answer_format.dart';
 import '../../../data/model/type_of_answer/integer_answer_format.dart';
@@ -66,38 +69,40 @@ class QuestionStepClean extends StepClean {
         //   questionStep: this,
         //   result: questionResult,
         // );
-        //   SingleChoiceAnswerFormat singleChoiceAnswerFormat;
-        // List<ChoiceItem> choiceList = [];
-        // for (int i = 0; i < singleChoiceAnswerFormat.textChoices.length; i++) {
-        //   choiceList.add(ChoiceItem(
-        //       title: singleChoiceAnswerFormat.textChoices[i].text ?? '',
-        //       value: singleChoiceAnswerFormat.textChoices[i].value));
-        // }
+        SingleChoiceAnswerFormat singleChoiceAnswerFormat = this.answerFormat as SingleChoiceAnswerFormat;
+        List<ChoiceItem> choiceList = [];
+        for (int i = 0; i < singleChoiceAnswerFormat.textChoices.length; i++) {
+          choiceList.add(ChoiceItem(
+              title: singleChoiceAnswerFormat.textChoices[i].text ?? '',
+              value: singleChoiceAnswerFormat.textChoices[i].value));
+        }
         return CustomSingleChoiceDesign(
           questionDesc: title,
-          choiceList: [],
+          choiceList: choiceList,
         );
       case MultipleChoiceAnswerFormat:
-        // return NewMultipleChoiceDesign(
-        //   questionStep: this,
-        //   result: questionResult,
-        // );
+        MultipleChoiceAnswerFormat multipleChoiceAnswerFormat = this.answerFormat as MultipleChoiceAnswerFormat;
+        List<ChoiceItem> choiceList = []; // يجب أن تكون ChoiceItem بدلاً من bool
+        for (int i = 0; i <  multipleChoiceAnswerFormat.textChoices.length ; i++) {
+          choiceList.add(ChoiceItem(
+              title: multipleChoiceAnswerFormat.textChoices[i].text ?? '',
+              value: multipleChoiceAnswerFormat.textChoices[i].value
+          ));
+        }
+
+        // MultipleChoiceAnswerFormat multipleChoiceAnswerFormat ;
         // List<ChoiceItem> choiceList = []; // يجب أن تكون ChoiceItem بدلاً من bool
-        // for (int i = 0; i <  singleChoiceAnswerFormat.textChoices.length ; i++) {
+        // for (int i = 0; i <  multipleChoiceAnswerFormat.textChoices.length ; i++) {
         //   choiceList.add(ChoiceItem(
-        //     title: surveyModel.answerFormat?.questionsResultSurveyList![i].answerDesc ?? '',
-        //     value: surveyModel.answerFormat?.questionsResultSurveyList![i].answerId,
+        //       title: multipleChoiceAnswerFormat.textChoices[i].text ?? '',
+        //       value: multipleChoiceAnswerFormat.textChoices[i].value
         //   ));
         // }
         return CustomMultipleChoiceDesign(
           questionDesc: title,
-          choiceList: [],
+          choiceList: choiceList,
         );
       case ScaleAnswerFormat:
-        // return SliderNewDesign(
-        //   questionStep: this,
-        //   result: questionResult,
-        // );
         late final ScaleAnswerFormat _scaleAnswerFormat;
         late double _sliderValue;
 
