@@ -21,14 +21,14 @@ class ListTileWidget extends StatelessWidget {
             title: Text(
               text,
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                color: isSelected ? Theme.of(context).primaryColor : null,
+                color: isSelected ? Colors.teal : null,
               ),
             ),
             trailing: isSelected
                 ? Icon(
               Icons.check_outlined,
               size: 32,
-              color: isSelected ? Theme.of(context).primaryColor : null,
+              color: isSelected ? Colors.teal : null,
             )
                 : Container(width: 32, height: 32),
             onTap: () => onTap.call(),

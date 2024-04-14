@@ -60,7 +60,7 @@ class StepViewClean extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: isEnabled ? Theme.of(context).primaryColor : Colors.grey,
+            color: isEnabled ?Colors.teal: Colors.grey,
           ),
         ),
       ),

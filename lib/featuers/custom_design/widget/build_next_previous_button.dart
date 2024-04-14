@@ -37,7 +37,7 @@ class _NextPreviousBodyState extends State<NextPreviousBody> {
                       'previous',
                       style: TextStyle(
                         color: widget.isEnabled
-                            ? Theme.of(context).primaryColor
+                            ? Colors.teal
                             : Colors.grey,
                       ),
                     ),
@@ -52,7 +52,7 @@ class _NextPreviousBodyState extends State<NextPreviousBody> {
                       'submit',
                       style: TextStyle(
                         color: widget.isEnabled
-                            ? Theme.of(context).primaryColor
+                            ? Colors.teal
                             : Colors.grey,
                       ),
                     ),
@@ -66,7 +66,7 @@ class _NextPreviousBodyState extends State<NextPreviousBody> {
                       '  next  ',
                       style: TextStyle(
                         color: widget.isEnabled
-                            ? Theme.of(context).primaryColor
+                            ? Colors.teal
                             : Colors.grey,
                       ),
                     ),

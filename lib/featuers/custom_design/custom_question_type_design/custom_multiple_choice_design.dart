@@ -30,13 +30,15 @@ class _CustomMultipleChoiceDesignState
         children: [
           Text(
             widget.questionDesc,
-            style: TextStyle(fontSize: 18,color: Colors.teal),
+            style: const TextStyle(fontSize: 18,color: Colors.teal),
 
             textAlign: TextAlign.center,
           ),
           Column(
             children: widget.choiceList.map<Widget>((choice) {
               return CheckboxListTile(
+                checkColor: Colors.white,
+                activeColor: Colors.teal,
                 title: Text(choice.title.toString()), // تأكد من وجود title في ChoiceItem
                 value: _selectedChoices.contains(choice),
                 onChanged: (bool? value) {
