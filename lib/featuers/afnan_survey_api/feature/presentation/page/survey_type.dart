@@ -14,18 +14,21 @@ class SurveyTypeWidget extends StatelessWidget {
       {super.key,
       required this.surveyModel,
       required this.questionIndex,
+      required this.answerStatues,
       required this.questionType});
 
   final String questionType;
   final int questionIndex;
   final StepApi surveyModel;
+  final int answerStatues;
 
   Widget surveyType(String typeSurvey, int questionID, BuildContext context) {
     Widget typeChoose = const SizedBox();
     switch (typeSurvey) {
       case 'text':
         typeChoose = CustomTextAnswerDesign(
-          questionDesc: surveyModel.questionDesc ?? '',
+          questionDesc: surveyModel.questionDesc ?? '', answerStatues: answerStatues,
+          questionAnswer: surveyModel.answerFormat?.questionsResultSurveyList![0].answerDesc ?? "0",
         );
         break;
       case 'single':
@@ -35,8 +38,7 @@ class SurveyTypeWidget extends StatelessWidget {
         for (int i = 0; i < length; i++) {
           choiceList.add(ChoiceItem(
               title: surveyModel
-                      .answerFormat?.questionsResultSurveyList![i].answerDesc ??
-                  '',
+                      .answerFormat?.questionsResultSurveyList![i].answerDesc ?? "",
               value: surveyModel
                   .answerFormat?.questionsResultSurveyList![i].answerId));
         }
@@ -82,9 +84,9 @@ class SurveyTypeWidget extends StatelessWidget {
       case 'scale':
         typeChoose = CustomSliderPollDesign(
           questionDesc: surveyModel.questionDesc ?? '',
-          maxValue: surveyModel.answerFormat?.maximumValue ?? 0.0,
-          minValue: surveyModel.answerFormat?.minimumValue ?? 0.0,
-          stepValue: surveyModel.answerFormat?.step ?? 0.0,
+          maxValue: surveyModel.answerFormat?.maximumValue?.toDouble() ?? 0.0,
+          minValue: surveyModel.answerFormat?.minimumValue?.toDouble() ?? 0.0,
+          stepValue: surveyModel.answerFormat?.step?.toDouble() ?? 0.0,
         );
         break;
     }

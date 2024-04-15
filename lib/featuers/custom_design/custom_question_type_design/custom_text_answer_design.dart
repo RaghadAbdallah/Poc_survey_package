@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
-
 class CustomTextAnswerDesign extends StatefulWidget {
-  const CustomTextAnswerDesign({super.key,required this.questionDesc});
+  const CustomTextAnswerDesign({super.key,required this.questionDesc,required this.answerStatues,
+  required this.questionAnswer});
 final String questionDesc;
+final String questionAnswer;
+final int answerStatues;
   @override
   State<CustomTextAnswerDesign> createState() => _CustomTextAnswerDesignState();
 }
 
 class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
-  late final TextEditingController _controller;
+    final TextEditingController _controller=TextEditingController();
   final FocusNode _focusNode = FocusNode();
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController();
+    widget.answerStatues==1? _controller.text=widget.questionAnswer:_controller.text='';
+
   }
 
 
