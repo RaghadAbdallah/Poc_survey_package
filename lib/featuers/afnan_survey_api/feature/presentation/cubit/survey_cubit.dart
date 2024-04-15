@@ -11,9 +11,9 @@ part 'survey.dart';
 
 class NewSurveyCubit extends Cubit<NewSurveyState> {
   NewSurveyCubit(
-      {required this.newSurveyUseCase, required this.answerSurveyUseCase})
+      { required this.answerSurveyUseCase, required this.newSurveyUseCase})
       : super(NewSurveyStateInitial());
-  NewSurveyUseCase newSurveyUseCase;
+ NewSurveyUseCase newSurveyUseCase;
   AnswerSurveyUseCase answerSurveyUseCase;
   List<int> checkData = [];
 

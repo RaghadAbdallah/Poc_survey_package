@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'featuers/afnan_survey_api/core/data/data_source/remote/network_helper.dart';
 import 'featuers/afnan_survey_api/feature/presentation/cubit/survey_cubit.dart';
-import 'featuers/afnan_survey_api/feature/presentation/page/survey_screen.dart';
+import 'featuers/afnan_survey_api/feature/presentation/page/dd.dart';
 import 'package:poc_itg_survey/featuers/afnan_survey_api/injection_container/injection_container.dart'
     as di;
 
@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
 
         home: Scaffold(
-          body: Align(alignment: Alignment.center, child: SurveyApiSample()),
+          body: Align(alignment: Alignment.center, child: ddd()),
         ),
       ),
     );

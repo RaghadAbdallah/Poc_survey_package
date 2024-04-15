@@ -46,7 +46,7 @@ class QuestionStepClean extends StepClean {
         );
       case TextAnswerFormat:
         return CustomTextAnswerDesign(
-          questionDesc:title,
+          questionDesc:title, answerStatues: 0, questionAnswer: "",
         );
       case SingleChoiceAnswerFormat:
         FocusManager.instance.primaryFocus?.unfocus();

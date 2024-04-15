@@ -12,12 +12,14 @@ class QuestionBody extends StatelessWidget {
         required this.questionType,
         required this.questionIndex,
         required this.isFinal,
+        required this.answerStatues,
         required this.surveyModel,});
 
   final  StepApi  surveyModel;
   final String questionType;
   final int questionIndex;
   final bool isFinal;
+  final int answerStatues;
 
   final void Function() nextFunction;
   final void Function() previousFunction;
@@ -46,6 +48,7 @@ class QuestionBody extends StatelessWidget {
                         child: SizedBox(
                            height: 400,
                           child: SurveyTypeWidget(
+                            answerStatues:answerStatues,
                             surveyModel: surveyModel,
                             questionIndex: questionIndex,
                             questionType: questionType,
