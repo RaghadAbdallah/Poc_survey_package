@@ -40,19 +40,14 @@ class QuestionBody extends StatelessWidget {
               child: Wrap(
                 children: [
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding:   const EdgeInsets.only(top: 65),
-                        child: SizedBox(
-                           height: 400,
-                          child: SurveyTypeWidget(
-                            answerStatues:answerStatues,
-                            surveyModel: surveyModel,
-                            questionIndex: questionIndex,
-                            questionType: questionType,
-                          ),
+                      SizedBox(
+                         height: MediaQuery.of(context).size.width * 0.9,
+                        child: SurveyTypeWidget(
+                          answerStatues:answerStatues,
+                          surveyModel: surveyModel,
+                          questionIndex: questionIndex,
+                          questionType: questionType,
                         ),
                       ),
                       Padding(
