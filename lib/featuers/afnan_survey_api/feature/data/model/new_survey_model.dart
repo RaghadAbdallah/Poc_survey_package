@@ -1,6 +1,13 @@
+// To parse this JSON data, do
+//
+//     final welcome = welcomeFromJson(jsonString);
+
 import 'dart:convert';
+
 NewSurveyModel getUserTypeTechnicalModelFromJson(String str) => NewSurveyModel.fromJson(json.decode(str));
-String getUserTypeTechnicalModelToJson(NewSurveyModel data) => json.encode(data.toJson());
+
+String welcomeToJson(NewSurveyModel data) => json.encode(data.toJson());
+
 class NewSurveyModel {
   String type;
   List<StepApi> steps;
@@ -22,22 +29,22 @@ class NewSurveyModel {
 }
 
 class StepApi {
+  String? questionDesc;
   String type;
   String? text;
   String? buttonText;
   String? introSurvey;
-  String? questionDesc;
   int? answerStatus;
   AnswerFormat? answerFormat;
   StepIdentifier? stepIdentifier;
   String? title;
 
   StepApi({
+    this.questionDesc,
     required this.type,
     this.text,
     this.buttonText,
     this.introSurvey,
-    this.questionDesc,
     this.answerStatus,
     this.answerFormat,
     this.stepIdentifier,
@@ -45,11 +52,11 @@ class StepApi {
   });
 
   factory StepApi.fromJson(Map<String, dynamic> json) => StepApi(
+    questionDesc: json["questionDesc"],
     type: json["type"],
     text: json["text"],
     buttonText: json["buttonText"],
     introSurvey: json["introSurvey"],
-    questionDesc: json["questionDesc"],
     answerStatus: json["answerStatus"],
     answerFormat: json["answerFormat"] == null ? null : AnswerFormat.fromJson(json["answerFormat"]),
     stepIdentifier: json["stepIdentifier"] == null ? null : StepIdentifier.fromJson(json["stepIdentifier"]),
@@ -57,11 +64,11 @@ class StepApi {
   );
 
   Map<String, dynamic> toJson() => {
+    "questionDesc": questionDesc,
     "type": type,
     "text": text,
     "buttonText": buttonText,
     "introSurvey": introSurvey,
-    "questionDesc": questionDesc,
     "answerStatus": answerStatus,
     "answerFormat": answerFormat?.toJson(),
     "stepIdentifier": stepIdentifier?.toJson(),
