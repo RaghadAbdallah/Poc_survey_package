@@ -23,56 +23,61 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NewSurveyCubit, NewSurveyState>(
-        builder: (BuildContext context, NewSurveyState state) {
-          if (state is AnswerSurveyStateLoaded) {
-            return SizedBox(
-              child: PageView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                controller: boardController,
-                onPageChanged: (int index) {},
-                itemBuilder: (BuildContext context, int index) {
-                  listOfQuestions = context
-                      .read<NewSurveyCubit>()
-                      .newSurveyDat!
-                      .steps
-                      .map((questionChoice) {
-                    return QuestionBody(
-                      questionIndex: index,
-                      questionType: questionChoice.type == 'question'
-                          ? questionChoice.answerFormat?.type ?? ''
-                          : questionChoice.type,
-                      nextFunction: () async {
-                        boardController.nextPage(
-                            duration: const Duration(milliseconds: 750),
-                            curve: Curves.fastLinearToSlowEaseIn);
-                      },
-                      previousFunction: () async {
-                        boardController.previousPage(
-                            duration: const Duration(milliseconds: 750),
-                            curve: Curves.fastLinearToSlowEaseIn);
-                      },
-                      surveyModel: questionChoice,
-                      isFinal: context
+    return    WillPopScope(   onWillPop: () async {
+    return true;
+    },
+      child:  BlocBuilder<NewSurveyCubit, NewSurveyState>(
+            builder: (BuildContext context, NewSurveyState state) {
+              if (state is AnswerSurveyStateLoaded) {
+                return SizedBox(
+                  child: PageView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: boardController,
+                    onPageChanged: (int index) {},
+                    itemBuilder: (BuildContext context, int index) {
+                      listOfQuestions = context
                           .read<NewSurveyCubit>()
                           .newSurveyDat!
                           .steps
-                          .length -
-                          1 ==
-                          index
-                          ? true
-                          : false,
-                      answerStatues: questionChoice.answerStatus ?? 0,
-                    );
-                  }).toList();
-                  return listOfQuestions[index];
-                },
-                itemCount:
-                context.read<NewSurveyCubit>().newSurveyDat!.steps.length,
-              ),
-            );
-          }
-          return Container();
-        });
+                          .map((questionChoice) {
+                        return QuestionBody(
+                          questionIndex: index,
+                          questionType: questionChoice.type == 'question'
+                              ? questionChoice.answerFormat?.type ?? ''
+                              : questionChoice.type,
+                          nextFunction: () async {
+                            boardController.nextPage(
+                                duration: const Duration(milliseconds: 750),
+                                curve: Curves.fastLinearToSlowEaseIn);
+                          },
+                          previousFunction: () async {
+                            boardController.previousPage(
+                                duration: const Duration(milliseconds: 750),
+                                curve: Curves.fastLinearToSlowEaseIn);
+                          },
+                          surveyModel: questionChoice,
+                          isFinal: context
+                              .read<NewSurveyCubit>()
+                              .newSurveyDat!
+                              .steps
+                              .length -
+                              1 ==
+                              index
+                              ? true
+                              : false,
+                          answerStatues: questionChoice.answerStatus ?? 0,
+                        );
+                      }).toList();
+                      return listOfQuestions[index];
+                    },
+                    itemCount:
+                    context.read<NewSurveyCubit>().newSurveyDat!.steps.length,
+                  ),
+                );
+              }
+              return Container();
+            }),
+
+    );
   }
 }
