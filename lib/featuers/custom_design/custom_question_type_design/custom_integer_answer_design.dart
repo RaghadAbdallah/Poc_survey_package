@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomIntegerAnswerDesign extends StatefulWidget {
-  const CustomIntegerAnswerDesign({super.key, required this.questionDesc});
+  const CustomIntegerAnswerDesign({super.key, required this.questionDesc,required this.answerStatues,required this.questionAnswer});
 
   final String questionDesc;
+  final String questionAnswer;
+  final int answerStatues;
 
   @override
   State<CustomIntegerAnswerDesign> createState() =>
@@ -11,14 +13,14 @@ class CustomIntegerAnswerDesign extends StatefulWidget {
 }
 
 class _CustomIntegerAnswerDesignState extends State<CustomIntegerAnswerDesign> {
-  late final TextEditingController _controller;
+  final TextEditingController _controller=TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController();
-  }
+    widget.answerStatues==1? _controller.text=widget.questionAnswer:_controller.text='';
 
+  }
   @override
   Widget build(BuildContext context) {
     return SizedBox.expand(
@@ -35,6 +37,7 @@ class _CustomIntegerAnswerDesignState extends State<CustomIntegerAnswerDesign> {
         child: TextFormField(
           textInputAction: TextInputAction.next,
           autofocus: true,
+          readOnly:  widget.answerStatues==1?true:false,
           controller: _controller,
           decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(

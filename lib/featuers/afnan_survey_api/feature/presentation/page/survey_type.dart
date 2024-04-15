@@ -78,6 +78,10 @@ class SurveyTypeWidget extends StatelessWidget {
       case 'integer':
         typeChoose = CustomIntegerAnswerDesign(
           questionDesc: surveyModel.questionDesc ?? '',
+          answerStatues: answerStatues,
+          questionAnswer: surveyModel
+              .answerFormat?.questionsResultSurveyList![0].answerDesc ??
+              "0",
         );
         break;
       case "intro":
@@ -94,6 +98,10 @@ class SurveyTypeWidget extends StatelessWidget {
       case 'double':
         typeChoose = CustomIntegerAnswerDesign(
           questionDesc: surveyModel.questionDesc ?? '',
+          answerStatues: answerStatues,
+          questionAnswer: surveyModel
+              .answerFormat?.questionsResultSurveyList![0].answerDesc ??
+              "0",
         );
         break;
       case 'scale':
@@ -101,7 +109,8 @@ class SurveyTypeWidget extends StatelessWidget {
           questionDesc: surveyModel.questionDesc ?? '',
           maxValue: surveyModel.answerFormat?.maximumValue?.toDouble() ?? 0.0,
           minValue: surveyModel.answerFormat?.minimumValue?.toDouble() ?? 0.0,
-          stepValue: surveyModel.answerFormat?.step?.toDouble() ?? 0.0,
+          stepValue: surveyModel.answerFormat?.step?.toDouble() ?? 0.0, answerStatus: answerStatues,
+          answerValue: surveyModel.answerFormat?.defaultValue?.toDouble() ?? 0.0,
         );
         break;
     }

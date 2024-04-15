@@ -7,13 +7,14 @@ class CustomSliderPollDesign extends StatefulWidget {
       required this.questionDesc,
       required this.maxValue,
       required this.minValue,
-      required this.stepValue});
+      required this.stepValue,required this.answerStatus,required this.answerValue});
 
   final double maxValue;
   final double minValue;
   final double stepValue;
+  final double answerValue;
   final String questionDesc;
-
+  final int answerStatus;
   @override
   State<CustomSliderPollDesign> createState() => _CustomSliderPollDesignState();
 }
@@ -24,7 +25,11 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
   @override
   void initState() {
     super.initState();
-    _sliderValue = 0.0;
+    if(widget.answerStatus==1){
+      _sliderValue = widget.answerValue;
+    }else{
+      _sliderValue = 0.0;
+    }
   }
 
   @override
@@ -73,9 +78,9 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
                 child: Slider.adaptive(
                   value: _sliderValue,
                   onChanged: (double value) {
-                    setState(() {
+                    if(widget.answerStatus==1){}else{ setState(() {
                       _sliderValue = value;
-                    });
+                    });}
                   },
                   min: widget.minValue,
                   max: widget.maxValue,

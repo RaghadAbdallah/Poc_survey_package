@@ -42,7 +42,7 @@ class QuestionStepClean extends StepClean {
     switch (answerFormat.runtimeType) {
       case IntegerAnswerFormat:
         return CustomIntegerAnswerDesign(
-          questionDesc:title,
+          questionDesc:title, answerStatues: 0, questionAnswer: "",
         );
       case TextAnswerFormat:
         return CustomTextAnswerDesign(
@@ -91,7 +91,7 @@ class QuestionStepClean extends StepClean {
           minValue: _scaleAnswerFormat.minimumValue,
           stepValue: (_scaleAnswerFormat.maximumValue -
               _scaleAnswerFormat.minimumValue) /
-              _scaleAnswerFormat.step,
+              _scaleAnswerFormat.step, answerStatus: 0, answerValue: 0.0,
         );
       default:
         throw Exception();
