@@ -3,23 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/page/question_body.dart';
 import '../cubit/survey_cubit.dart';
 
-class SurveyApiSampleAnswer extends StatefulWidget {
-  const SurveyApiSampleAnswer({Key? key}) : super(key: key);
+class SurveyApiSampleAnswer extends StatelessWidget {
 
-  @override
-  State<SurveyApiSampleAnswer> createState() => _SurveyApiSampleAnswerState();
-}
 
-class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
   final PageController boardController = PageController();
-  final int indexItem = 0;
-  List<Widget> listOfQuestions = [];
 
-  @override
-  void initState() {
-    context.read<NewSurveyCubit>().getAnswerSurveyData();
-    super.initState();
-  }
+  final int indexItem = 0;
+
+  List<Widget> listOfQuestions = [];
 
   @override
   Widget build(BuildContext context) {

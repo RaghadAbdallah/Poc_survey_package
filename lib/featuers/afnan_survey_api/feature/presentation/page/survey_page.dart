@@ -26,7 +26,7 @@ class SurveyPage extends StatelessWidget {
               children: [
                 InkWell(
                     onTap: (){
-                      context.read<NewSurveyCubit>().getSurveyData();
+                      context.read<NewSurveyCubit>().getAnswerSurveyData();
 
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyApiSampleAnswer()));
                     },
