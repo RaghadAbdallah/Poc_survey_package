@@ -8,13 +8,10 @@ class CustomIntroWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.expand(
         child: Center(
-            child: SingleChildScrollView(
-                child: Column(children: [
-                  Text(
-                    questionDesc,
-                    style: const TextStyle(fontSize: 18,color: Colors.teal),
-                    textAlign: TextAlign.center,
-                  ),
-                ]))));
+            child: Text(
+              questionDesc,
+              style: const TextStyle(fontSize: 18,color: Colors.teal),
+              textAlign: TextAlign.center,
+            )));
   }
 }
