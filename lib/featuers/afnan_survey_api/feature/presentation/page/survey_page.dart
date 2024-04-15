@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/page/survey_api_sample_no_answer.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../cubit/survey_cubit.dart';
 import 'survey_api_sample_answer.dart';
 
 class SurveyPage extends StatelessWidget {
@@ -25,6 +26,8 @@ class SurveyPage extends StatelessWidget {
               children: [
                 InkWell(
                     onTap: (){
+                      context.read<NewSurveyCubit>().getSurveyData();
+
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyApiSampleAnswer()));
                     },
                     child:    const ListTile(
@@ -35,6 +38,8 @@ class SurveyPage extends StatelessWidget {
                 const SizedBox(height: 30,),
                 InkWell(
                   onTap: (){
+
+                    context.read<NewSurveyCubit>().getSurveyData();
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyApiSample()));
 
                   },
