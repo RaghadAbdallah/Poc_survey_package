@@ -10,25 +10,34 @@ class SurveyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      appBar: AppBar(title: const Text("ITG Survey"),backgroundColor: Colors.teal,elevation: 0
+        ,),
       body: Center(
-        child: Container(
+        child: SizedBox(
           height: 300,
           width: 300,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               InkWell(
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyApiSampleAnswer()));
                   },
-                  child: Text("Answer")),
+                  child:    const ListTile(
+                    leading: Icon(Icons.note_alt_rounded,color: Colors.teal,),
+                    title: Text(' Answered Survey'),
+                  ), ),
 
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyApiSample()));
 
                 },
-                  child: Text("NoAnswer")),
+                  child:     const ListTile(
+                    leading: Icon(Icons.note_alt_rounded,color: Colors.teal,),
+                    title: Text(' NoAnswered Survey '),
+                  ) ),
             ],
           ),
         ),

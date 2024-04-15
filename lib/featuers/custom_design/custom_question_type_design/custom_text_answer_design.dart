@@ -15,7 +15,7 @@ class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
   @override
   void initState() {
     super.initState();
-    widget.answerStatues==1? _controller.text=widget.questionAnswer:_controller.text='';
+    widget.answerStatues==0? _controller.text=widget.questionAnswer:_controller.text='';
 
   }
 
