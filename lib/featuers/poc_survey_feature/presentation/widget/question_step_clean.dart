@@ -89,8 +89,7 @@ class QuestionStepClean extends StepClean {
           questionDesc: title,
           maxValue: _scaleAnswerFormat.maximumValue,
           minValue: _scaleAnswerFormat.minimumValue,
-          stepValue: (_scaleAnswerFormat.maximumValue -
-              _scaleAnswerFormat.minimumValue) /
+          stepValue:
               _scaleAnswerFormat.step, answerStatus: 0, answerValue: 0.0,
         );
       default:
