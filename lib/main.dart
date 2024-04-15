@@ -7,7 +7,6 @@ import 'featuers/afnan_survey_api/feature/presentation/cubit/survey_cubit.dart';
 import 'featuers/afnan_survey_api/feature/presentation/page/survey_page.dart';
 import 'package:poc_itg_survey/featuers/afnan_survey_api/injection_container/injection_container.dart'
     as di;
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(

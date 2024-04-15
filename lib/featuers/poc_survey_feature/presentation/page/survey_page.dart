@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/resource/itg_controller_clean.dart';
 import '../../../../core/widget/config_app_bar.dart';
 import '../../../../core/widget/survey_app_bar.dart';
 import '../../../custom_design/widget/build_next_previous_button.dart';
@@ -12,6 +13,7 @@ class SurveyPage extends StatefulWidget {
   final String titleSurvey;
   final Widget Function(ConfigAppBar appBarConfiguration)? appBar;
   final Function(SurveyResultClean) onResult;
+  final ItgSurveyControllerClean? controller;
 
   const SurveyPage({
     super.key,
@@ -19,6 +21,7 @@ class SurveyPage extends StatefulWidget {
     required this.onResult,
     required this.titleSurvey,
     this.appBar,
+    this.controller,
    });
 
   @override
@@ -29,7 +32,7 @@ class _SurveyPageState extends State<SurveyPage>
     with SingleTickerProviderStateMixin {
   late final TabController tabController;
   final PageController boardController = PageController();
-
+  int progressValue = 0;
   @override
   void initState() {
     tabController = TabController(length: widget.length, vsync: this);
@@ -44,6 +47,7 @@ class _SurveyPageState extends State<SurveyPage>
 
   @override
   Widget build(BuildContext context) {
+    final surveyController = widget.controller ?? context.read<ItgSurveyControllerClean>();
     return BlocConsumer<SurveyPresenterClean, SurveyStateClean>(
       listenWhen: (previous, current) => previous != current,
       listener: (context, state) async {
@@ -71,7 +75,11 @@ class _SurveyPageState extends State<SurveyPage>
                       child: PageView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         controller: boardController,
-                        onPageChanged: (int index) {},
+                        onPageChanged: (int index) {
+                          setState(() {
+                            progressValue=progressValue+1;
+                          });
+                        },
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
                             children: [
@@ -108,23 +116,33 @@ class _SurveyPageState extends State<SurveyPage>
                         itemCount: state.steps.length,
                       ),
                     ),
-                    Container(
-                      child: state.currentStep.showAppBar
-                          ? PreferredSize(
-                              preferredSize: const Size(
-                                double.infinity,
-                                70.0,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                          width: 270,
+                          child: LinearProgressIndicator(
+                            value:progressValue / state.steps.length,
+                            backgroundColor: Colors.grey,
+                            valueColor:
+                            const AlwaysStoppedAnimation<Color>(
+                                Colors.teal),
+                          ),
+                        ),
+                        TextButton(
+                          child: Text(
+                                context.read<Map<String, String>?>()?['close'] ?? 'Close',
+                                style: const TextStyle(
+                                  color: Colors.teal,
+                                ),
                               ),
-                              child: widget.appBar != null
-                                  ? widget.appBar!
-                                      .call(state.appBarConfiguration)
-                                  : SurveyAppBar(
-                                      appBarConfiguration:
-                                          state.appBarConfiguration,
-                                    ),
-                            )
-                          : null,
+                          onPressed: (){
+                           surveyController.closeSurvey(context);
+                          },
+                        ),
+                       ],
                     ),
+
                   ],
                 ),
               ],
