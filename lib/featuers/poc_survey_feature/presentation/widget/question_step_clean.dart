@@ -55,11 +55,12 @@ class QuestionStepClean extends StepClean {
         for (int i = 0; i < singleChoiceAnswerFormat.textChoices.length; i++) {
           choiceList.add(ChoiceItem(
               title: singleChoiceAnswerFormat.textChoices[i].text ?? '',
-              value: singleChoiceAnswerFormat.textChoices[i].value));
+              value: singleChoiceAnswerFormat.textChoices[i].value,
+              optionStatus:singleChoiceAnswerFormat.textChoices[i].optionValue));
         }
         return CustomSingleChoiceDesign(
           questionDesc: title,
-          choiceList: choiceList,
+          choiceList: choiceList, answerStatus: 0,
         );
       case MultipleChoiceAnswerFormat:
         MultipleChoiceAnswerFormat multipleChoiceAnswerFormat = this.answerFormat as MultipleChoiceAnswerFormat;
@@ -67,12 +68,14 @@ class QuestionStepClean extends StepClean {
         for (int i = 0; i <  multipleChoiceAnswerFormat.textChoices.length ; i++) {
           choiceList.add(ChoiceItem(
               title: multipleChoiceAnswerFormat.textChoices[i].text ?? '',
-              value: multipleChoiceAnswerFormat.textChoices[i].value
+              value: multipleChoiceAnswerFormat.textChoices[i].value,
+            optionStatus: multipleChoiceAnswerFormat.textChoices[i].optionValue,
           ));
         }
         return CustomMultipleChoiceDesign(
           questionDesc: title,
           choiceList: choiceList,
+          answerStatus: 0,
         );
       case ScaleAnswerFormat:
         late final ScaleAnswerFormat _scaleAnswerFormat;

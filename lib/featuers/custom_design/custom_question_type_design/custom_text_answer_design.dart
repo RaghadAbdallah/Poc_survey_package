@@ -15,7 +15,7 @@ class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
   @override
   void initState() {
     super.initState();
-    widget.answerStatues==0? _controller.text=widget.questionAnswer:_controller.text='';
+    widget.answerStatues==1? _controller.text=widget.questionAnswer:_controller.text='';
 
   }
 
@@ -40,6 +40,7 @@ class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     focusNode: _focusNode,
+                    readOnly:  widget.answerStatues==1?true:false,
                     textInputAction: TextInputAction.next,
                     autofocus: true,
                     decoration: InputDecoration(

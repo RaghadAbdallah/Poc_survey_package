@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 import '../entities/choice_item.dart';
 
 class CustomSingleChoiceDesign extends StatefulWidget {
-    CustomSingleChoiceDesign(
-      {super.key, required this.questionDesc, required this.choiceList});
+  CustomSingleChoiceDesign(
+      {super.key,
+      required this.questionDesc,
+      required this.choiceList,
+      required this.answerStatus});
 
-    List<ChoiceItem> choiceList;
+  List<ChoiceItem> choiceList;
   final String questionDesc;
+  final int answerStatus;
 
   @override
   State<CustomSingleChoiceDesign> createState() =>
@@ -17,6 +21,15 @@ class CustomSingleChoiceDesign extends StatefulWidget {
 class _CustomSingleChoiceDesignState extends State<CustomSingleChoiceDesign> {
   dynamic _selectedChoice;
 
+  @override
+  void initState() {
+    super.initState();
+    if (widget.answerStatus == 1) {
+      _selectedChoice = widget.choiceList.firstWhere(
+        (choice) => choice.optionStatus == 1,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,23 +42,25 @@ class _CustomSingleChoiceDesignState extends State<CustomSingleChoiceDesign> {
             children: [
               Text(
                 widget.questionDesc,
-                style: const TextStyle(fontSize: 18,color: Colors.teal),
-
+                style: const TextStyle(fontSize: 18, color: Colors.teal),
                 textAlign: TextAlign.center,
               ),
               Column(
-                children:widget.choiceList.map<Widget>((choice) {
+                children: widget.choiceList.map<Widget>((choice) {
                   return RadioListTile(
                     activeColor: Colors.teal,
                     title: Align(
-                      alignment: const Alignment(1.1, 0),
+                        alignment: const Alignment(1.1, 0),
                         child: Text(choice.title.toString())),
                     value: choice,
                     groupValue: _selectedChoice,
                     onChanged: (selectedValue) {
-                      setState(() {
-                        _selectedChoice = selectedValue;
-                      });
+                      if (widget.answerStatus == 1) {
+                      } else {
+                        setState(() {
+                          _selectedChoice = selectedValue;
+                        });
+                      }
                     },
                     controlAffinity: ListTileControlAffinity.trailing,
                   );
@@ -58,5 +73,3 @@ class _CustomSingleChoiceDesignState extends State<CustomSingleChoiceDesign> {
     );
   }
 }
-
-

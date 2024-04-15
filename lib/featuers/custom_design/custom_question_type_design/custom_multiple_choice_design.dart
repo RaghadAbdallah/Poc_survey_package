@@ -3,10 +3,12 @@ import '../entities/choice_item.dart';
 
 class CustomMultipleChoiceDesign extends StatefulWidget {
     CustomMultipleChoiceDesign(
-      {super.key, required this.questionDesc, required this.choiceList});
+      {super.key, required this.questionDesc, required this.choiceList,
+        required this.answerStatus});
 
   List<ChoiceItem> choiceList;
   final String questionDesc;
+    final int answerStatus;
 
   @override
   State<CustomMultipleChoiceDesign> createState() =>
@@ -17,6 +19,16 @@ class _CustomMultipleChoiceDesignState
     extends State<CustomMultipleChoiceDesign> {
 
   List<ChoiceItem> _selectedChoices = [];
+  @override
+  void initState() {
+    super.initState();
+    if(widget.answerStatus==1){
+      _selectedChoices.addAll(
+        widget.choiceList.where((choice) => choice.optionStatus == 1),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox.expand(
@@ -40,7 +52,7 @@ class _CustomMultipleChoiceDesignState
                 title: Text(choice.title.toString()), // تأكد من وجود title في ChoiceItem
                 value: _selectedChoices.contains(choice),
                 onChanged: (bool? value) {
-                  setState(() {
+                  if(widget.answerStatus==1){}else{ setState(() {
                     if (value ?? false) {
                       if (!_selectedChoices.contains(choice)) {
                         _selectedChoices.add(choice);
@@ -48,7 +60,7 @@ class _CustomMultipleChoiceDesignState
                     } else {
                       _selectedChoices.remove(choice);
                     }
-                  });
+                  });}
                 },
               );
             }).toList(),

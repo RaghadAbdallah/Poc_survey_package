@@ -27,8 +27,11 @@ class SurveyTypeWidget extends StatelessWidget {
     switch (typeSurvey) {
       case 'text':
         typeChoose = CustomTextAnswerDesign(
-          questionDesc: surveyModel.questionDesc ?? '', answerStatues: answerStatues,
-          questionAnswer: surveyModel.answerFormat?.questionsResultSurveyList![0].answerDesc ?? "0",
+          questionDesc: surveyModel.questionDesc ?? '',
+          answerStatues: answerStatues,
+          questionAnswer: surveyModel
+                  .answerFormat?.questionsResultSurveyList![0].answerDesc ??
+              "0",
         );
         break;
       case 'single':
@@ -38,13 +41,17 @@ class SurveyTypeWidget extends StatelessWidget {
         for (int i = 0; i < length; i++) {
           choiceList.add(ChoiceItem(
               title: surveyModel
-                      .answerFormat?.questionsResultSurveyList![i].answerDesc ?? "",
+                      .answerFormat?.questionsResultSurveyList![i].answerDesc ??
+                  "",
               value: surveyModel
-                  .answerFormat?.questionsResultSurveyList![i].answerId));
+                  .answerFormat?.questionsResultSurveyList![i].answerId,
+              optionStatus: surveyModel
+                  .answerFormat?.questionsResultSurveyList![i].optionStatus));
         }
         typeChoose = CustomSingleChoiceDesign(
           questionDesc: surveyModel.questionDesc ?? '',
           choiceList: choiceList,
+          answerStatus: answerStatues,
         );
         break;
       case 'multiple':
@@ -58,11 +65,14 @@ class SurveyTypeWidget extends StatelessWidget {
                 '',
             value: surveyModel
                 .answerFormat?.questionsResultSurveyList![i].answerId,
+            optionStatus: surveyModel
+                .answerFormat?.questionsResultSurveyList![i].optionStatus,
           ));
         }
         typeChoose = CustomMultipleChoiceDesign(
           questionDesc: surveyModel.questionDesc ?? '',
           choiceList: choiceList,
+          answerStatus: answerStatues,
         );
         break;
       case 'integer':
@@ -71,10 +81,15 @@ class SurveyTypeWidget extends StatelessWidget {
         );
         break;
       case "intro":
-        typeChoose = CustomIntroWidget(   questionDesc: surveyModel.questionDesc ?? '',);
+        typeChoose = CustomIntroWidget(
+          questionDesc: surveyModel.questionDesc ?? '',
+        );
         break;
-        case "completion":
-        typeChoose = CustomCompleteWidget(   text: surveyModel.text ?? '',title:  surveyModel.title ?? '',);
+      case "completion":
+        typeChoose = CustomCompleteWidget(
+          text: surveyModel.text ?? '',
+          title: surveyModel.title ?? '',
+        );
         break;
       case 'double':
         typeChoose = CustomIntegerAnswerDesign(
