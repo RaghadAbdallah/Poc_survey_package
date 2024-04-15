@@ -9,36 +9,41 @@ class SurveyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: AppBar(title: const Text("ITG Survey"),backgroundColor: Colors.teal,elevation: 0
-        ,),
-      body: Center(
-        child: SizedBox(
-          height: 300,
-          width: 300,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              InkWell(
+    return  WillPopScope(
+      onWillPop: () async {
+        return true;
+      },
+      child: Scaffold(
+        appBar: AppBar(title: const Text("ITG Survey"),backgroundColor: Colors.teal,elevation: 0
+          ,),
+        body: Center(
+          child: SizedBox(
+            height: 300,
+            width: 300,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyApiSampleAnswer()));
+                    },
+                    child:    const ListTile(
+                      leading: Icon(Icons.note_alt_rounded,color: Colors.teal,),
+                      title: Text(' Answered Survey'),
+                    ), ),
+
+                const SizedBox(height: 30,),
+                InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyApiSampleAnswer()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyApiSample()));
+
                   },
-                  child:    const ListTile(
-                    leading: Icon(Icons.note_alt_rounded,color: Colors.teal,),
-                    title: Text(' Answered Survey'),
-                  ), ),
-
-              const SizedBox(height: 30,),
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyApiSample()));
-
-                },
-                  child:     const ListTile(
-                    leading: Icon(Icons.note_alt_rounded,color: Colors.teal,),
-                    title: Text(' NoAnswered Survey '),
-                  ) ),
-            ],
+                    child:     const ListTile(
+                      leading: Icon(Icons.note_alt_rounded,color: Colors.teal,),
+                      title: Text(' NoAnswered Survey '),
+                    ) ),
+              ],
+            ),
           ),
         ),
       ),
