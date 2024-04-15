@@ -48,7 +48,7 @@ class _CustomSingleChoiceDesignState extends State<CustomSingleChoiceDesign> {
               Column(
                 children: widget.choiceList.map<Widget>((choice) {
                   return RadioListTile(
-                    activeColor: Colors.teal,
+                    activeColor:  widget.answerStatus == 1?Colors.grey:Colors.teal,
                     title: Align(
                         alignment: const Alignment(1.1, 0),
                         child: Text(choice.title.toString())),

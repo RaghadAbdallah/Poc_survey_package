@@ -46,14 +46,14 @@ class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(11.0),
-                        borderSide: const BorderSide(
-                            color:Colors.teal
+                        borderSide:   BorderSide(
+                            color: widget.answerStatues==1?Colors.grey:Colors.teal
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(11.0),
-                        borderSide: const BorderSide(
-                            color:Colors.teal
+                        borderSide:   BorderSide(
+                            color: widget.answerStatues==1?Colors.grey:Colors.teal
                         ),
                       ),
                     ),

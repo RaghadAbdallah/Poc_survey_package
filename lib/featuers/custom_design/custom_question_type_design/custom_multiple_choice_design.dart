@@ -48,7 +48,7 @@ class _CustomMultipleChoiceDesignState
             children: widget.choiceList.map<Widget>((choice) {
               return CheckboxListTile(
                 checkColor: Colors.white,
-                activeColor: Colors.teal,
+                activeColor: widget.answerStatus == 1?Colors.grey:Colors.teal,
                 title: Text(choice.title.toString()), // تأكد من وجود title في ChoiceItem
                 value: _selectedChoices.contains(choice),
                 onChanged: (bool? value) {
