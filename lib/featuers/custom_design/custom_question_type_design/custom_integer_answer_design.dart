@@ -43,13 +43,13 @@ class _CustomIntegerAnswerDesignState extends State<CustomIntegerAnswerDesign> {
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(11.0),
               borderSide: BorderSide(
-                color:  Colors.teal
+                color:   widget.answerStatues == 1?Colors.grey:Colors.teal,
               ),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(11.0),
               borderSide: BorderSide(
-                color:  Colors.teal,
+                color:   widget.answerStatues == 1?Colors.grey:Colors.teal,
               ),
             ),
           ),
