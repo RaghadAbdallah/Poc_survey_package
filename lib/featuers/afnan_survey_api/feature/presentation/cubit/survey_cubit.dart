@@ -17,7 +17,7 @@ class NewSurveyCubit extends Cubit<NewSurveyState> {
   AnswerSurveyUseCase answerSurveyUseCase;
   List<int> checkData = [];
 
-  Future<dynamic> geSurveyData() async {
+  Future<dynamic> getSurveyData() async {
     emit(NewSurveyStateLoading());
     final Either<Failure, NewSurveyModel> eitherInput =
         await newSurveyUseCase.call(NoParams());
