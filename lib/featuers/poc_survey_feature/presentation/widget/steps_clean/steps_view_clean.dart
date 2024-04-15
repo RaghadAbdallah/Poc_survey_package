@@ -52,18 +52,6 @@ class StepViewClean extends StatelessWidget {
     );
   }
 
-  Widget _buildOutlinedButton(BuildContext context, String text, bool isEnabled, VoidCallback? onPressed) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 32.0),
-      child: OutlinedButton(
-        onPressed: isEnabled ? onPressed : null,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: isEnabled ?Colors.teal: Colors.grey,
-          ),
-        ),
-      ),
-    );
-  }
+
+
 }

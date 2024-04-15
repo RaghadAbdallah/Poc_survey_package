@@ -1,12 +1,10 @@
-import 'package:json_annotation/json_annotation.dart';
-import 'package:poc_itg_survey/core/models/order_task_clean.dart';
+ import 'package:poc_itg_survey/core/models/order_task_clean.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean/steps_clean.dart';
 import '../../../../core/models/task_identifier.dart';
 import '../../data/model/navigable_task_clean.dart';
 
 abstract class TaskClean {
   late final TaskIdentifier id;
-  @JsonKey(defaultValue: [])
   final List<StepClean> steps;
   final StepClean? initialStep;
 
@@ -33,6 +31,3 @@ abstract class TaskClean {
   bool operator ==(o) => o is TaskClean && o.id == id;
   int get hashCode => id.hashCode ^ steps.hashCode;
 }
-// class TaskNotDefinedException implements Exception {
-//   const TaskNotDefinedException() : super();
-// }

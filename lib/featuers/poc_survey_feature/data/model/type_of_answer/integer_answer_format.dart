@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'answer_format.dart';
-
-@JsonSerializable()
 class IntegerAnswerFormat implements AnswerFormat {
   final int? defaultValue;
   final String hint;

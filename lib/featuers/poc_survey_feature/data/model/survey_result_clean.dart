@@ -3,7 +3,6 @@ import 'package:poc_itg_survey/featuers/poc_survey_feature/data/model/steps_resu
 
 import '../../../../core/models/result.dart';
 
-@JsonSerializable(explicitToJson: true)
 class SurveyResultClean extends Result {
   final FinishReason finishReason;
   final List<StepResultClean> results;

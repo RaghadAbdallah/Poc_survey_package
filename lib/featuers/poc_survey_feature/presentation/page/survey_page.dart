@@ -4,12 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widget/config_app_bar.dart';
 import '../../../../core/widget/survey_app_bar.dart';
 import '../../../custom_design/widget/build_next_previous_button.dart';
-import '../../data/model/input_answer_model.dart';
-import '../cubit/survey_presenter_clean.dart';
+ import '../cubit/survey_presenter_clean.dart';
 import '../cubit/survey_state_clean.dart';
 import '../../data/model/survey_result_clean.dart';
-import '../widget/question_type/question_step_clean.dart';
-
 class SurveyPage extends StatefulWidget {
   final int length;
   final String titleSurvey;

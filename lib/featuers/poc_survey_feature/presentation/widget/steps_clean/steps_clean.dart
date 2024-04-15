@@ -3,7 +3,7 @@ import '../../../data/model/step_identifer.dart';
 import '../../../data/model/input_answer_model.dart';
 import '../../../data/model/end_steps_model.dart';
 import '../../../data/model/instruction_step.dart';
-import '../question_type/question_step_clean.dart';
+import '../question_step_clean.dart';
 
 abstract class StepClean {
   final StepIdentifier stepIdentifier;

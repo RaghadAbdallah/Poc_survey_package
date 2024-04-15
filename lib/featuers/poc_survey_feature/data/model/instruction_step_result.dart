@@ -1,9 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
 
 import '../../../../core/models/result.dart';
 import 'input_answer_model.dart';
-
-@JsonSerializable(explicitToJson: true)
 class InstructionStepResultClean extends InputQuestionResult {
   InstructionStepResultClean(
       Identifier id,

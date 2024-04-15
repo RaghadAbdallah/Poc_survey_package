@@ -1,8 +1,6 @@
-
 import '../../../../core/models/result.dart';
 import 'input_answer_model.dart';
 class StepResultClean extends Result {
-  @_Converter()
   final List<InputQuestionResult> results;
 
   StepResultClean({

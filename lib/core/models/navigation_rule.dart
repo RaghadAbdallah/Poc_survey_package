@@ -15,6 +15,3 @@ abstract class NavigationRule {
   }
   Map<String, dynamic> toJson();
 }
-// class RuleNotDefinedException implements Exception {
-//   const RuleNotDefinedException() : super();
-// }

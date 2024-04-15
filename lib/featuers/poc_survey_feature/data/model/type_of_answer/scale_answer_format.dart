@@ -1,9 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'answer_format.dart';
-
-
-@JsonSerializable()
 class ScaleAnswerFormat implements AnswerFormat {
   final double maximumValue;
   final double minimumValue;

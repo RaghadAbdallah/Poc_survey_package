@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../poc_survey_feature/data/model/type_of_answer/text_choice.dart';
 import '../entities/choice_item.dart';
 
 class CustomMultipleChoiceDesign extends StatefulWidget {

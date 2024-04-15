@@ -1,8 +1,5 @@
-
-
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/steps_clean/steps_clean.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/task_clean.dart';
-
 import '../../../../core/models/navigation_rule.dart';
 import '../../../../core/models/task_identifier.dart';
 import 'step_identifer.dart';

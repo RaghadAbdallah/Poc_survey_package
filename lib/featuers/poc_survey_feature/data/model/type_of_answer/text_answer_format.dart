@@ -1,8 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'answer_format.dart';
-
-@JsonSerializable()
 class TextAnswerFormat implements AnswerFormat {
   final int? maxLines;
   @JsonKey(defaultValue: '')
