@@ -50,7 +50,7 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
           children: [
             Container(
               width: double.infinity,
-              height: 35,
+              height: 25,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(25.0)),
                 gradient: LinearGradient(
@@ -65,14 +65,14 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
               ),
               child: SliderTheme(
                 data: SliderTheme.of(context).copyWith(
-                  activeTickMarkColor: Colors.orange,
+                  activeTickMarkColor: Colors.red,
                   thumbShape: CustomThumbShape(
-                    thumbRadius: 15,
+                    thumbRadius: 10,
                     thumbColor: Colors.white,
                     textColor: Colors.black,
                     textStyle: const TextStyle(color: Colors.black),
-                    borderColor: Colors.orange,
-                    borderWidth: 1.5,
+                    borderColor: Colors.red,
+                    borderWidth: 1,
                   ),
                 ),
                 child: Slider.adaptive(
@@ -84,10 +84,11 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
                   },
                   min: widget.minValue,
                   max: widget.maxValue,
-                  activeColor: Colors.white,
+                  activeColor: Colors.white70,
                   divisions:
                       (widget.maxValue - widget.minValue) ~/ widget.stepValue,
                   label: _sliderValue.toString(),
+
                 ),
               ),
             ),
@@ -96,19 +97,19 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
               child: Text(
                 'value: $_sliderValue',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey[600]),
+                style: TextStyle(color: Colors.black ,fontSize: 12),
               ),
             ),
             Row(
               children: [
                 Text(
                   ' ${widget.minValue}',
-                  style: TextStyle(color: Colors.grey[600]),
+                  style: TextStyle(color: Colors.black ,fontSize: 12),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   ' ${widget.maxValue}',
-                  style: TextStyle(color: Colors.grey[600]),
+                  style: TextStyle(color: Colors.black,fontSize: 12),
                 ),
               ],
             )
