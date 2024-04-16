@@ -5,10 +5,9 @@ import '../../../data/model/end_steps_model.dart';
 
 class EndStepsViewClean extends StatelessWidget {
   final CompletionStepClean completionStep;
-  final String assetPath;
 
   const EndStepsViewClean(
-      {super.key, required this.completionStep, this.assetPath = ""});
+      {super.key, required this.completionStep, });
 
   @override
   Widget build(BuildContext context) {

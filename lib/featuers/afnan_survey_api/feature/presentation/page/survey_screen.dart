@@ -43,7 +43,7 @@ class SurveyScreen extends StatelessWidget {
                         color: Colors.teal,
                       ),
                       Transform.translate(
-                        offset: const Offset(10, 0), // التباعد بين الأيقونة والنص
+                        offset: const Offset(10, 0),
                         child: const Text(
                           'Answered Survey',
                           style: TextStyle(
@@ -63,7 +63,7 @@ class SurveyScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SurveyApiSample()));
+                            builder: (context) => const SurveyApiSample()));
                   },
                   child: Row(
                     children: [
@@ -72,7 +72,7 @@ class SurveyScreen extends StatelessWidget {
                         color: Colors.teal,
                       ),
                       Transform.translate(
-                        offset: const Offset(10, 0), // التباعد بين الأيقونة والنص
+                        offset: const Offset(10, 0),
                         child: const Text(
                           'NoAnswered Survey',
                           style: TextStyle(

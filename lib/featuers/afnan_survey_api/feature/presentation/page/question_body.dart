@@ -12,8 +12,6 @@ class QuestionBody extends StatelessWidget {
         required this.questionType,
         required this.questionIndex,
         required this.isFinal,
-        required this.focusNode,
-        required this.focusNodeInt,
         required this.answerStatues,
         required this.surveyModel,});
 
@@ -22,8 +20,6 @@ class QuestionBody extends StatelessWidget {
   final int questionIndex;
   final bool isFinal;
   final int answerStatues;
-  final FocusNode focusNode ;
-  final FocusNode focusNodeInt ;
   final void Function() nextFunction;
   final void Function() previousFunction;
 
@@ -49,7 +45,6 @@ class QuestionBody extends StatelessWidget {
                         child: SurveyTypeWidget(
                           answerStatues:answerStatues,
                           surveyModel: surveyModel,
-                          questionIndex: questionIndex,
                           questionType: questionType,
                         ),
                       ),

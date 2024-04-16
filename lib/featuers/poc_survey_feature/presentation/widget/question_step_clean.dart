@@ -51,7 +51,7 @@ class QuestionStepClean extends StepClean {
         );
       case SingleChoiceAnswerFormat:
         FocusManager.instance.primaryFocus?.unfocus();
-        SingleChoiceAnswerFormat singleChoiceAnswerFormat = this.answerFormat as SingleChoiceAnswerFormat;
+        SingleChoiceAnswerFormat singleChoiceAnswerFormat =  answerFormat as SingleChoiceAnswerFormat;
         List<ChoiceItem> choiceList = [];
         for (int i = 0; i < singleChoiceAnswerFormat.textChoices.length; i++) {
           choiceList.add(ChoiceItem(
@@ -65,7 +65,7 @@ class QuestionStepClean extends StepClean {
         );
       case MultipleChoiceAnswerFormat:
         MultipleChoiceAnswerFormat multipleChoiceAnswerFormat = this.answerFormat as MultipleChoiceAnswerFormat;
-        List<ChoiceItem> choiceList = []; // يجب أن تكون ChoiceItem بدلاً من bool
+        List<ChoiceItem> choiceList = [];
         for (int i = 0; i <  multipleChoiceAnswerFormat.textChoices.length ; i++) {
           choiceList.add(ChoiceItem(
               title: multipleChoiceAnswerFormat.textChoices[i].text ?? '',

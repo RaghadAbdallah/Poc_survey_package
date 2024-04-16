@@ -50,7 +50,7 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
           children: [
             Container(
               width: double.infinity,
-              height: 25,
+              height: MediaQuery.of(context).size.width*0.04,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(25.0)),
                 gradient: LinearGradient(

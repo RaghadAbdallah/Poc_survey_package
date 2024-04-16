@@ -4,9 +4,7 @@ import 'package:poc_itg_survey/featuers/afnan_survey_api/feature/presentation/pa
 import '../cubit/survey_cubit.dart';
 
 class SurveyApiSample extends StatefulWidget {
-
-
-  SurveyApiSample({super.key});
+  const SurveyApiSample({super.key});
 
   @override
   State<SurveyApiSample> createState() => _SurveyApiSampleState();
@@ -14,18 +12,18 @@ class SurveyApiSample extends StatefulWidget {
 
 class _SurveyApiSampleState extends State<SurveyApiSample> {
   final PageController boardController = PageController();
-
-  final int indexItem = 0;
   int progressValue = 0;
   List<Widget> listOfQuestions = [];
- final FocusNode  focusNode = FocusNode();
- final FocusNode  focusNodeInt = FocusNode();
   @override
   Widget build(BuildContext context) {
     return   WillPopScope(   onWillPop: () async {
       return true;
     },
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor:  Colors.teal,
+elevation: 0,
+          title: const Text("No Answer Survey",style: TextStyle(fontSize: 16),),),
         body: BlocBuilder<NewSurveyCubit, NewSurveyState>(
             builder: (BuildContext context, NewSurveyState state) {
           if (state is NewSurveyStateLoaded) {
@@ -34,8 +32,8 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                 Column(
                   children: [
                     SizedBox(
-                      height: 550,
-                      child: PageView.builder(
+                      height: MediaQuery.of(context).size.width*1.3,
+                     child: PageView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         controller: boardController,
                         onPageChanged: (int index) {
@@ -77,7 +75,8 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                                       index
                                   ? true
                                   : false,
-                              answerStatues: questionChoice.answerStatus ?? 0, focusNode: focusNode, focusNodeInt: focusNodeInt,
+                              answerStatues: questionChoice.answerStatus ?? 0,
+
                             );
                           }).toList();
                           return listOfQuestions[index];
@@ -90,7 +89,7 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SizedBox(
-                          width: 270,
+                          width: MediaQuery.of(context).size.width*0.7,
                           child: LinearProgressIndicator(
                             value: progressValue /
                                 context

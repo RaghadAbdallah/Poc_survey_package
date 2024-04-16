@@ -13,12 +13,10 @@ class SurveyTypeWidget extends StatelessWidget {
   const SurveyTypeWidget(
       {super.key,
       required this.surveyModel,
-      required this.questionIndex,
       required this.answerStatues,
       required this.questionType});
 
   final String questionType;
-  final int questionIndex;
   final StepApi surveyModel;
   final int answerStatues;
   Widget surveyType(String typeSurvey, int questionID, BuildContext context) {
