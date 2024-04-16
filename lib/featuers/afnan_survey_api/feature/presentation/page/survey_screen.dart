@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/survey_cubit.dart';
 import 'survey_api_sample_answer.dart';
 
-class SurveyPage extends StatelessWidget {
-  const SurveyPage({Key? key}) : super(key: key);
+class SurveyScreen extends StatelessWidget {
+  const SurveyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

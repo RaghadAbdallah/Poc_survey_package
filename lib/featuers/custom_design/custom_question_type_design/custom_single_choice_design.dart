@@ -22,17 +22,12 @@ class _CustomSingleChoiceDesignState extends State<CustomSingleChoiceDesign> {
   dynamic _selectedChoice;
 
   @override
-  void initState() {
-    super.initState();
+  Widget build(BuildContext context) {
     if (widget.answerStatus == 1) {
       _selectedChoice = widget.choiceList.firstWhere(
-        (choice) => choice.optionStatus == 1,
+            (choice) => choice.optionStatus == 1,
       );
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return SizedBox.expand(
       child: Center(
         child: SingleChildScrollView(

@@ -57,11 +57,17 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                                 boardController.nextPage(
                                     duration: const Duration(milliseconds: 750),
                                     curve: Curves.fastLinearToSlowEaseIn);
+                                setState(() {
+                                  progressValue = progressValue + 1;
+                                });
                               },
                               previousFunction: () async {
                                 boardController.previousPage(
                                     duration: const Duration(milliseconds: 750),
                                     curve: Curves.fastLinearToSlowEaseIn);
+                                setState(() {
+                                  progressValue = progressValue - 1;
+                                });
                               },
                               surveyModel: questionChoice,
                               isFinal: context

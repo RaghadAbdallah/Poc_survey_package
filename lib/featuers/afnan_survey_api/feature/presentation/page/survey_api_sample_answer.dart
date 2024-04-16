@@ -34,11 +34,7 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
                 child: PageView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   controller: boardController,
-                  onPageChanged: (int index) {
-                    setState(() {
-                      progressValue = progressValue + 1;
-                    });
-                  },
+                  onPageChanged: (int index) {},
                   itemBuilder: (BuildContext context, int index) {
                     listOfQuestions = context
                         .read<NewSurveyCubit>()
@@ -54,11 +50,17 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
                           boardController.nextPage(
                               duration: const Duration(milliseconds: 750),
                               curve: Curves.fastLinearToSlowEaseIn);
+                          setState(() {
+                            progressValue = progressValue + 1;
+                          });
                         },
                         previousFunction: () async {
                           boardController.previousPage(
                               duration: const Duration(milliseconds: 750),
                               curve: Curves.fastLinearToSlowEaseIn);
+                          setState(() {
+                            progressValue = progressValue - 1;
+                          });
                         },
                         surveyModel: questionChoice,
                         isFinal: context
@@ -98,8 +100,7 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
                   ),
                   TextButton(
                     child: Text(
-                      context.read<Map<String, String>?>()?['close'] ??
-                          'Close',
+                      context.read<Map<String, String>?>()?['close'] ?? 'Close',
                       style: const TextStyle(
                         color: Colors.teal,
                       ),
