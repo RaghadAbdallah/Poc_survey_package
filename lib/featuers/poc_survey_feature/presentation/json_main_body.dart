@@ -60,11 +60,6 @@ class JsonMainBody extends StatelessWidget {
                     )
                         .copyWith(background: Colors.white),
                   ),
-                  surveyProgressbarConfiguration: ConfigSurveyProgress(
-                    backgroundColor: Colors.white,
-                    progressbarColor:Colors.black,
-                    valueProgressbarColor:Colors.yellow,
-                  ),
                 );
               }
               return const CircularProgressIndicator.adaptive();

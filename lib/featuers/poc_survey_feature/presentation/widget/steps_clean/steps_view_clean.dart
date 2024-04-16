@@ -10,14 +10,14 @@ class StepViewClean extends StatelessWidget {
   final Widget child;
   final InputQuestionResult Function() resultFunction;
   final bool isValid;
-  final ItgSurveyControllerClean? controller;
+ // final ItgSurveyControllerClean? controller;
 
   const StepViewClean({super.key,
     required this.step,
     required this.child,
     required this.title,
     required this.resultFunction,
-    this.controller,
+   // this.controller,
     this.isValid = true,
   });
 
