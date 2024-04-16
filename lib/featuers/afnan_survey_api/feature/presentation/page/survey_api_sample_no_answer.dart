@@ -111,7 +111,6 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                             ),
                           ),
                           onPressed: () {
-                            // surveyController.closeSurvey(context);
                           },
                         ),
                       ],

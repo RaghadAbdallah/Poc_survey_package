@@ -18,7 +18,7 @@ class CustomMultipleChoiceDesign extends StatefulWidget {
 class _CustomMultipleChoiceDesignState
     extends State<CustomMultipleChoiceDesign> {
 
-  List<ChoiceItem> _selectedChoices = [];
+  final List<ChoiceItem> _selectedChoices = [];
   @override
   void initState() {
     super.initState();
@@ -49,7 +49,7 @@ class _CustomMultipleChoiceDesignState
               return CheckboxListTile(
                 checkColor: Colors.white,
                 activeColor: widget.answerStatus == 1?Colors.grey:Colors.teal,
-                title: Text(choice.title.toString()), // تأكد من وجود title في ChoiceItem
+                title: Text(choice.title.toString()),
                 value: _selectedChoices.contains(choice),
                 onChanged: (bool? value) {
                   if(widget.answerStatus==1){}else{ setState(() {

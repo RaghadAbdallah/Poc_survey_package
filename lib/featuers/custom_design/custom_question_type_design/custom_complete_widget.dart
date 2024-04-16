@@ -18,7 +18,7 @@ class CustomCompleteWidget extends StatelessWidget {
         style: const TextStyle(fontSize: 18, color: Colors.teal),
         textAlign: TextAlign.center,
       ),
-      SizedBox(
+      const SizedBox(
         height: 50,
       ),
       Text(

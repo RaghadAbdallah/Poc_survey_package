@@ -65,14 +65,14 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
               ),
               child: SliderTheme(
                 data: SliderTheme.of(context).copyWith(
-                  activeTickMarkColor: Colors.red,
+                  activeTickMarkColor: Colors.cyan,
                   thumbShape: CustomThumbShape(
                     thumbRadius: 10,
                     thumbColor: Colors.white,
                     textColor: Colors.black,
-                    textStyle: const TextStyle(color: Colors.black),
-                    borderColor: Colors.red,
-                    borderWidth: 1,
+                    textStyle: const TextStyle(color: Colors.black,fontSize: 8),
+                    borderColor: Colors.cyan,
+                    borderWidth: 1 ,
                   ),
                 ),
                 child: Slider.adaptive(
@@ -97,19 +97,19 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
               child: Text(
                 'value: $_sliderValue',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.black ,fontSize: 12),
+                style: const TextStyle(color: Colors.black ,fontSize: 12),
               ),
             ),
             Row(
               children: [
                 Text(
                   ' ${widget.minValue}',
-                  style: TextStyle(color: Colors.black ,fontSize: 12),
+                  style: const TextStyle(color: Colors.black ,fontSize: 12),
                 ),
                 const Spacer(),
                 Text(
                   ' ${widget.maxValue}',
-                  style: TextStyle(color: Colors.black,fontSize: 12),
+                  style: const TextStyle(color: Colors.black,fontSize: 12),
                 ),
               ],
             )

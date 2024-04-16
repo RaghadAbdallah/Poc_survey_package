@@ -46,7 +46,7 @@ class _SurveyPageState extends State<SurveyPage>
       builder: (BuildContext context, SurveyStateClean state) {
         if (state is PresentingSurveyCleanState) {
           return Scaffold(
-            backgroundColor: Colors.transparent,
+         backgroundColor: Colors.white,
             appBar: AppBar(
               title:   Center(child: Text(widget.titleSurvey)),
             ),
@@ -54,7 +54,9 @@ class _SurveyPageState extends State<SurveyPage>
               children: [
                 Column(
                   children: [
-                    SizedBox(
+
+                    Container(
+                      color: Colors.white,
                       height: 550,
                       child: PageView.builder(
                         physics: const NeverScrollableScrollPhysics(),
@@ -107,7 +109,7 @@ class _SurveyPageState extends State<SurveyPage>
                           width: 270,
                           child: LinearProgressIndicator(
                             value:progressValue / state.steps.length,
-                            backgroundColor: Colors.grey,
+                            backgroundColor: Colors.black54,
                             valueColor:
                             const AlwaysStoppedAnimation<Color>(
                                 Colors.teal),
