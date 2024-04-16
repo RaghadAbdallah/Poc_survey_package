@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/resource/itg_controller_clean.dart';
 import '../../../../core/widget/config_app_bar.dart';
-import '../../../../core/widget/survey_app_bar.dart';
 import '../../../custom_design/widget/build_next_previous_button.dart';
  import '../cubit/survey_presenter_clean.dart';
 import '../cubit/survey_state_clean.dart';
@@ -30,20 +29,9 @@ class SurveyPage extends StatefulWidget {
 
 class _SurveyPageState extends State<SurveyPage>
     with SingleTickerProviderStateMixin {
-  late final TabController tabController;
   final PageController boardController = PageController();
   int progressValue = 0;
-  @override
-  void initState() {
-    tabController = TabController(length: widget.length, vsync: this);
-    super.initState();
-  }
 
-  @override
-  void dispose() {
-    tabController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +41,6 @@ class _SurveyPageState extends State<SurveyPage>
       listener: (context, state) async {
         if (state is SurveyResultCleanState) {
           widget.onResult.call(state.result);
-        }
-        if (state is PresentingSurveyCleanState) {
-          tabController.animateTo(state.currentStepIndex);
         }
       },
       builder: (BuildContext context, SurveyStateClean state) {
@@ -69,14 +54,11 @@ class _SurveyPageState extends State<SurveyPage>
               children: [
                 Column(
                   children: [
-
                     SizedBox(
                       height: 550,
                       child: PageView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         controller: boardController,
-                        onPageChanged: (int index) {
-                        },
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
                             children: [
@@ -144,7 +126,6 @@ class _SurveyPageState extends State<SurveyPage>
                         ),
                        ],
                     ),
-
                   ],
                 ),
               ],
