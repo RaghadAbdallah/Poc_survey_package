@@ -1,13 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/resource/itg_controller_clean.dart';
 import '../../../../core/resource/task_navigator/task_navigator.dart';
 import '../../../../core/widget/config_app_bar.dart';
 import '../../../custom_design/widget/build_next_previous_button.dart';
  import '../../data/model/input_answer_model.dart';
-import '../cubit/survey_presenter_clean.dart';
-import '../cubit/survey_state_clean.dart';
 import '../../data/model/survey_result_clean.dart';
 class SurveyPage extends StatefulWidget {
   final int length;
