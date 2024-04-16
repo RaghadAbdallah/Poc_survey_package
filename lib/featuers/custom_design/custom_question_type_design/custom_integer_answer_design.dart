@@ -54,8 +54,6 @@ class _CustomIntegerAnswerDesignState extends State<CustomIntegerAnswerDesign> {
             ),
           ),
           onChanged: (String value) {
-            //  _checkValidation(value);
-            //Utilities().checkValidation();
           },
           keyboardType: TextInputType.number,
           textAlign: TextAlign.center,

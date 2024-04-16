@@ -1,6 +1,6 @@
 import '../feature/data/data_source/new_survey_datasource.dart';
 import '../feature/data/repositories/exams_schedule_period_repo_impl.dart';
-import '../feature/domain/repository/exams_schedule_period_repositroy.dart';
+import '../feature/domain/repository/exams_schedule_period_repository.dart';
 import '../feature/domain/usecase/exams_schedule_period_usecase.dart';
 import '../feature/domain/usecase/get_answer_survey_usecase.dart';
 import '../feature/presentation/cubit/survey_cubit.dart';

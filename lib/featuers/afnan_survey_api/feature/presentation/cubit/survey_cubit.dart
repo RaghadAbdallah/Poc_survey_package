@@ -7,7 +7,7 @@ import '../../data/model/new_survey_model.dart';
 import '../../domain/usecase/exams_schedule_period_usecase.dart';
 import '../../domain/usecase/get_answer_survey_usecase.dart';
 
-part 'survey.dart';
+part 'survey_state.dart';
 
 class NewSurveyCubit extends Cubit<NewSurveyState> {
   NewSurveyCubit(

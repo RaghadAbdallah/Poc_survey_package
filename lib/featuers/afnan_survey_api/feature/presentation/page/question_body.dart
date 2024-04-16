@@ -32,7 +32,7 @@ class QuestionBody extends StatelessWidget {
         return true;
       },
       child: Scaffold(
-        backgroundColor:  Colors.grey[200],
+      //  backgroundColor:  Colors.grey[200],
 
         body: BlocBuilder<NewSurveyCubit, NewSurveyState>(
           builder: (BuildContext context, NewSurveyState state) {

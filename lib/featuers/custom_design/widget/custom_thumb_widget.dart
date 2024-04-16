@@ -5,8 +5,8 @@ class CustomThumbShape extends SliderComponentShape {
   final Color thumbColor;
   final Color textColor;
   final TextStyle textStyle;
-  final Color borderColor; // لون الحدود
-  final double borderWidth; // عرض الحدود
+  final Color borderColor;
+  final double borderWidth;
 
   CustomThumbShape({
     required this.thumbRadius,
@@ -39,16 +39,16 @@ class CustomThumbShape extends SliderComponentShape {
       }) {
     final Paint thumbPaint = Paint()..color = thumbColor;
     final Paint borderPaint = Paint()
-      ..color = borderColor // لون الحدود هنا
-      ..strokeWidth = borderWidth // عرض الحدود هنا
+      ..color = borderColor
+      ..strokeWidth = borderWidth
       ..style = PaintingStyle.stroke;
 
     context.canvas.drawCircle(center, thumbRadius, thumbPaint);
-    context.canvas.drawCircle(center, thumbRadius, borderPaint); // رسم الحدود
+    context.canvas.drawCircle(center, thumbRadius, borderPaint);
 
     labelPainter.text = TextSpan(
       text: value.toString(),
-      style: textStyle.copyWith(color: textColor),
+      style: textStyle.copyWith(color: textColor,fontSize: 11),
     );
     labelPainter.layout();
     labelPainter.paint(context.canvas, center - Offset(labelPainter.width / 2, labelPainter.height / 2));

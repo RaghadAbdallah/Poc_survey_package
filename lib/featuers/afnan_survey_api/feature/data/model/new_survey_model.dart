@@ -1,12 +1,8 @@
-// To parse this JSON data, do
-//
-//     final welcome = welcomeFromJson(jsonString);
-
 import 'dart:convert';
 
 NewSurveyModel getUserTypeTechnicalModelFromJson(String str) => NewSurveyModel.fromJson(json.decode(str));
 
-String welcomeToJson(NewSurveyModel data) => json.encode(data.toJson());
+String getUserTypeTechnicalModelToJson(NewSurveyModel data) => json.encode(data.toJson());
 
 class NewSurveyModel {
   String type;
