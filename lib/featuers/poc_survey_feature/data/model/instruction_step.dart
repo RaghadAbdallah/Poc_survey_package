@@ -10,10 +10,7 @@ class InstructionStepClean extends StepClean {
   InstructionStepClean({
     required this.title,
     required this.text,
-    String buttonText = 'Next',
     StepIdentifier? stepIdentifier,
-    bool? showProgress,
-    bool showAppBar = true,
   }) : super(
           stepIdentifier: stepIdentifier,
         );
@@ -43,13 +40,10 @@ InstructionStepClean _$InstructionStepFromJson(Map<String, dynamic> json) =>
     InstructionStepClean(
       title: json['introSurvey'] as String,
       text: json['text'] as String,
-      buttonText: json['buttonText'] as String? ?? 'Next',
       stepIdentifier: json['stepIdentifier'] == null
           ? null
           : StepIdentifier.fromJson(
               json['stepIdentifier'] as Map<String, dynamic>),
-      showProgress: json['showProgress'] as bool?,
-      showAppBar: json['showAppBar'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$InstructionStepToJson(InstructionStepClean instance) =>

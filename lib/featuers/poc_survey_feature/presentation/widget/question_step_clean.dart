@@ -23,9 +23,7 @@ class QuestionStepClean extends StepClean {
 
   QuestionStepClean({
     bool isOptional = false,
-    String buttonText = 'Next',
     StepIdentifier? stepIdentifier,
-    bool showAppBar = true,
     this.title = '',
     this.text = '',
     this.content = const SizedBox.shrink(),
@@ -34,8 +32,6 @@ class QuestionStepClean extends StepClean {
           stepIdentifier: stepIdentifier,
           isOptional: isOptional,
         );
- final FocusNode  focusNode = FocusNode();
- final FocusNode  focusNodeInt = FocusNode();
   @override
   Widget createView({required InputQuestionResult? questionResult}) {
     switch (answerFormat.runtimeType) {
@@ -78,10 +74,8 @@ class QuestionStepClean extends StepClean {
         );
       case ScaleAnswerFormat:
         late final ScaleAnswerFormat _scaleAnswerFormat;
-        late double _sliderValue;
 
           _scaleAnswerFormat =  answerFormat as ScaleAnswerFormat;
-          _sliderValue = _scaleAnswerFormat.defaultValue;
 
 
         return CustomSliderPollDesign(
@@ -106,12 +100,10 @@ class QuestionStepClean extends StepClean {
 QuestionStepClean _$QuestionStepFromJson(Map<String, dynamic> json) =>
     QuestionStepClean(
       isOptional: json['isOptional'] as bool? ?? false,
-      buttonText: json['buttonText'] as String? ?? 'Next',
       stepIdentifier: json['stepIdentifier'] == null
           ? null
           : StepIdentifier.fromJson(
               json['stepIdentifier'] as Map<String, dynamic>),
-      showAppBar: json['showAppBar'] as bool? ?? true,
       title: json['questionDesc'] as String? ?? '',
       text: json['text'] as String? ?? '',
       answerFormat:

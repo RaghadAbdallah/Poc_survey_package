@@ -31,11 +31,4 @@ abstract class StepClean {
   }
 
   Map<String, dynamic> toJson();
-
-bool operator ==(o) =>
-    o is StepClean &&
-        o.stepIdentifier == stepIdentifier &&
-        o.isOptional == isOptional;
-int get hashCode =>
-    stepIdentifier.hashCode ^ isOptional.hashCode;
 }

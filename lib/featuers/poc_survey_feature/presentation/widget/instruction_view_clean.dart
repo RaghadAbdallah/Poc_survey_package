@@ -18,10 +18,6 @@ class InstructionViewClean extends StatelessWidget {
         style: Theme.of(context).textTheme.displayMedium,
         textAlign: TextAlign.center,
       ),
-      resultFunction: () => InstructionStepResultClean(
-        instructionStep.stepIdentifier,
-
-      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         child: Text(

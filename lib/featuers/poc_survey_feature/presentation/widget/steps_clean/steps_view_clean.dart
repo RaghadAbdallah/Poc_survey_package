@@ -7,14 +7,12 @@ class StepViewClean extends StatelessWidget {
   final surveyStepClean.StepClean step;
   final Widget title;
   final Widget child;
-  final InputQuestionResult Function() resultFunction;
   final bool isValid;
 
   const StepViewClean({super.key,
     required this.step,
     required this.child,
     required this.title,
-    required this.resultFunction,
     this.isValid = true,
   });
 
