@@ -51,8 +51,6 @@ class QuestionBody extends StatelessWidget {
                           surveyModel: surveyModel,
                           questionIndex: questionIndex,
                           questionType: questionType,
-                          focusNode: focusNode,
-                          focusNodeInt: focusNodeInt,
                         ),
                       ),
                       Padding(
@@ -60,14 +58,12 @@ class QuestionBody extends StatelessWidget {
                         child: NextPreviousBody(
                           isEnabled: true,
                           onPressedNext: () {
+                            FocusScope.of(context).unfocus();
                            nextFunction();
-                         focusNode.unfocus();
-                           focusNodeInt.unfocus();
                           },
                           onPressedPrevious: () {
-                           focusNode.unfocus();
-                            focusNodeInt.unfocus();
                           previousFunction();
+                          FocusScope.of(context).unfocus();
                           }, isFirst: questionIndex==0?true:false,
                           isFinal: isFinal,
                         ),

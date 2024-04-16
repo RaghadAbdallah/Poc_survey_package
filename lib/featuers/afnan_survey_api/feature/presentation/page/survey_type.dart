@@ -15,16 +15,12 @@ class SurveyTypeWidget extends StatelessWidget {
       required this.surveyModel,
       required this.questionIndex,
       required this.answerStatues,
-      required this.focusNode,
-      required this.focusNodeInt,
       required this.questionType});
 
   final String questionType;
   final int questionIndex;
   final StepApi surveyModel;
   final int answerStatues;
-  final FocusNode focusNode ;
-  final FocusNode focusNodeInt ;
   Widget surveyType(String typeSurvey, int questionID, BuildContext context) {
     Widget typeChoose = const SizedBox();
     switch (typeSurvey) {
@@ -34,7 +30,7 @@ class SurveyTypeWidget extends StatelessWidget {
           answerStatues: answerStatues,
           questionAnswer: surveyModel
                   .answerFormat?.questionsResultSurveyList![0].answerDesc ??
-              "0", focusNode: focusNode,
+              "0",
         );
         break;
       case 'single':
@@ -84,7 +80,7 @@ class SurveyTypeWidget extends StatelessWidget {
           answerStatues: answerStatues,
           questionAnswer: surveyModel
               .answerFormat?.questionsResultSurveyList![0].answerDesc ??
-              "0", focusNodeInt: focusNodeInt,
+              "0",
         );
         break;
       case "intro":
@@ -104,8 +100,7 @@ class SurveyTypeWidget extends StatelessWidget {
           answerStatues: answerStatues,
           questionAnswer: surveyModel
               .answerFormat?.questionsResultSurveyList![0].answerDesc ??
-              "0", focusNodeInt: focusNodeInt,
-        );
+              "0",);
         break;
       case 'scale':
         typeChoose = CustomSliderPollDesign(
