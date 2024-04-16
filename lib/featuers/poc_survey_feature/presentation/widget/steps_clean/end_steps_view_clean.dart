@@ -15,11 +15,6 @@ class EndStepsViewClean extends StatelessWidget {
         step: completionStep,
         title: Text(completionStep.title,
             style: Theme.of(context).textTheme.displayMedium),
-        resultFunction: () => InputQuestionResult(
-              id: completionStep.stepIdentifier,
-              result: null,
-              valueIdentifier: '',
-            ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Column(
