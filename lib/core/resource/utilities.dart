@@ -1,4 +1,7 @@
 
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:poc_itg_survey/core/resource/task_navigator/navigator_task_navigable.dart';
 import 'package:poc_itg_survey/core/resource/task_navigator/navigator_task_ordered.dart';
 import 'package:poc_itg_survey/core/models/order_task_clean.dart';
@@ -45,5 +48,12 @@ class Utilities {
 
   checkValidation(){
 
+  }
+
+  // to read data from json file
+  Future<TaskClean> loadSurveyData() async {
+    String jsonString = await rootBundle.loadString('assets/survey_data.json');
+    final jsonList = json.decode(jsonString);
+    return TaskClean.fromJson(jsonList);
   }
 }

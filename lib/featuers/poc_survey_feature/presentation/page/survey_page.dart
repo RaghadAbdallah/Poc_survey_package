@@ -61,7 +61,7 @@ class _SurveyPageState extends State<SurveyPage>
       builder: (BuildContext context, SurveyStateClean state) {
         if (state is PresentingSurveyCleanState) {
           return Scaffold(
-            backgroundColor: Colors.transparent,
+         backgroundColor: Colors.white,
             appBar: AppBar(
               title:   Center(child: Text(widget.titleSurvey)),
             ),
@@ -70,15 +70,13 @@ class _SurveyPageState extends State<SurveyPage>
                 Column(
                   children: [
 
-                    SizedBox(
+                    Container(
+                      color: Colors.white,
                       height: 550,
                       child: PageView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         controller: boardController,
                         onPageChanged: (int index) {
-                          setState(() {
-                            progressValue=progressValue+1;
-                          });
                         },
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
@@ -101,13 +99,18 @@ class _SurveyPageState extends State<SurveyPage>
                                       duration:
                                           const Duration(milliseconds: 750),
                                       curve: Curves.fastLinearToSlowEaseIn);
-
+                                  setState(() {
+                                    progressValue = progressValue + 1;
+                                  });
                                 },
                                 onPressedPrevious: () {
                                   boardController.previousPage(
                                       duration:
                                           const Duration(milliseconds: 750),
                                       curve: Curves.fastLinearToSlowEaseIn);
+                                  setState(() {
+                                    progressValue = progressValue - 1;
+                                  });
                                 }, isFirst: index==0?true:false,isFinal: state.steps.length-1==index?true:false,
                               )
                             ],
@@ -123,7 +126,7 @@ class _SurveyPageState extends State<SurveyPage>
                           width: 270,
                           child: LinearProgressIndicator(
                             value:progressValue / state.steps.length,
-                            backgroundColor: Colors.grey,
+                            backgroundColor: Colors.black54,
                             valueColor:
                             const AlwaysStoppedAnimation<Color>(
                                 Colors.teal),

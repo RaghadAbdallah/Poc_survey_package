@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../entities/choice_item.dart';
 
 class CustomSingleChoiceDesign extends StatefulWidget {
