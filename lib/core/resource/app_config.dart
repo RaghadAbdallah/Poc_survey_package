@@ -14,7 +14,7 @@ class AppConfig {
   factory AppConfig._internal() => _shared;
   static final AppConfig _shared = AppConfig._internal();
 
-  final Flavour _flavor = Flavour.json;
+  final Flavour _flavor = Flavour.api;
 
   Widget getReadDataFrom() {
     switch (_flavor) {

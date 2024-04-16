@@ -15,7 +15,7 @@ class CustomCompleteWidget extends StatelessWidget {
                 child: Column(children: [
       Text(
         text,
-        style: const TextStyle(fontSize: 18, color: Colors.teal),
+        style: const TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
       ),
       const SizedBox(

@@ -17,49 +17,69 @@ class NextPreviousBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        isFirst
-            ? const SizedBox()
-            : Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32.0),
-                child: OutlinedButton(
-                  onPressed: isEnabled ? onPressedPrevious : null,
-                  child: Text(
-                    'previous',
-                    style: TextStyle(
-                      color: isEnabled ? Colors.teal : Colors.grey,
-                    ),
-                  ),
-                ),
+    return
+
+
+      // Row(
+      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+      // children: [
+
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 22.0),
+          child: OutlinedButton(
+
+            onPressed: isEnabled ? onPressedNext : null,
+            child: Text(
+              '  Next  ',
+              style: TextStyle(
+                fontSize: 17,
+                color: isEnabled ? Colors.teal : Colors.grey,
+
               ),
-        isFinal
-            ? Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32.0),
-                child: OutlinedButton(
-                  onPressed: null,
-                  child: Text(
-                    'submit',
-                    style: TextStyle(
-                      color: isEnabled ? Colors.teal : Colors.grey,
-                    ),
-                  ),
-                ),
-              )
-            : Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32.0),
-                child: OutlinedButton(
-                  onPressed: isEnabled ? onPressedNext : null,
-                  child: Text(
-                    '  next  ',
-                    style: TextStyle(
-                      color: isEnabled ? Colors.teal : Colors.grey,
-                    ),
-                  ),
-                ),
-              ),
-      ],
-    );
+            ),
+          ),
+        );
+
+        // isFirst
+        //     ? const SizedBox()
+        //     : Padding(
+        //         padding: const EdgeInsets.symmetric(vertical: 32.0),
+        //         child: OutlinedButton(
+        //           onPressed: isEnabled ? onPressedPrevious : null,
+        //           child: Text(
+        //             'previous',
+        //             style: TextStyle(
+        //               color: isEnabled ? Colors.teal : Colors.grey,
+        //             ),
+        //           ),
+        //         ),
+        //       ),
+        // isFinal
+        //     ? Padding(
+        //         padding: const EdgeInsets.symmetric(vertical: 32.0),
+        //         child: OutlinedButton(
+        //           onPressed: null,
+        //           child: Text(
+        //             'submit',
+        //             style: TextStyle(
+        //               color: isEnabled ? Colors.teal : Colors.grey,
+        //             ),
+        //           ),
+        //         ),
+        //       )
+        //     : Padding(
+        //         padding: const EdgeInsets.symmetric(vertical: 32.0),
+        //         child: OutlinedButton(
+        //           onPressed: isEnabled ? onPressedNext : null,
+        //           child: Text(
+        //             '  next  ',
+        //             style: TextStyle(
+        //               color: isEnabled ? Colors.teal : Colors.grey,
+        //             ),
+        //           ),
+        //         ),
+        //       ),
+
+
   }
 }

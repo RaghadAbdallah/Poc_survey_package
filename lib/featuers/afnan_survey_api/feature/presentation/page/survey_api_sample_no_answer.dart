@@ -20,108 +20,120 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
       return true;
     },
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor:  Colors.teal,
-elevation: 0,
-          title: const Text("No Answer Survey",style: TextStyle(fontSize: 16),),),
-        body: BlocBuilder<NewSurveyCubit, NewSurveyState>(
-            builder: (BuildContext context, NewSurveyState state) {
-          if (state is NewSurveyStateLoaded) {
-            return Wrap(
-              children: [
-                Column(
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width*1.3,
-                     child: PageView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        controller: boardController,
-                        onPageChanged: (int index) {
-                        },
-                        itemBuilder: (BuildContext context, int index) {
-                          listOfQuestions = context
-                              .read<NewSurveyCubit>()
-                              .newSurveyDat!
-                              .steps
-                              .map((questionChoice) {
-                            return QuestionBody(
-                              questionIndex: index,
-                              questionType: questionChoice.type == 'question'
-                                  ? questionChoice.answerFormat?.type ?? ''
-                                  : questionChoice.type,
-                              nextFunction: () async {
-                                boardController.nextPage(
-                                    duration: const Duration(milliseconds: 750),
-                                    curve: Curves.fastLinearToSlowEaseIn);
-                                setState(() {
-                                  progressValue = progressValue + 1;
-                                });
-                              },
-                              previousFunction: () async {
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: BlocBuilder<NewSurveyCubit, NewSurveyState>(
+              builder: (BuildContext context, NewSurveyState state) {
+            if (state is NewSurveyStateLoaded) {
+              return Wrap(
+                children: [
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width*1.3,
+                       child: PageView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          controller: boardController,
+                          onPageChanged: (int index) {
+                          },
+                          itemBuilder: (BuildContext context, int index) {
+                            listOfQuestions = context
+                                .read<NewSurveyCubit>()
+                                .newSurveyDat!
+                                .steps
+                                .map((questionChoice) {
+                              return QuestionBody(
+                                questionIndex: index,
+                                questionType: questionChoice.type == 'question'
+                                    ? questionChoice.answerFormat?.type ?? ''
+                                    : questionChoice.type,
+                                nextFunction: () async {
+                                  boardController.nextPage(
+                                      duration: const Duration(milliseconds: 750),
+                                      curve: Curves.fastLinearToSlowEaseIn);
+                                  setState(() {
+                                    progressValue = progressValue + 1;
+                                  });
+                                },
+                                previousFunction: () async {
+                                  boardController.previousPage(
+                                      duration: const Duration(milliseconds: 750),
+                                      curve: Curves.fastLinearToSlowEaseIn);
+                                  setState(() {
+                                    progressValue = progressValue - 1;
+                                  });
+                                },
+                                surveyModel: questionChoice,
+                                isFinal: context
+                                                .read<NewSurveyCubit>()
+                                                .newSurveyDat!
+                                                .steps
+                                                .length -
+                                            1 ==
+                                        index
+                                    ? true
+                                    : false,
+                                answerStatues: questionChoice.answerStatus ?? 0,
+
+                              );
+                            }).toList();
+                            return listOfQuestions[index];
+                          },
+                          itemCount:
+                              context.read<NewSurveyCubit>().newSurveyDat!.steps.length,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [   InkWell(
+                            onTap: ()
+                              async {
                                 boardController.previousPage(
                                     duration: const Duration(milliseconds: 750),
                                     curve: Curves.fastLinearToSlowEaseIn);
                                 setState(() {
                                   progressValue = progressValue - 1;
                                 });
-                              },
-                              surveyModel: questionChoice,
-                              isFinal: context
-                                              .read<NewSurveyCubit>()
-                                              .newSurveyDat!
-                                              .steps
-                                              .length -
-                                          1 ==
-                                      index
-                                  ? true
-                                  : false,
-                              answerStatues: questionChoice.answerStatus ?? 0,
 
-                            );
-                          }).toList();
-                          return listOfQuestions[index];
-                        },
-                        itemCount:
-                            context.read<NewSurveyCubit>().newSurveyDat!.steps.length,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width*0.7,
-                          child: LinearProgressIndicator(
-                            value: progressValue /
-                                context
-                                    .read<NewSurveyCubit>()
-                                    .newSurveyDat!
-                                    .steps
-                                    .length,
-                             backgroundColor: Colors.grey,
-                            valueColor:
-                            const AlwaysStoppedAnimation<Color>(Colors.teal),
-                          ),
-                        ),
-                        TextButton(
-                          child: Text(
-                            context.read<Map<String, String>?>()?['close'] ??
-                                'Close',
-                            style: const TextStyle(
-                              color: Colors.teal,
+                            },
+
+                            child: Icon(Icons.arrow_back,color: Colors.teal,)),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width*0.7,
+                            child: LinearProgressIndicator(
+                              value: progressValue /
+                                  context
+                                      .read<NewSurveyCubit>()
+                                      .newSurveyDat!
+                                      .steps
+                                      .length,
+                               backgroundColor: Colors.grey,
+                              valueColor:
+                              const AlwaysStoppedAnimation<Color>(Colors.teal),
                             ),
                           ),
-                          onPressed: () {
-                          },
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ],
-            );
-          }
-          return Container();
-        }),
+                          TextButton(
+                            child: Text(
+                              context.read<Map<String, String>?>()?['close'] ??
+                                  'Close',
+                              style: const TextStyle(
+                                color: Colors.teal,
+                              ),
+                            ),
+                            onPressed: () {
+                            },
+                          ),
+
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              );
+            }
+            return Container();
+          }),
+        ),
       ),
     );
   }

@@ -40,7 +40,7 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
                 child: Column(children: [
       Text(
         widget.questionDesc,
-        style: const TextStyle(fontSize: 18,color: Colors.teal),
+        style: const TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
       ),
       Padding(

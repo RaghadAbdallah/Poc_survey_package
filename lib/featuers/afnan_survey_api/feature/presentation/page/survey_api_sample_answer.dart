@@ -22,10 +22,6 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
         return true;
       },
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor:  Colors.teal,
-          elevation: 0,
-          title: const Text(" Answer Survey",style: TextStyle(fontSize: 16),),),
 
         body: BlocBuilder<NewSurveyCubit, NewSurveyState>(
             builder: (BuildContext context, NewSurveyState state) {
@@ -85,7 +81,19 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
+                children: [   InkWell(
+                    onTap: ()
+                    async {
+                      boardController.previousPage(
+                          duration: const Duration(milliseconds: 750),
+                          curve: Curves.fastLinearToSlowEaseIn);
+                      setState(() {
+                        progressValue = progressValue - 1;
+                      });
+
+                    },
+
+                    child: Icon(Icons.arrow_back,color: Colors.teal,)),
                   SizedBox(
                     width: MediaQuery.of(context).size.width*0.7,
                     child: LinearProgressIndicator(
@@ -97,12 +105,13 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
                               .length,
                       backgroundColor: Colors.grey,
                       valueColor:
-                          const AlwaysStoppedAnimation<Color>(Colors.teal),
+                      const AlwaysStoppedAnimation<Color>(Colors.teal),
                     ),
                   ),
                   TextButton(
                     child: Text(
-                      context.read<Map<String, String>?>()?['close'] ?? 'Close',
+                      context.read<Map<String, String>?>()?['close'] ??
+                          'Close',
                       style: const TextStyle(
                         color: Colors.teal,
                       ),
@@ -110,6 +119,7 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
                     onPressed: () {
                     },
                   ),
+
                 ],
               )
             ]);

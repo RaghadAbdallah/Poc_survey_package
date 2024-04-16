@@ -40,16 +40,18 @@ class _CustomMultipleChoiceDesignState
         children: [
           Text(
             widget.questionDesc,
-            style: const TextStyle(fontSize: 18,color: Colors.teal),
-
+            style: const TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           Column(
             children: widget.choiceList.map<Widget>((choice) {
               return CheckboxListTile(
+                selectedTileColor: Colors.teal,
                 checkColor: Colors.white,
                 activeColor: widget.answerStatus == 1?Colors.grey:Colors.teal,
-                title: Text(choice.title.toString()),
+                 title: Text(choice.title.toString(),style: TextStyle(
+
+                  color: widget.answerStatus == 1?Colors.grey:Colors.black, ),),
                 value: _selectedChoices.contains(choice),
                 onChanged: (bool? value) {
                   if(widget.answerStatus==1){}else{ setState(() {

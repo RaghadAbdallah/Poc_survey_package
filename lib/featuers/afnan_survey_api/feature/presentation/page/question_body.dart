@@ -49,7 +49,7 @@ class QuestionBody extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(1.0),
                         child: NextPreviousBody(
                           isEnabled: true,
                           onPressedNext: () {

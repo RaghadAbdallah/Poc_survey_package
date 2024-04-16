@@ -10,7 +10,7 @@ class CustomIntroWidget extends StatelessWidget {
         child: Center(
             child: Text(
               questionDesc,
-              style: const TextStyle(fontSize: 18,color: Colors.teal),
+              style: const TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             )));
   }
