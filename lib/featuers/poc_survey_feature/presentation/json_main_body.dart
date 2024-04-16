@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/widget/task_clean.dart';
-
 import '../../../core/resource/itg_survey_clean.dart';
 import '../../../core/resource/utilities.dart';
-import '../../../core/widget/config_survey_progress.dart';
 import '../data/model/survey_result_clean.dart';
 
 class JsonMainBody extends StatelessWidget {
@@ -26,7 +24,6 @@ class JsonMainBody extends StatelessWidget {
                     Navigator.pushNamed(context, '/');
                   },
                   task: task,
-                  showProgress: true,
                   themeData: Theme.of(context).copyWith(
                     primaryColor: Colors.black,
                     textTheme: const TextTheme(

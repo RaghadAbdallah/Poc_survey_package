@@ -16,9 +16,6 @@ class InstructionStepClean extends StepClean {
     bool showAppBar = true,
   }) : super(
           stepIdentifier: stepIdentifier,
-          buttonText: buttonText,
-          showProgress: showProgress ?? false,
-          showAppBar: showAppBar,
         );
 
   @override
@@ -59,9 +56,6 @@ Map<String, dynamic> _$InstructionStepToJson(InstructionStepClean instance) =>
     <String, dynamic>{
       'stepIdentifier': instance.stepIdentifier.toJson(),
       'isOptional': instance.isOptional,
-      'buttonText': instance.buttonText,
-      'showProgress': instance.showProgress,
-      'showAppBar': instance.showAppBar,
       'title': instance.title,
       'text': instance.text,
     };

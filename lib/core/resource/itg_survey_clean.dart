@@ -10,30 +10,15 @@ import '../../featuers/poc_survey_feature/presentation/widget/task_clean.dart';
 class ItgSurveyClean extends StatefulWidget {
   final TaskClean task;
   final ThemeData? themeData;
-
-  // Function which is called after the results are collected
   final Function(SurveyResultClean) onResult;
-
-  // [ItgSurveyController] to override the navigation methods
-  // onNextStep, onBackStep, onCloseSurvey
- // final ItgSurveyControllerClean? surveyController;
   final Widget Function(ConfigAppBar appBarConfiguration)? appBar;
-
-  //If the progressbar shoud be show in the appbar
-  final bool? showProgress;
-
-  // Changes the styling of the progressbar in the appbar
-  //final ConfigSurveyProgress? surveyProgressbarConfiguration;
 
   const ItgSurveyClean({
     super.key,
     required this.task,
     required this.onResult,
     this.themeData,
-   // this.surveyController,
     this.appBar,
-    this.showProgress,
-    //this.surveyProgressbarConfiguration,
   });
 
   @override
@@ -61,18 +46,10 @@ class _ItgSurveyCleanState extends State<ItgSurveyClean> {
       child: MultiProvider(
         providers: [
           Provider<TaskNavigatorClean>.value(value: _taskNavigator),
-          // Provider<ItgSurveyControllerClean>.value(
-          //     value: widget.surveyController ?? ItgSurveyControllerClean()),
-         // Provider<bool>.value(value: widget.showProgress ?? true),
-          // Provider<ConfigSurveyProgress>.value(
-          //   value:
-          //       widget.surveyProgressbarConfiguration ?? ConfigSurveyProgress(),
-          // ),
         ],
         child: SurveyPage(
           titleSurvey:"ITG Survey",
           length: widget.task.steps.length,
-          onResult: widget.onResult,
           appBar: widget.appBar,
           taskNavigator: _taskNavigator,
         ),

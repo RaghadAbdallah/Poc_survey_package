@@ -8,18 +8,12 @@ import '../question_step_clean.dart';
 abstract class StepClean {
   final StepIdentifier stepIdentifier;
   final bool isOptional;
-  final String? buttonText;
   final bool canGoBack;
-  final bool showProgress;
-  final bool showAppBar;
 
   StepClean({
     StepIdentifier? stepIdentifier,
     this.isOptional = false,
-    this.buttonText = 'Next',
     this.canGoBack = true,
-    this.showProgress = true,
-    this.showAppBar = true,
   }) : stepIdentifier = stepIdentifier ?? StepIdentifier();
 
   Widget createView({required InputQuestionResult? questionResult});
@@ -41,8 +35,7 @@ abstract class StepClean {
 bool operator ==(o) =>
     o is StepClean &&
         o.stepIdentifier == stepIdentifier &&
-        o.isOptional == isOptional &&
-        o.buttonText == buttonText;
+        o.isOptional == isOptional;
 int get hashCode =>
-    stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
+    stepIdentifier.hashCode ^ isOptional.hashCode;
 }

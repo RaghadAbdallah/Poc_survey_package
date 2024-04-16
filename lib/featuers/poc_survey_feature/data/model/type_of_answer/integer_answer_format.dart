@@ -1,4 +1,4 @@
-import 'package:json_annotation/json_annotation.dart';
+
 import 'answer_format.dart';
 class IntegerAnswerFormat implements AnswerFormat {
   final int? defaultValue;

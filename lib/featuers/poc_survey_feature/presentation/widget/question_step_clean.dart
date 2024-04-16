@@ -33,8 +33,6 @@ class QuestionStepClean extends StepClean {
   }) : super(
           stepIdentifier: stepIdentifier,
           isOptional: isOptional,
-          buttonText: buttonText,
-          showAppBar: showAppBar,
         );
  final FocusNode  focusNode = FocusNode();
  final FocusNode  focusNodeInt = FocusNode();
@@ -124,8 +122,6 @@ Map<String, dynamic> _$QuestionStepToJson(QuestionStepClean instance) =>
     <String, dynamic>{
       'stepIdentifier': instance.stepIdentifier,
       'isOptional': instance.isOptional,
-      'buttonText': instance.buttonText,
-      'showAppBar': instance.showAppBar,
       'title': instance.title,
       'text': instance.text,
       'answerFormat': instance.answerFormat,

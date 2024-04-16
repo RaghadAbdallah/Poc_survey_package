@@ -10,12 +10,10 @@ class SurveyPage extends StatefulWidget {
   final int length;
   final String titleSurvey;
   final Widget Function(ConfigAppBar appBarConfiguration)? appBar;
-  final Function(SurveyResultClean) onResult;
   final TaskNavigatorClean taskNavigator;
   const SurveyPage({
     super.key,
     required this.length,
-    required this.onResult,
     required this.titleSurvey,
     this.appBar,
     required this.taskNavigator

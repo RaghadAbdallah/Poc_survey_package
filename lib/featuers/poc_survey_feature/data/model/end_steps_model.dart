@@ -20,8 +20,6 @@ class CompletionStepClean extends StepClean {
   }) : super(
     stepIdentifier: stepIdentifier,
     isOptional: isOptional,
-    buttonText: buttonText,
-    showAppBar: showAppBar,
   );
 
   @override
@@ -53,8 +51,6 @@ Map<String, dynamic> _$CompletionStepToJson(CompletionStepClean instance) =>
     <String, dynamic>{
       'stepIdentifier': instance.stepIdentifier,
       'isOptional': instance.isOptional,
-      'buttonText': instance.buttonText,
-      'showAppBar': instance.showAppBar,
       'title': instance.title,
       'text': instance.text,
     };
