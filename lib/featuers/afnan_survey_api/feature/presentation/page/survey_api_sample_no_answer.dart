@@ -38,9 +38,6 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                         physics: const NeverScrollableScrollPhysics(),
                         controller: boardController,
                         onPageChanged: (int index) {
-                          setState(() {
-                            progressValue=progressValue+1;
-                          });
                         },
                         itemBuilder: (BuildContext context, int index) {
                           listOfQuestions = context

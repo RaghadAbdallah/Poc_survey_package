@@ -76,9 +76,6 @@ class _SurveyPageState extends State<SurveyPage>
                         physics: const NeverScrollableScrollPhysics(),
                         controller: boardController,
                         onPageChanged: (int index) {
-                          setState(() {
-                            progressValue=progressValue+1;
-                          });
                         },
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
@@ -101,13 +98,18 @@ class _SurveyPageState extends State<SurveyPage>
                                       duration:
                                           const Duration(milliseconds: 750),
                                       curve: Curves.fastLinearToSlowEaseIn);
-
+                                  setState(() {
+                                    progressValue = progressValue + 1;
+                                  });
                                 },
                                 onPressedPrevious: () {
                                   boardController.previousPage(
                                       duration:
                                           const Duration(milliseconds: 750),
                                       curve: Curves.fastLinearToSlowEaseIn);
+                                  setState(() {
+                                    progressValue = progressValue - 1;
+                                  });
                                 }, isFirst: index==0?true:false,isFinal: state.steps.length-1==index?true:false,
                               )
                             ],
