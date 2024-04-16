@@ -18,7 +18,8 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
   final int indexItem = 0;
   int progressValue = 0;
   List<Widget> listOfQuestions = [];
-
+ final FocusNode  focusNode = FocusNode();
+ final FocusNode  focusNodeInt = FocusNode();
   @override
   Widget build(BuildContext context) {
     return   WillPopScope(   onWillPop: () async {
@@ -76,7 +77,7 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                                       index
                                   ? true
                                   : false,
-                              answerStatues: questionChoice.answerStatus ?? 0,
+                              answerStatues: questionChoice.answerStatus ?? 0, focusNode: focusNode, focusNodeInt: focusNodeInt,
                             );
                           }).toList();
                           return listOfQuestions[index];

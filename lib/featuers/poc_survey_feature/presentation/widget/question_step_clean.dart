@@ -36,17 +36,18 @@ class QuestionStepClean extends StepClean {
           buttonText: buttonText,
           showAppBar: showAppBar,
         );
-
+ final FocusNode  focusNode = FocusNode();
+ final FocusNode  focusNodeInt = FocusNode();
   @override
   Widget createView({required InputQuestionResult? questionResult}) {
     switch (answerFormat.runtimeType) {
       case IntegerAnswerFormat:
         return CustomIntegerAnswerDesign(
-          questionDesc:title, answerStatues: 0, questionAnswer: "",
+          questionDesc:title, answerStatues: 0, questionAnswer: "", focusNodeInt: focusNodeInt,
         );
       case TextAnswerFormat:
         return CustomTextAnswerDesign(
-          questionDesc:title, answerStatues: 0, questionAnswer: "",
+          questionDesc:title, answerStatues: 0, questionAnswer: "", focusNode: focusNode,
         );
       case SingleChoiceAnswerFormat:
         FocusManager.instance.primaryFocus?.unfocus();

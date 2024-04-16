@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 class CustomTextAnswerDesign extends StatefulWidget {
-  const CustomTextAnswerDesign({super.key,required this.questionDesc,required this.answerStatues,
+  const CustomTextAnswerDesign({super.key,required this.questionDesc,
+    required this.answerStatues,
+    required this.focusNode,
   required this.questionAnswer});
 final String questionDesc;
 final String questionAnswer;
 final int answerStatues;
+final FocusNode focusNode ;
   @override
   State<CustomTextAnswerDesign> createState() => _CustomTextAnswerDesignState();
 }
 
 class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
     final TextEditingController _controller=TextEditingController();
-  final FocusNode _focusNode = FocusNode();
+
   @override
   void initState() {
     super.initState();
@@ -24,7 +27,7 @@ class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-     _focusNode.unfocus();
+        widget.focusNode.unfocus();
       },
       child: SizedBox.expand(
         child: Center(
@@ -39,7 +42,7 @@ class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    focusNode: _focusNode,
+                    focusNode: widget.focusNode,
                     readOnly:  widget.answerStatues==1?true:false,
                     textInputAction: TextInputAction.next,
                     autofocus: true,

@@ -12,6 +12,8 @@ class QuestionBody extends StatelessWidget {
         required this.questionType,
         required this.questionIndex,
         required this.isFinal,
+        required this.focusNode,
+        required this.focusNodeInt,
         required this.answerStatues,
         required this.surveyModel,});
 
@@ -20,12 +22,14 @@ class QuestionBody extends StatelessWidget {
   final int questionIndex;
   final bool isFinal;
   final int answerStatues;
-
+  final FocusNode focusNode ;
+  final FocusNode focusNodeInt ;
   final void Function() nextFunction;
   final void Function() previousFunction;
 
   @override
   Widget build(BuildContext context) {
+
     return WillPopScope(
       onWillPop: () async {
         Navigator.pop(context);
@@ -47,6 +51,8 @@ class QuestionBody extends StatelessWidget {
                           surveyModel: surveyModel,
                           questionIndex: questionIndex,
                           questionType: questionType,
+                          focusNode: focusNode,
+                          focusNodeInt: focusNodeInt,
                         ),
                       ),
                       Padding(
@@ -55,8 +61,12 @@ class QuestionBody extends StatelessWidget {
                           isEnabled: true,
                           onPressedNext: () {
                            nextFunction();
+                         focusNode.unfocus();
+                           focusNodeInt.unfocus();
                           },
                           onPressedPrevious: () {
+                           focusNode.unfocus();
+                            focusNodeInt.unfocus();
                           previousFunction();
                           }, isFirst: questionIndex==0?true:false,
                           isFinal: isFinal,
