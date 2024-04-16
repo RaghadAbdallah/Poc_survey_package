@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poc_itg_survey/core/resource/task_navigator/task_navigator.dart';
  import 'package:poc_itg_survey/core/widget/config_app_bar.dart';
-import 'package:poc_itg_survey/core/widget/config_survey_progress.dart';
 import 'package:poc_itg_survey/featuers/poc_survey_feature/presentation/page/survey_page.dart';
 import 'package:provider/provider.dart';
-import 'itg_controller_clean.dart';
 import 'utilities.dart';
-import '../../featuers/poc_survey_feature/presentation/cubit/survey_presenter_clean.dart';
 import '../../featuers/poc_survey_feature/data/model/survey_result_clean.dart';
 import '../../featuers/poc_survey_feature/presentation/widget/task_clean.dart';
 
