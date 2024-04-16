@@ -78,6 +78,7 @@ class _SurveyPageState extends State<SurveyPage>
                               NextPreviousBody(
                                 isEnabled: true,
                                 onPressedNext: () {
+                                  FocusScope.of(context).unfocus();
                                   boardController.nextPage(
                                       duration:
                                           const Duration(milliseconds: 750),
@@ -87,6 +88,7 @@ class _SurveyPageState extends State<SurveyPage>
                                   });
                                 },
                                 onPressedPrevious: () {
+                                  FocusScope.of(context).unfocus();
                                   boardController.previousPage(
                                       duration:
                                           const Duration(milliseconds: 750),

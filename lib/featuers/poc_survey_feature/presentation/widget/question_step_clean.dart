@@ -43,11 +43,11 @@ class QuestionStepClean extends StepClean {
     switch (answerFormat.runtimeType) {
       case IntegerAnswerFormat:
         return CustomIntegerAnswerDesign(
-          questionDesc:title, answerStatues: 0, questionAnswer: "", focusNodeInt: focusNodeInt,
+          questionDesc:title, answerStatues: 0, questionAnswer: "",
         );
       case TextAnswerFormat:
         return CustomTextAnswerDesign(
-          questionDesc:title, answerStatues: 0, questionAnswer: "", focusNode: focusNode,
+          questionDesc:title, answerStatues: 0, questionAnswer: "",
         );
       case SingleChoiceAnswerFormat:
         FocusManager.instance.primaryFocus?.unfocus();
