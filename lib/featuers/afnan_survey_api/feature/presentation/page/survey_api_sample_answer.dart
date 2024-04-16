@@ -26,8 +26,7 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
       },
       child: GestureDetector(
         onTap: (){
-
-          focusNode.unfocus();
+   focusNode.unfocus();
           focusNodeInt.unfocus();
         },
         child: Scaffold(
