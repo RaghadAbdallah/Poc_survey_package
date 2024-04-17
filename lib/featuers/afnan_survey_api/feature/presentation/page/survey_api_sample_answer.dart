@@ -28,7 +28,7 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
           if (state is AnswerSurveyStateLoaded) {
             return Column(children: [
               SizedBox(
-                height: MediaQuery.of(context).size.width*1.3,
+                height: MediaQuery.of(context).size.width*1.6,
                 child: PageView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   controller: boardController,
