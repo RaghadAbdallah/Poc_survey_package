@@ -11,21 +11,13 @@ class CustomCompleteWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.expand(
         child: Center(
-            child: SingleChildScrollView(
-                child: Column(children: [
+            child:
       Text(
         text,
-        style: const TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
       ),
-      const SizedBox(
-        height: 50,
-      ),
-      Text(
-        title,
-        style: const TextStyle(fontSize: 18, color: Colors.teal),
-        textAlign: TextAlign.center,
-      ),
-    ]))));
+
+     ));
   }
 }

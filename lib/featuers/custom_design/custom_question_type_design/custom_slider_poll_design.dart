@@ -40,7 +40,7 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
                 child: Column(children: [
       Text(
         widget.questionDesc,
-        style: const TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
       ),
       Padding(
@@ -67,7 +67,7 @@ class _CustomSliderPollDesignState extends State<CustomSliderPollDesign> {
                 data: SliderTheme.of(context).copyWith(
                   activeTickMarkColor: Colors.cyan,
                   thumbShape: CustomThumbShape(
-                    thumbRadius: 10,
+                    thumbRadius: 5,
                     thumbColor: Colors.white,
                     textColor: Colors.black,
                     textStyle: const TextStyle(color: Colors.black,fontSize: 8),

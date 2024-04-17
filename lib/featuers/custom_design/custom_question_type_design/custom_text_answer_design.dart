@@ -30,7 +30,7 @@ class _CustomTextAnswerDesignState extends State<CustomTextAnswerDesign> {
             children: [
               Text(
                 widget.questionDesc,
-                style: const TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               Padding(

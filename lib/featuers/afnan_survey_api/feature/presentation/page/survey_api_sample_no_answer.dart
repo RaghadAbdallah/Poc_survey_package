@@ -30,7 +30,8 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                   Column(
                     children: [
                       SizedBox(
-                        height: MediaQuery.of(context).size.width*1.3,
+
+                        height: MediaQuery.of(context).size.width*1.6,
                        child: PageView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           controller: boardController,

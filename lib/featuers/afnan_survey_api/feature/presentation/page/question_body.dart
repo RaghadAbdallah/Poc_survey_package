@@ -41,7 +41,8 @@ class QuestionBody extends StatelessWidget {
                   Column(
                     children: [
                       SizedBox(
-                         height: MediaQuery.of(context).size.width * 0.9,
+
+                         height: MediaQuery.of(context).size.width * 1.3,
                         child: SurveyTypeWidget(
                           answerStatues:answerStatues,
                           surveyModel: surveyModel,
@@ -56,11 +57,7 @@ class QuestionBody extends StatelessWidget {
                             FocusScope.of(context).unfocus();
                            nextFunction();
                           },
-                          onPressedPrevious: () {
-                          previousFunction();
-                          FocusScope.of(context).unfocus();
-                          }, isFirst: questionIndex==0?true:false,
-                          isFinal: isFinal,
+
                         ),
                       )
                     ],

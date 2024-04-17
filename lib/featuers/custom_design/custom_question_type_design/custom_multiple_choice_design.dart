@@ -35,12 +35,11 @@ class _CustomMultipleChoiceDesignState
       child: Center(
           child: SingleChildScrollView(
               child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
+     children: [
+       SizedBox(height: 110,),
           Text(
             widget.questionDesc,
-            style: const TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           Column(

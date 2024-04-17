@@ -5,7 +5,6 @@ import '../../../../core/resource/task_navigator/task_navigator.dart';
 import '../../../../core/widget/config_app_bar.dart';
 import '../../../custom_design/widget/build_next_previous_button.dart';
  import '../../data/model/input_answer_model.dart';
-import '../../data/model/survey_result_clean.dart';
 class SurveyPage extends StatefulWidget {
   final int length;
   final String titleSurvey;
@@ -74,16 +73,7 @@ class _SurveyPageState extends State<SurveyPage>
                               progressValue = progressValue + 1;
                             });
                           },
-                          onPressedPrevious: () {
-                            FocusScope.of(context).unfocus();
-                            boardController.previousPage(
-                                duration:
-                                const Duration(milliseconds: 750),
-                                curve: Curves.fastLinearToSlowEaseIn);
-                            setState(() {
-                              progressValue = progressValue - 1;
-                            });
-                          }, isFirst: index==0?true:false,isFinal: widget.taskNavigator.task.steps.length-1==index?true:false,
+
                         )
                       ],
                     );
