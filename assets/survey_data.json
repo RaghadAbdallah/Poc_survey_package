@@ -5,38 +5,12 @@
       "type": "intro",
       "text": "سيتم طرح مجموعة من الاسئلة كن مستعد",
       "buttonText": "Let's go!",
-      "introSurvey": "Welcome to ITG Survey"
+      "introSurvey": "أهلاً بك في إستابة المجموعة المتكاملة للتكنولوجيا"
     },
-    {
-      "questionDesc": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
-      "type": "question",
-      "answerStatus": 0,
-      "answerFormat":{
-        "type": "integer",
-        "QuestionsResultSurveyList": [
-          {
-            "AnswerID": 0,
-            "AnswerDesc": null,
-            "optionStatus": 0
-          }
-        ]}},
-    {
-      "questionDesc": "اكتب عدد سنوات الخبرة اذا كان جوابك السابق نعم والاماكن التي كسبت فيها خبرة",
-      "type": "question",
-      "answerStatus": 0,
-      "answerFormat":{
-        "type": "text",
-        "QuestionsResultSurveyList": [
-          {
-            "AnswerID": 0,
-            "AnswerDesc": null,
-            "optionStatus": 0
-          }
-        ]}},
     {
 
       "type": "question",
-      "questionDesc": "هل قمت بالاستفادة من اللغة ",
+      "questionDesc":  "هل كانت لديك تجارب خبرة سابقة؟" ,
       "answerStatus": 0,
       "answerFormat":{
         "type": "single",
@@ -54,6 +28,33 @@
         ]}
 
     } ,
+    {
+      "questionDesc": "اكتب عدد سنوات الخبرة إذا كانت إجابتك السابقة نعم",
+      "type": "question",
+      "answerStatus": 0,
+      "answerFormat":{
+        "type": "integer",
+        "QuestionsResultSurveyList": [
+          {
+            "AnswerID": 0,
+            "AnswerDesc": null,
+            "optionStatus": 0
+          }
+        ]}},
+    {
+      "questionDesc": "اكتب التطبيقات التي عملت عليها",
+      "type": "question",
+      "answerStatus": 0,
+      "answerFormat":{
+        "type": "text",
+        "QuestionsResultSurveyList": [
+          {
+            "AnswerID": 0,
+            "AnswerDesc": null,
+            "optionStatus": 0
+          }
+        ]}},
+
     {
       "type": "question",
       "questionDesc": "ماهي لغات البرمجة التي تتقنها",
@@ -85,7 +86,7 @@
 
     },
     {
-      "questionDesc": "Get ready for a bunch of super random questions!",
+      "questionDesc": "ما هو تقييمك لشركتك الحالية؟",
       "type": "question",
       "answerStatus": 0,
       "answerFormat": {
@@ -102,9 +103,9 @@
         "id": "10"
       },
       "type": "completion",
-      "text": "Thanks for taking the survey, we will contact you soon!",
-      "title": "Done!",
-      "buttonText": "Restart"
+      "text": "شكرًا لإتمام الاستطلاع، سنتواصل معك قريبًا!",
+      "title": "انتهى!",
+      "buttonText": "إعادة البدء"
     }
   ]
 }

@@ -42,16 +42,15 @@ class _SurveyPageState extends State<SurveyPage>
             children: [
 
               Container(
-                color: Colors.white,
-                height: 550,
+                height: MediaQuery.of(context).size.height/1.6,
                 child: PageView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   controller: boardController,
                   itemBuilder: (BuildContext context, int index) {
                     return Column(
                       children: [
-                        SizedBox(
-                          height: 300,
+                        Container(
+                          height: MediaQuery.of(context).size.height/2,
                           child: widget.taskNavigator.task.steps[index].createView(
                             questionResult:
                             results.firstWhereOrNull(
@@ -72,7 +71,7 @@ class _SurveyPageState extends State<SurveyPage>
                             setState(() {
                               progressValue = progressValue + 1;
                             });
-                          },
+                          }, isFinal: widget.taskNavigator.task.steps.length-1==index?true:false
 
                         )
                       ],
@@ -81,11 +80,24 @@ class _SurveyPageState extends State<SurveyPage>
                   itemCount: widget.taskNavigator.task.steps.length,
                 ),
               ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
+                children: [   InkWell(
+                    onTap: ()
+                    async {
+                      boardController.previousPage(
+                          duration: const Duration(milliseconds: 750),
+                          curve: Curves.fastLinearToSlowEaseIn);
+                      setState(() {
+                        progressValue = progressValue - 1;
+                      });
+
+                    },
+
+                    child: Icon(Icons.arrow_back,color: Colors.teal,)),
                   SizedBox(
-                    width: 270,
+                    width: MediaQuery.of(context).size.width*0.7,
                     child: LinearProgressIndicator(
                       value:progressValue / widget.taskNavigator.task.steps.length,
                       backgroundColor: Colors.black54,
@@ -96,17 +108,18 @@ class _SurveyPageState extends State<SurveyPage>
                   ),
                   TextButton(
                     child: Text(
-                      context.read<Map<String, String>?>()?['close'] ?? 'Close',
+                      context.read<Map<String, String>?>()?['close'] ??
+                          'إغلاق',
                       style: const TextStyle(
                         color: Colors.teal,
                       ),
                     ),
-                    onPressed: (){
-                    //  surveyController.closeSurvey(context);
+                    onPressed: () {
                     },
                   ),
+
                 ],
-              ),
+              )
             ],
           ),
         ],

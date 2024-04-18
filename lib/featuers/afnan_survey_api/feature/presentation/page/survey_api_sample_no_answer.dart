@@ -116,7 +116,7 @@ class _SurveyApiSampleState extends State<SurveyApiSample> {
                           TextButton(
                             child: Text(
                               context.read<Map<String, String>?>()?['close'] ??
-                                  'Close',
+                                  'إغلاق',
                               style: const TextStyle(
                                 color: Colors.teal,
                               ),

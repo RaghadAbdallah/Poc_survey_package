@@ -15,7 +15,7 @@ class InstructionViewClean extends StatelessWidget {
       step: instructionStep,
       title: Text(
         instructionStep.title,
-        style: Theme.of(context).textTheme.displayMedium,
+        style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
       ),
       child: Padding(

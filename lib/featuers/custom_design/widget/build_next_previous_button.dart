@@ -5,10 +5,13 @@ class NextPreviousBody extends StatelessWidget {
       {super.key,
       required this.isEnabled,
       required this.onPressedNext,
+      required this.isFinal,
   });
 
   final bool isEnabled;
   final VoidCallback? onPressedNext;
+  final bool isFinal;
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class NextPreviousBody extends StatelessWidget {
 
             onPressed: isEnabled ? onPressedNext : null,
             child: Text(
-              '  Next  ',
+              isFinal?'  تأكيد':'  التالي  ',
               style: TextStyle(
                 fontSize: 17,
                 color: isEnabled ? Colors.teal : Colors.grey,

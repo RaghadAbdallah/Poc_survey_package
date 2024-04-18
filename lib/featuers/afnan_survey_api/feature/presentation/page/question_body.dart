@@ -56,7 +56,7 @@ class QuestionBody extends StatelessWidget {
                           onPressedNext: () {
                             FocusScope.of(context).unfocus();
                            nextFunction();
-                          },
+                          }, isFinal:isFinal?true:false
 
                         ),
                       )
