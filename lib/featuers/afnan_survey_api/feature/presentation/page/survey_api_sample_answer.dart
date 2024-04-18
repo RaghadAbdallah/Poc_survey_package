@@ -93,7 +93,7 @@ class _SurveyApiSampleAnswerState extends State<SurveyApiSampleAnswer> {
 
                     },
 
-                    child: Icon(Icons.arrow_back,color: Colors.teal,)),
+                    child: const Icon(Icons.arrow_back,color: Colors.teal,)),
                   SizedBox(
                     width: MediaQuery.of(context).size.width*0.7,
                     child: LinearProgressIndicator(
