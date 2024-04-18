@@ -19,12 +19,13 @@ class CustomSingleChoiceDesign extends StatefulWidget {
 
 class _CustomSingleChoiceDesignState extends State<CustomSingleChoiceDesign> {
   dynamic _selectedChoice;
+  String selectId = '';
 
   @override
   Widget build(BuildContext context) {
     if (widget.answerStatus == 1) {
       _selectedChoice = widget.choiceList.firstWhere(
-            (choice) => choice.optionStatus == 1,
+        (choice) => choice.optionStatus == 1,
       );
     }
     return SizedBox.expand(
@@ -36,27 +37,72 @@ class _CustomSingleChoiceDesignState extends State<CustomSingleChoiceDesign> {
             children: [
               Text(
                 widget.questionDesc,
-                style: const TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               Column(
                 children: widget.choiceList.map<Widget>((choice) {
-                  return RadioListTile(
-                    activeColor:  widget.answerStatus == 1?Colors.grey:Colors.teal,
-                    title: Align(
-                        alignment: const Alignment(1.1, 0),
-                        child: Text(choice.title.toString())),
-                    value: choice,
-                    groupValue: _selectedChoice,
-                    onChanged: (selectedValue) {
-                      if (widget.answerStatus == 1) {
-                      } else {
-                        setState(() {
-                          _selectedChoice = selectedValue;
-                        });
-                      }
-                    },
-                    controlAffinity: ListTileControlAffinity.trailing,
+                  return Column(
+                    children: [
+                      // RadioListTile(
+                      //   activeColor: widget.answerStatus == 1
+                      //       ? Colors.grey
+                      //       : Colors.teal,
+                      //   title: Align(
+                      //       alignment: const Alignment(1.1, 0),
+                      //       child: Text(choice.title.toString())),
+                      //   value: choice,
+                      //   groupValue: _selectedChoice,
+                      //   onChanged: (selectedValue) {
+                      //     if (widget.answerStatus == 1) {
+                      //     } else {
+                      //       setState(() {
+                      //         _selectedChoice = selectedValue;
+                      //       });
+                      //     }
+                      //   },
+                      //   controlAffinity: ListTileControlAffinity.trailing,
+                      // ),
+                      ListTile(
+                        title: Text(
+                          choice.title.toString(),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(
+                                color: selectId == choice.value
+                                    ? Theme.of(context).primaryColor
+                                    : Theme.of(context)
+                                        .textTheme
+                                        .headlineSmall
+                                        ?.color,
+                              ),
+                        ),
+                        trailing: selectId == choice.value
+                            ? Icon(
+                                Icons.check,
+                                size: 32,
+                                color: selectId == choice.value
+                                    ? Theme.of(context).primaryColor
+                                    : Colors.black,
+                              )
+                            : Container(
+                                width: 32,
+                                height: 32,
+                              ),
+                        onTap: () {
+                          setState(() {
+                            selectId = choice.value;
+                          });
+                        },
+                      ),
+                      Divider(
+                        color: Colors.grey,
+                      ),
+                    ],
                   );
                 }).toList(),
               )
